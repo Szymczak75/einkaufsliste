@@ -175,13 +175,19 @@ function isFullyClaimed(item) {
 // Firebase listeners
 onValue(ref(db, "items"), snap => {
   const val = snap.val();
-  if (val) state.items = val;
-  else { state.items = DEFAULT_ITEMS; set(ref(db,"items"), DEFAULT_ITEMS); }
+  if (val) {
+    // Firebase stores arrays as objects - convert back
+    state.items = Array.isArray(val) ? val : Object.values(val);
+  } else {
+    state.items = DEFAULT_ITEMS;
+    set(ref(db,"items"), DEFAULT_ITEMS);
+  }
   render();
 });
 onValue(ref(db, "names"), snap => {
   const val = snap.val();
-  state.names = val || [];
+  if (!val) { state.names = []; }
+  else { state.names = Array.isArray(val) ? val : Object.values(val); }
   render();
 });
 
