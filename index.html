@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🛒 Gruppeneinkauf Holland</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f0f0f; color: #ede8e0; font-family: 'Trebuchet MS', Tahoma, sans-serif; }
+    #app { max-width: 720px; margin: 0 auto; min-height: 100vh; }
+
+    .center { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+    .spinner { width: 34px; height: 34px; border: 3px solid #222; border-top: 3px solid #e8c43a; border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .card { background: #181818; border: 1px solid #252525; border-radius: 18px; padding: 34px 30px; text-align: center; max-width: 360px; width: 90%; }
+    .card h1 { font-family: Georgia, serif; font-size: 26px; color: #ede8e0; margin-bottom: 6px; }
+    .card p { color: #666; font-size: 13px; margin-bottom: 20px; font-family: Georgia, serif; }
+    .inp { width: 100%; padding: 11px 14px; background: #222; border: 1px solid #2e2e2e; border-radius: 8px; color: #ede8e0; font-size: 15px; outline: none; margin-bottom: 10px; }
+    .btn-primary { width: 100%; padding: 12px; background: #e8c43a; border: none; border-radius: 8px; color: #111; font-size: 15px; font-weight: bold; cursor: pointer; }
+    .names-hint { color: #666; font-size: 11px; margin: 16px 0 7px; font-family: Georgia, serif; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .chip { padding: 2px 9px; border-radius: 12px; color: #111; font-size: 12px; font-weight: bold; display: inline-block; cursor: pointer; }
+
+    .header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px 12px; border-bottom: 1px solid #1c1c1c; }
+    .header h1 { font-family: Georgia, serif; font-size: 20px; }
+    .header p { font-size: 12px; color: #666; margin-top: 2px; font-family: Georgia, serif; }
+    .header strong { color: #e8c43a; }
+    .ghost-btn { background: none; border: 1px solid #2a2a2a; border-radius: 6px; color: #555; font-size: 12px; padding: 4px 10px; cursor: pointer; }
+
+    .progress-box { padding: 12px 18px; border-bottom: 1px solid #1a1a1a; }
+    .progress-labels { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 12px; color: #666; font-family: Georgia, serif; }
+    .track { height: 6px; background: #1c1c1c; border-radius: 3px; overflow: hidden; }
+    .fill { height: 100%; background: linear-gradient(90deg, #a88a18, #e8c43a); border-radius: 3px; transition: width .5s ease; }
+    .name-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+    .tabs { display: flex; gap: 5px; padding: 9px 18px; overflow-x: auto; border-bottom: 1px solid #1a1a1a; }
+    .tab { flex-shrink: 0; padding: 5px 11px; background: #181818; border: 1px solid #222; border-radius: 20px; color: #666; font-size: 12px; cursor: pointer; white-space: nowrap; }
+    .tab.active { background: #e8c43a; color: #111; border-color: #e8c43a; font-weight: bold; }
+
+    .list { padding: 12px 18px; }
+    .cat-head { font-family: Georgia, serif; font-size: 12px; color: #e8c43a; letter-spacing: 1.5px; text-transform: uppercase; margin: 16px 0 7px; padding-bottom: 4px; border-bottom: 1px solid #1c1c1c; }
+    .row { display: flex; align-items: flex-start; gap: 9px; padding: 10px 12px; background: #161616; border: 1px solid #202020; border-radius: 10px; margin-bottom: 5px; }
+    .row.done { opacity: .55; background: #121812; border-color: #1a241a; }
+    .row.mine { background: #14190c; border-color: #283018; }
+    .dot { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 2px; font-weight: bold; background: #1e1e1e; color: #444; }
+    .dot.full { background: #243a24; color: #6dbf6d; }
+    .dot.partial { background: #1e2e12; color: #8de88d; }
+    .item-name { font-size: 14px; color: #ede8e0; }
+    .item-name.struck { text-decoration: line-through; }
+    .item-name.faded { opacity: .4; }
+    .qty-badge { font-size: 11px; color: #555; background: #1e1e1e; padding: 1px 7px; border-radius: 10px; white-space: nowrap; margin-left: 6px; }
+    .note { font-size: 11px; color: #777; margin-top: 3px; font-style: italic; font-family: Georgia, serif; }
+    .claim-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+    .item-actions { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; flex-shrink: 0; }
+    .claim-btn { background: #e8c43a; border: none; border-radius: 6px; color: #111; font-weight: bold; font-size: 12px; padding: 5px 10px; cursor: pointer; white-space: nowrap; }
+    .unclaim-btn { background: none; border: 1px solid #333; border-radius: 6px; color: #777; font-size: 11px; padding: 4px 8px; cursor: pointer; }
+    .small-btn { background: none; border: 1px solid #2a2a2a; border-radius: 5px; color: #555; font-size: 11px; padding: 3px 6px; cursor: pointer; }
+    .done-label { font-size: 11px; color: #444; font-style: italic; white-space: nowrap; }
+    .my-claim-row { display: flex; gap: 5px; align-items: center; }
+    .my-claim-text { font-size: 11px; color: #6dbf6d; white-space: nowrap; }
+    .input-row { display: flex; gap: 4px; align-items: center; }
+    .num-inp { width: 60px; padding: 4px 6px; background: #1e1e1e; border: 1px solid #2e2e2e; border-radius: 6px; color: #ede8e0; font-size: 13px; outline: none; }
+    .unit-label { color: #666; font-size: 11px; }
+
+    .add-area { padding: 0 18px 16px; }
+    .add-form { background: #161616; border: 1px solid #252525; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .add-form p { font-size: 12px; color: #888; font-family: Georgia, serif; }
+    .add-inp { width: 100%; padding: 8px 10px; background: #1e1e1e; border: 1px solid #2e2e2e; border-radius: 6px; color: #ede8e0; font-size: 13px; outline: none; }
+    .add-inp-row { display: flex; gap: 8px; }
+    .add-inp-row .add-inp { flex: 1; }
+    .checkbox-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #888; cursor: pointer; }
+    .add-btns { display: flex; gap: 8px; }
+    .add-btns .claim-btn { flex: 1; }
+    .add-btns .unclaim-btn { flex: 1; }
+
+    .footer { text-align: center; color: #3a3a3a; font-size: 11px; font-family: Georgia, serif; padding: 6px 0 24px; }
+    .empty { color: #555; text-align: center; font-family: Georgia, serif; padding: 40px; }
+
+    select.add-inp { appearance: auto; }
+  </style>
+</head>
+<body>
+<div id="app"><div class="center"><div class="spinner"></div></div></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB08KlusAa9SWFDfIc3LtZUZEtFrsnqZ9k",
+  authDomain: "einkaufsliste-holland.firebaseapp.com",
+  databaseURL: "https://einkaufsliste-holland-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "einkaufsliste-holland",
+  storageBucket: "einkaufsliste-holland.firebasestorage.app",
+  messagingSenderId: "1070606716953",
+  appId: "1:1070606716953:web:76ed37d6fbd42f09b75a88"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getDatabase(firebaseApp);
+
+const DEFAULT_ITEMS = [
+  { id: 101, cat: "Frühstück", name: "Kaffee", unit: "kg", total: 1.5, divisible: false, claims: [], claimedBy: null },
+  { id: 102, cat: "Frühstück", name: "Butter", unit: "Pakete", total: 6, divisible: true, claims: [], claimedBy: null },
+  { id: 103, cat: "Frühstück", name: "Margarine", unit: "Pakete", total: 2, divisible: true, claims: [], claimedBy: null },
+  { id: 104, cat: "Frühstück", name: "Zucker", unit: "", total: 1, divisible: false, claims: [], claimedBy: null },
+  { id: 105, cat: "Frühstück", name: "Orangensaft", unit: "Liter", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 106, cat: "Frühstück", name: "Brote (Vollkorn, Dinkel, normal)", unit: "Stück", total: 6, divisible: true, claims: [], claimedBy: null },
+  { id: 107, cat: "Frühstück", name: "Aufbackbrötchen", unit: "Stück", total: 30, divisible: true, claims: [], claimedBy: null },
+  { id: 108, cat: "Frühstück", name: "Milch", unit: "Liter", total: 4, divisible: true, claims: [], claimedBy: null },
+  { id: 109, cat: "Frühstück", name: "Hafermilch", unit: "Liter", total: 4, divisible: true, claims: [], claimedBy: null },
+  { id: 110, cat: "Frühstück", name: "Aufschnitt (für 5 Pers., 4 Tage)", unit: "Port.", total: 5, divisible: true, claims: [], claimedBy: null },
+  { id: 111, cat: "Frühstück", name: "Käse (für 10 Pers., 4 Tage)", unit: "Port.", total: 10, divisible: true, claims: [], claimedBy: null },
+  { id: 112, cat: "Frühstück", name: "Frischkäse natur", unit: "Pakete", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 113, cat: "Frühstück", name: "Frischkäse Kräuter / Paprika", unit: "Pakete", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 114, cat: "Frühstück", name: "Marmelade", unit: "Glas", total: null, divisible: false, claims: [], claimedBy: null, note: "Jeder Marmeladenesser bringt eines mit" },
+  { id: 115, cat: "Frühstück", name: "Honig", unit: "Glas", total: 1, divisible: false, claims: [], claimedBy: null },
+  { id: 116, cat: "Frühstück", name: "Nüsse (Nussmischung)", unit: "Pakete", total: 4, divisible: true, claims: [], claimedBy: null },
+  { id: 117, cat: "Frühstück", name: "Haferflocken", unit: "kg", total: 1, divisible: false, claims: [], claimedBy: null },
+  { id: 118, cat: "Frühstück", name: "Müsli (Mischung)", unit: "Pakete", total: 5, divisible: true, claims: [], claimedBy: null },
+  { id: 119, cat: "Frühstück", name: "Joghurt", unit: "Liter", total: 10, divisible: true, claims: [], claimedBy: null },
+  { id: 120, cat: "Frühstück", name: "Quark", unit: "Pakete", total: 10, divisible: true, claims: [], claimedBy: null },
+  { id: 121, cat: "Frühstück", name: "Eier freilaufend (à 10 Stück)", unit: "Pakete", total: 4, divisible: true, claims: [], claimedBy: null },
+  { id: 122, cat: "Frühstück", name: "Bacon", unit: "", total: 1, divisible: false, claims: [], claimedBy: null },
+  { id: 201, cat: "Obst", name: "Bananen (à ca. 6 Stück)", unit: "Portionen", total: 4, divisible: true, claims: [], claimedBy: null },
+  { id: 202, cat: "Obst", name: "Äpfel (versch. Sorten)", unit: "kg", total: 4, divisible: true, claims: [], claimedBy: null },
+  { id: 301, cat: "Getränke", name: "Bier", unit: "Kisten", total: 10, divisible: true, claims: [], claimedBy: null },
+  { id: 401, cat: "Erstes Abendessen", name: "Essig", unit: "Liter", total: 1, divisible: false, claims: [], claimedBy: null },
+  { id: 402, cat: "Erstes Abendessen", name: "Öl", unit: "Liter", total: 1, divisible: false, claims: [], claimedBy: null },
+  { id: 403, cat: "Erstes Abendessen", name: "Paprika", unit: "kg", total: 2, divisible: true, claims: [], claimedBy: null },
+  { id: 404, cat: "Erstes Abendessen", name: "Kopfsalat", unit: "Stück", total: 2, divisible: true, claims: [], claimedBy: null },
+  { id: 405, cat: "Erstes Abendessen", name: "Rucola", unit: "Beutel", total: 2, divisible: true, claims: [], claimedBy: null },
+  { id: 406, cat: "Erstes Abendessen", name: "Cherry-Tomaten", unit: "kg", total: 2, divisible: true, claims: [], claimedBy: null },
+  { id: 407, cat: "Erstes Abendessen", name: "Gurken", unit: "Stück", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 408, cat: "Erstes Abendessen", name: "Radieschen", unit: "Bunde", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 409, cat: "Erstes Abendessen", name: "Feta-Käse", unit: "Stück", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 410, cat: "Erstes Abendessen", name: "Fladenbrote / Baguette", unit: "Stück", total: 10, divisible: true, claims: [], claimedBy: null },
+  { id: 411, cat: "Erstes Abendessen", name: "Sucuk", unit: "", total: 1, divisible: false, claims: [], claimedBy: null },
+  { id: 412, cat: "Erstes Abendessen", name: "Knoblauch", unit: "Knollen", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 413, cat: "Erstes Abendessen", name: "Zwiebeln", unit: "kg", total: 2, divisible: true, claims: [], claimedBy: null },
+  { id: 414, cat: "Erstes Abendessen", name: "Selbstgemachte Dips", unit: "Port.", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 415, cat: "Erstes Abendessen", name: "Antipasti (versch. Sorten)", unit: "Port.", total: 3, divisible: true, claims: [], claimedBy: null },
+  { id: 416, cat: "Mitgebrachtes", name: "Selbstgebackener Kuchen", unit: "Kuchen", total: 5, divisible: true, claims: [], claimedBy: null },
+];
+
+const CAT_ICONS = { "Frühstück":"☕", "Obst":"🍎", "Getränke":"🍺", "Erstes Abendessen":"🥗", "Mitgebrachtes":"🎂" };
+const PALETTE = ["#e8795a","#5b9bd9","#6dbf6d","#c87dc8","#e8c43a","#4fc4c4","#d96b6b","#82b87e","#9f7ad5","#d4a04a","#7ab8d9","#d97b9f"];
+const CATS_ORDER = ["Frühstück","Obst","Getränke","Erstes Abendessen","Mitgebrachtes"];
+
+let state = {
+  items: null,
+  names: [],
+  myName: localStorage.getItem("myName") || "",
+  filter: "all",
+  expandedItem: null,
+  addingItem: false,
+  newItem: { name:"", cat:"", unit:"", total:"", divisible:true, newCat:"" },
+  claimInputs: {},
+};
+
+function colorOf(name) {
+  const i = state.names.indexOf(name);
+  return PALETTE[i % PALETTE.length] || "#888";
+}
+function totalClaimed(item) {
+  return (item.claims||[]).reduce((s,c) => s + c.amount, 0);
+}
+function isFullyClaimed(item) {
+  if (item.total === null) return !!item.claimedBy;
+  if (!item.divisible) return !!item.claimedBy;
+  return totalClaimed(item) >= item.total;
+}
+
+// Firebase listeners
+onValue(ref(db, "items"), snap => {
+  const val = snap.val();
+  if (val) state.items = val;
+  else { state.items = DEFAULT_ITEMS; set(ref(db,"items"), DEFAULT_ITEMS); }
+  render();
+});
+onValue(ref(db, "names"), snap => {
+  const val = snap.val();
+  state.names = val || [];
+  render();
+});
+
+async function saveItems(items) {
+  state.items = items;
+  await set(ref(db,"items"), items);
+}
+async function saveNames(names) {
+  state.names = names;
+  await set(ref(db,"names"), names);
+}
+
+function confirmName() {
+  const n = document.getElementById("nameInput").value.trim();
+  if (!n) return;
+  state.myName = n;
+  localStorage.setItem("myName", n);
+  if (!state.names.includes(n)) saveNames([...state.names, n]);
+  render();
+}
+
+async function claimSimple(id) {
+  const updated = state.items.map(item => {
+    if (item.id !== id) return item;
+    if (item.claimedBy === state.myName) return { ...item, claimedBy: null };
+    if (item.claimedBy) return item;
+    return { ...item, claimedBy: state.myName };
+  });
+  await saveItems(updated);
+}
+
+async function claimPartial(id) {
+  const val = parseFloat((state.claimInputs[id]||"").replace(",","."));
+  if (!val || val <= 0) return;
+  const updated = state.items.map(item => {
+    if (item.id !== id) return item;
+    const claims = item.claims || [];
+    const already = claims.find(c => c.name === state.myName);
+    const used = totalClaimed(item) - (already?.amount||0);
+    const remaining = item.total - used;
+    const amount = Math.min(val, remaining);
+    if (amount <= 0) return item;
+    const newClaims = already
+      ? claims.map(c => c.name===state.myName ? {...c,amount} : c)
+      : [...claims, { name:state.myName, amount }];
+    return { ...item, claims: newClaims };
+  });
+  await saveItems(updated);
+  state.claimInputs[id] = "";
+  state.expandedItem = null;
+  render();
+}
+
+async function removeClaim(id) {
+  const updated = state.items.map(item => {
+    if (item.id !== id) return item;
+    return { ...item, claims: (item.claims||[]).filter(c => c.name !== state.myName) };
+  });
+  await saveItems(updated);
+}
+
+async function addItem() {
+  const ni = state.newItem;
+  const cat = ni.cat === "__new__" ? ni.newCat.trim() : ni.cat.trim();
+  if (!ni.name.trim() || !cat) return;
+  const total = ni.total ? parseFloat(ni.total.replace(",",".")) : 1;
+  const item = { id: Date.now(), cat, name: ni.name.trim(), unit: ni.unit.trim()||"Stück", total, divisible: ni.divisible, claims: [], claimedBy: null };
+  await saveItems([...state.items, item]);
+  state.newItem = { name:"", cat:"", unit:"", total:"", divisible:true, newCat:"" };
+  state.addingItem = false;
+  render();
+}
+
+function setFilter(f) { state.filter = f; render(); }
+function setExpanded(id) { state.expandedItem = id; render(); }
+function logout() { state.myName = ""; localStorage.removeItem("myName"); render(); }
+
+function render() {
+  const app = document.getElementById("app");
+  if (!state.items) { app.innerHTML = '<div class="center"><div class="spinner"></div></div>'; return; }
+
+  if (!state.myName) { renderWelcome(app); return; }
+  renderMain(app);
+}
+
+function renderWelcome(app) {
+  const existingNames = state.names.map(n =>
+    `<span class="chip" style="background:${colorOf(n)}" onclick="document.getElementById('nameInput').value='${n}'">${n}</span>`
+  ).join("");
+  app.innerHTML = `
+    <div class="center">
+      <div class="card">
+        <div style="font-size:50px;margin-bottom:6px">🛒</div>
+        <h1>Gruppeneinkauf</h1>
+        <p>Gib deinen Namen ein und trag dich für Artikel ein.</p>
+        <input class="inp" id="nameInput" placeholder="Dein Name…" onkeydown="if(event.key==='Enter')window._confirmName()" />
+        <button class="btn-primary" onclick="window._confirmName()">Los geht's →</button>
+        ${state.names.length ? `<p class="names-hint">Bereits dabei:</p><div class="chips">${existingNames}</div>` : ""}
+      </div>
+    </div>`;
+}
+
+function renderMain(app) {
+  const allItems = state.items;
+  const claimed = allItems.filter(isFullyClaimed).length;
+  const pct = Math.round((claimed / allItems.length) * 100);
+
+  const cats = [...new Set([...CATS_ORDER, ...allItems.map(i=>i.cat)])].filter(c => allItems.some(i=>i.cat===c));
+
+  const filtered = state.filter === "all" ? allItems
+    : state.filter === "open" ? allItems.filter(i => !isFullyClaimed(i))
+    : state.filter === "mine" ? allItems.filter(i => i.claimedBy===state.myName || (i.claims||[]).some(c=>c.name===state.myName))
+    : allItems.filter(i => i.cat===state.filter);
+
+  const nameChips = state.names.map(n => {
+    const cnt = allItems.filter(i => i.claimedBy===n||(i.claims||[]).some(c=>c.name===n)).length;
+    return `<span class="chip" style="background:${colorOf(n)}">${n} · ${cnt} Art.</span>`;
+  }).join("");
+
+  const filterBtns = [
+    {k:"all",l:"Alle"},{k:"open",l:"Noch offen"},{k:"mine",l:"Meine"},
+    ...cats.map(c=>({k:c,l:`${CAT_ICONS[c]||"•"} ${c}`}))
+  ].map(f => `<button class="tab${state.filter===f.k?" active":""}" onclick="window._setFilter('${f.k}')">${f.l}</button>`).join("");
+
+  let listHtml = "";
+  for (const cat of cats) {
+    const citems = filtered.filter(i => i.cat===cat);
+    if (!citems.length) continue;
+    listHtml += `<div class="cat-head">${CAT_ICONS[cat]||"•"} ${cat}</div>`;
+    for (const item of citems) {
+      const full = isFullyClaimed(item);
+      const claims = item.claims || [];
+      const myClaim = item.divisible ? claims.find(c=>c.name===state.myName) : null;
+      const mySimple = !item.divisible && item.claimedBy===state.myName;
+      const takenByOther = !item.divisible && item.claimedBy && item.claimedBy!==state.myName;
+      const claimedAmt = item.divisible ? totalClaimed(item) : 0;
+      const isExpanded = state.expandedItem === item.id;
+
+      const dotClass = full?"full":mySimple||myClaim?"partial":"";
+      const dotChar = full?"✓":mySimple||myClaim?"~":"○";
+      const nameClass = full?"struck":"";
+      const fadeClass = takenByOther?"faded":"";
+
+      const qtyText = item.total !== null
+        ? (item.divisible ? `${claimedAmt} / ${item.total} ${item.unit}` : `${item.total}${item.unit?" "+item.unit:""}`)
+        : "";
+
+      const claimChips = item.divisible && claims.length
+        ? `<div class="claim-chips">${claims.map(c=>`<span class="chip" style="background:${colorOf(c.name)};font-size:11px">${c.name}: ${c.amount} ${item.unit}</span>`).join("")}</div>`
+        : "";
+      const simpleChip = !item.divisible && item.claimedBy
+        ? `<span class="chip" style="background:${colorOf(item.claimedBy)};font-size:11px;margin-top:4px">${item.claimedBy}</span>`
+        : "";
+
+      let actionHtml = "";
+      if (item.divisible) {
+        if (myClaim) {
+          actionHtml = `<div class="my-claim-row"><span class="my-claim-text">Du: ${myClaim.amount} ${item.unit}</span><button class="small-btn" onclick="window._removeClaim(${item.id})">✕</button></div>`;
+        } else if (full) {
+          actionHtml = `<span class="done-label">Vollständig ✓</span>`;
+        } else if (isExpanded) {
+          actionHtml = `<div class="input-row">
+            <input class="num-inp" id="ci_${item.id}" type="number" min="0.5" step="0.5" placeholder="0–${item.total-claimedAmt}" value="${state.claimInputs[item.id]||""}" oninput="window._setClaimInput(${item.id},this.value)" onkeydown="if(event.key==='Enter')window._claimPartial(${item.id})" />
+            <span class="unit-label">${item.unit}</span>
+            <button class="claim-btn" onclick="window._claimPartial(${item.id})">✓</button>
+            <button class="small-btn" onclick="window._setExpanded(null)">✕</button>
+          </div>`;
+        } else {
+          actionHtml = `<button class="claim-btn" onclick="window._setExpanded(${item.id})">Eintragen</button>`;
+        }
+      } else {
+        if (mySimple) {
+          actionHtml = `<button class="unclaim-btn" onclick="window._claimSimple(${item.id})">Zurückgeben</button>`;
+        } else if (takenByOther) {
+          actionHtml = `<span class="done-label">Vergeben</span>`;
+        } else {
+          actionHtml = `<button class="claim-btn" onclick="window._claimSimple(${item.id})">Übernehmen</button>`;
+        }
+      }
+
+      listHtml += `
+        <div class="row${full?" done":""}${mySimple||myClaim?" mine":""}">
+          <div class="dot ${dotClass}">${dotChar}</div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:baseline;flex-wrap:wrap">
+              <span class="item-name ${nameClass} ${fadeClass}">${item.name}</span>
+              ${qtyText ? `<span class="qty-badge">${qtyText}</span>` : ""}
+            </div>
+            ${item.note ? `<p class="note">${item.note}</p>` : ""}
+            ${claimChips}${simpleChip}
+          </div>
+          <div class="item-actions">${actionHtml}</div>
+        </div>`;
+    }
+  }
+
+  if (!listHtml) listHtml = `<p class="empty">Nichts in dieser Ansicht.</p>`;
+
+  // Add item form
+  let addHtml = "";
+  if (!state.addingItem) {
+    addHtml = `<button class="claim-btn" style="width:100%;padding:11px;font-size:13px" onclick="window._startAdd()">+ Artikel hinzufügen</button>`;
+  } else {
+    const ni = state.newItem;
+    const catOptions = [...new Set(allItems.map(i=>i.cat))].map(c=>`<option value="${c}"${ni.cat===c?" selected":""}>${c}</option>`).join("");
+    addHtml = `<div class="add-form">
+      <p>Neuen Artikel eintragen:</p>
+      <select class="add-inp" onchange="window._setNewItem('cat',this.value)">
+        <option value="">Kategorie wählen…</option>
+        ${catOptions}
+        <option value="__new__"${ni.cat==="__new__"?" selected":""}>+ Neue Kategorie…</option>
+      </select>
+      ${ni.cat==="__new__" ? `<input class="add-inp" placeholder="Name der neuen Kategorie" value="${ni.newCat}" oninput="window._setNewItem('newCat',this.value)" />` : ""}
+      <input class="add-inp" placeholder="Artikelname *" value="${ni.name}" oninput="window._setNewItem('name',this.value)" />
+      <div class="add-inp-row">
+        <input class="add-inp" placeholder="Menge (z.B. 5)" value="${ni.total}" oninput="window._setNewItem('total',this.value)" />
+        <input class="add-inp" placeholder="Einheit (z.B. Stück)" value="${ni.unit}" oninput="window._setNewItem('unit',this.value)" />
+      </div>
+      <label class="checkbox-row"><input type="checkbox" ${ni.divisible?"checked":""} onchange="window._setNewItem('divisible',this.checked)" /> Mehrere können sich eintragen (Teilmengen)</label>
+      <div class="add-btns">
+        <button class="claim-btn" onclick="window._addItem()">Hinzufügen ✓</button>
+        <button class="unclaim-btn" onclick="window._cancelAdd()">Abbrechen</button>
+      </div>
+    </div>`;
+  }
+
+  app.innerHTML = `
+    <div class="header">
+      <div>
+        <h1>🛒 Gruppeneinkauf Holland</h1>
+        <p>Hallo <strong>${state.myName}</strong> · Live-Sync aktiv</p>
+      </div>
+      <button class="ghost-btn" onclick="window._logout()">Wechseln</button>
+    </div>
+    <div class="progress-box">
+      <div class="progress-labels"><span>Fortschritt</span><span><b>${claimed}</b> / ${allItems.length} Artikel · ${pct}%</span></div>
+      <div class="track"><div class="fill" style="width:${pct}%"></div></div>
+      <div class="name-chips">${nameChips}</div>
+    </div>
+    <div class="tabs">${filterBtns}</div>
+    <div class="list">${listHtml}</div>
+    <div class="add-area">${addHtml}</div>
+    <p class="footer">Daten werden in Echtzeit synchronisiert · Firebase Realtime Database</p>`;
+}
+
+// Global handlers
+window._confirmName = confirmName;
+window._setFilter = setFilter;
+window._setExpanded = setExpanded;
+window._claimSimple = claimSimple;
+window._claimPartial = claimPartial;
+window._removeClaim = removeClaim;
+window._logout = logout;
+window._addItem = addItem;
+window._startAdd = () => { state.addingItem = true; render(); };
+window._cancelAdd = () => { state.addingItem = false; render(); };
+window._setClaimInput = (id, val) => { state.claimInputs[id] = val; };
+window._setNewItem = (key, val) => { state.newItem[key] = val; if(key==="cat") render(); };
+</script>
+</body>
+</html>
