@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Island — 3 Wochen abseits der Hotspots</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --basalt:#faf8f4;   /* Seitenhintergrund, jetzt hell */
+  --moss:#3d6b4a;
+  --lupine:#5a4a80;
+  --ash:#5a5f66;      /* Fließtext, kontraststark auf Hell */
+  --ice:#2b3036;      /* kräftiger Text */
+  --rust:#a8481f;
+  --paper:#1a1f24;    /* Überschriften, jetzt dunkel */
+  --line:#ddd8cf;
+  --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--basalt);
+  color:var(--ice);
+  font-family:'Karla',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Hero ---------- */
+header{
+  padding:clamp(2rem,6vw,5rem) clamp(1.2rem,5vw,4rem) 2rem;
+  border-bottom:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ash);
+  margin-bottom:1.2rem;
+}
+h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,13vw,8.5rem);
+  line-height:.86;
+  letter-spacing:.01em;
+  color:var(--paper);
+}
+h1 span{display:block}
+h1 .accent{color:var(--rust)}
+.sub{
+  margin-top:1.6rem;
+  max-width:52ch;
+  color:var(--ash);
+  font-size:clamp(1rem,2.4vw,1.12rem);
+}
+.facts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin-top:1.8rem;
+}
+.fact{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:.42rem .7rem;
+  color:var(--ice);
+}
+
+/* ---------- Warnhinweis ---------- */
+.caution{
+  margin:2rem clamp(1.2rem,5vw,4rem) 0;
+  border-left:3px solid var(--rust);
+  background:#fbf0e8;
+  padding:1.1rem 1.3rem;
+  max-width:70ch;
+}
+.caution h2{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--rust);
+  margin-bottom:.55rem;
+}
+.caution p{font-size:.98rem;color:var(--ice)}
+.caution p + p{margin-top:.6rem}
+
+/* ---------- Etappen-Navigation ---------- */
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(250,248,244,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  margin-top:2.5rem;
+}
+.navscroll{
+  display:flex;
+  gap:0;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding:0 clamp(1.2rem,5vw,4rem);
+}
+.navscroll::-webkit-scrollbar{display:none}
+.navbtn{
+  flex:0 0 auto;
+  background:none;
+  border:none;
+  border-bottom:2px solid transparent;
+  color:var(--ash);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:1.05rem 1rem;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:color .18s,border-color .18s;
+}
+.navbtn:hover{color:var(--ice)}
+.navbtn[aria-selected="true"]{
+  color:var(--paper);
+  border-bottom-color:var(--rust);
+}
+.navbtn:focus-visible{outline:2px solid var(--rust);outline-offset:-2px}
+.navbtn .days{
+  display:block;
+  font-size:.62rem;
+  color:var(--ash);
+  letter-spacing:.06em;
+  margin-top:.15rem;
+}
+.navbtn[aria-selected="true"] .days{color:var(--rust)}
+
+/* ---------- Panels ---------- */
+main{padding:0 clamp(1.2rem,5vw,4rem) 5rem}
+.panel{display:none;animation:rise .35s ease both}
+.panel.active{display:block}
+@keyframes rise{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .panel{animation:none}
+  html{scroll-behavior:auto}
+}
+.phead{
+  padding:2.8rem 0 1.6rem;
+  border-bottom:1px solid var(--line);
+}
+.pnum{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.2em;
+  color:var(--rust);
+  text-transform:uppercase;
+}
+.phead h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,7vw,4.2rem);
+  line-height:.95;
+  color:var(--paper);
+  margin:.5rem 0 .8rem;
+}
+.phead p{max-width:60ch;color:var(--ash)}
+
+/* ---------- Aktivitäten ---------- */
+.acts{
+  display:grid;
+  gap:1rem;
+  padding:1.8rem 0;
+}
+.act{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:1.4rem;
+}
+@media(min-width:760px){
+  .acts{grid-template-columns:1fr 1fr;gap:1.2rem}
+  .act{padding:1.7rem}
+}
+.tag{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.64rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:.22rem .5rem;
+  border-radius:2px;
+  margin-bottom:.7rem;
+}
+.t-cave{background:#ece7f6;color:#4a3b70}
+.t-horse{background:#e2efe4;color:#2d5638}
+.t-sea{background:#e0eef4;color:#1f5570}
+.t-hike{background:#f7e6dc;color:#8d3c17}
+.t-free{background:#eeeae2;color:#5a5f66}
+.act h3{
+  font-size:1.12rem;
+  font-weight:700;
+  color:var(--paper);
+  margin-bottom:.45rem;
+}
+.act p{font-size:.97rem;color:var(--ash);margin-bottom:.8rem}
+.act a{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  color:var(--ice);
+  text-decoration:none;
+  border-bottom:1px solid var(--rust);
+  padding-bottom:2px;
+  margin-right:1.1rem;
+  margin-top:.3rem;
+  padding-top:.3rem;
+  transition:color .18s;
+}
+.act a:hover{color:var(--rust)}
+.act a:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+.act a::after{content:" ↗";color:var(--rust)}
+.nolink{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  color:var(--ash);
+}
+
+/* ---------- Hotpots ---------- */
+.pots{padding-top:.5rem}
+.potgroup{
+  padding:2rem 0 1rem;
+  border-bottom:1px solid var(--line);
+}
+@media(min-width:760px){
+  .potwrap{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2rem}
+}
+.gtitle{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--rust);
+  margin-bottom:1.4rem;
+}
+.pot{
+  border-left:3px solid #c9bde4;
+  padding:0 0 1.5rem 1.1rem;
+  max-width:64ch;
+}
+.pot:last-child{padding-bottom:.5rem}
+.pmeta{
+  display:flex;
+  gap:.5rem;
+  margin-bottom:.4rem;
+}
+.temp,.price{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.64rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:.2rem .5rem;
+  border-radius:2px;
+}
+.temp{background:#f7e6dc;color:#8d3c17}
+.price{background:#eeeae2;color:#5a5f66}
+.pot h4{
+  font-size:1.08rem;
+  font-weight:700;
+  color:var(--paper);
+  margin-bottom:.4rem;
+}
+.pot p{font-size:.97rem;color:var(--ash)}
+
+.pot .gps{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;
+  color:#6f757d;
+  margin-top:.5rem;
+}
+.pot strong{color:var(--ice)}
+
+/* ---------- Camping ---------- */
+.camp{
+  padding:1.8rem 0 0;
+  display:flex;
+  gap:.8rem;
+  align-items:flex-start;
+  max-width:70ch;
+}
+.camp .label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--rust);
+  flex:0 0 auto;
+  padding-top:.2rem;
+}
+.camp p{font-size:.95rem;color:var(--ash)}
+
+footer{
+  border-top:1px solid var(--line);
+  background:#f3efe7;
+  padding:2.5rem clamp(1.2rem,5vw,4rem);
+  color:var(--ash);
+  font-size:.92rem;
+}
+footer a{color:var(--ice)}
+footer p + p{margin-top:.7rem}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Juli / August · 21 Tage · Camper</p>
+  <h1><span>Island</span><span class="accent">ohne Schlange</span></h1>
+  <p class="sub">Gegen den Uhrzeigersinn: Höhlen im Süden, Kajak im Westen, leere Fjorde im Nordwesten, Gletscher zum Schluss. Etappen bewusst offen gelassen — die Reihenfolge steht, das Tempo macht ihr.</p>
+  <div class="facts">
+    <span class="fact">Soft-4x4</span>
+    <span class="fact">keine Furten</span>
+    <span class="fact">Camper</span>
+    <span class="fact">gegen den Uhrzeigersinn</span>
+  </div>
+</header>
+
+<div class="caution">
+  <h2>Zwei Dinge vorweg</h2>
+  <p><strong>Furten sind tabu.</strong> Euer Wagen darf auf F-Straßen, aber jede Versicherung schließt Wasserschäden aus. Landmannalaugar über die F208 Nord, Askja, Þórsmörk: nur geführt oder per Hochlandbus. Kein Ermessensspielraum — das ist der teuerste Fehler, den man in Island machen kann.</p>
+  <p><strong>Strandsegeln gibt es hier nicht.</strong> Die Küste ist Lava, Schwarzsand und Sneaker Waves, kein kommerzieller Anbieter. Der nächste Ersatz ist Wakeboarding in den Westfjorden — steht bei Etappe 3.</p>
+</div>
+
+<nav>
+  <div class="navscroll" role="tablist" aria-label="Etappen">
+    <button class="navbtn" role="tab" aria-selected="true" aria-controls="p1" id="t1">Reykjanes<span class="days">Tag 1–3</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p2" id="t2">Snæfellsnes<span class="days">Tag 4–6</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p3" id="t3">Westfjorde<span class="days">Tag 7–10</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p4" id="t4">Norden<span class="days">Tag 11–13</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p5" id="t5">Osten<span class="days">Tag 14–17</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p6" id="t6">Süden<span class="days">Tag 18–21</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p7" id="t7">Hotpots<span class="days">alle Etappen</span></button>
+  </div>
+</nav>
+
+<main>
+
+<!-- 1 -->
+<section class="panel active" id="p1" role="tabpanel" aria-labelledby="t1">
+  <div class="phead">
+    <p class="pnum">Etappe 1 · Tag 1–3</p>
+    <h2>Reykjanes</h2>
+    <p>Direkt vom Flughafen los, ohne Umweg über Reykjavík. Der Golden Circle liegt bewusst nicht auf der Route — die Halbinsel bietet dasselbe Vulkanische ohne Reisebusse.</p>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <span class="tag t-cave">Höhle</span>
+      <h3>Leiðarendi Lavaröhre</h3>
+      <p>900 Meter Lavatunnel als Rundweg, teilweise kriechend. Stirnlampe und Helm werden gestellt, Kombitouren mit Silfra-Schnorcheln oder Reiten sind buchbar.</p>
+      <a href="https://adventurevikings.is/tours/caving/">Adventure Vikings</a>
+      <a href="https://guidetoiceland.is/book-holiday-trips/caving-in-leidarendi-1">Guide to Iceland</a>
+    </div>
+    <div class="act">
+      <span class="tag t-sea">Wasser</span>
+      <h3>Silfra-Spalte, geschnorchelt</h3>
+      <p>Zwischen zwei Kontinentalplatten bei 2 °C und über 100 Metern Sicht. Trockenanzug, kein Tauchschein nötig. Als Kombi mit Leiðarendi an einem Tag machbar.</p>
+      <a href="https://adventurevikings.is/tours/caving/">Kombi buchen</a>
+    </div>
+    <div class="act">
+      <span class="tag t-free">Frei</span>
+      <h3>Brimketill & Kleifarvatn</h3>
+      <p>Ein natürliches Lavabecken direkt an der Brandung, dazu der tiefste See der Halbinsel mit schwarzem Sandstrand. Beides ohne Ticket, meist ohne Menschen.</p>
+      <span class="nolink">Keine Buchung nötig</span>
+    </div>
+    <div class="act">
+      <span class="tag t-hike">Wandern</span>
+      <h3>Krýsuvík & Helgafell</h3>
+      <p>Blubbernde Schlammtöpfe und Solfataren, danach ein kurzer, steiler Aufstieg mit Blick über die Lavafelder. Halber Tag für beides.</p>
+      <span class="nolink">Keine Buchung nötig</span>
+    </div>
+  </div>
+  <div class="camp">
+    <span class="label">Camp</span>
+    <p>Grindavík oder Hafnir. Beide klein, beide mit Blick aufs Meer. Prüft vor der Anfahrt den Status der Vulkanzone bei <a href="https://safetravel.is/" style="color:var(--rust)">safetravel.is</a> — die Lage auf Reykjanes ändert sich.</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
+  <div class="phead">
+    <p class="pnum">Etappe 2 · Tag 4–6</p>
+    <h2>Snæfellsnes</h2>
+    <p>Island im Kleinformat: Gletscher, Lavafeld, Fjord und Steilküste auf einer Halbinsel. Kirkjufell steht in jedem Reiseführer — der Rest ist erstaunlich leer.</p>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <span class="tag t-cave">Höhle</span>
+      <h3>Vatnshellir</h3>
+      <p>Über eine Wendeltreppe 35 Meter tief in eine 8.000 Jahre alte Lavaröhre. 45 Minuten, im Sommer stündlich ab 10 Uhr. Jules Vernes literarischer Eingang zum Erdmittelpunkt.</p>
+      <a href="https://www.summitguides.is/vatnshellir-cave-tour">Summit Guides</a>
+      <a href="https://booknordics.com/iceland/western-iceland/snaefellsnes/vatnshellir-cave-tour">BookNordics</a>
+    </div>
+    <div class="act">
+      <span class="tag t-sea">Wasser</span>
+      <h3>Kajak im Breiðafjörður</h3>
+      <p>Zwischen unzähligen kleinen Inseln paddeln, Seehunde und Papageitaucher inklusive. Start ab Stykkishólmur, ruhiges Wasser auch für Einsteiger.</p>
+      <a href="https://guidetoiceland.is/book-holiday-trips/calm-water-kayaking">Touren ansehen</a>
+    </div>
+    <div class="act">
+      <span class="tag t-horse">Pferd</span>
+      <h3>Ausritt an der Küste</h3>
+      <p>Islandpferde im Tölt über Schwarzsand und Lavafeld. Mehrere Höfe rund um Stykkishólmur und Grundarfjörður, meist auch kurzfristig buchbar.</p>
+      <a href="https://www.funiceland.is/tours/horse-riding-tours/">Höfe vergleichen</a>
+    </div>
+    <div class="act">
+      <span class="tag t-hike">Wandern</span>
+      <h3>Rauðfeldsgjá & Djúpalónssandur</h3>
+      <p>Eine schmale Schlucht, in die man am Bach entlang hineinwaten kann — nass, dunkel, großartig. Danach der Strand mit den vier Kraftsteinen der alten Fischer.</p>
+      <span class="nolink">Keine Buchung nötig</span>
+    </div>
+  </div>
+  <div class="camp">
+    <span class="label">Camp</span>
+    <p>Grundarfjörður oder Arnarstapi. Arnarstapi liegt direkt an der Steilküste, Grundarfjörður ist besser ausgestattet.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+  <div class="phead">
+    <p class="pnum">Etappe 3 · Tag 7–10</p>
+    <h2>Westfjorde</h2>
+    <p>Der eigentliche Grund für drei Wochen statt zehn Tagen. Schotterpisten, kaum Verkehr, Fjord hinter Fjord. Rechnet mit halber Durchschnittsgeschwindigkeit — und plant sie ein.</p>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <span class="tag t-sea">Wasser</span>
+      <h3>Kajak ab Ísafjörður</h3>
+      <p>Zweieinhalb Stunden auf dem Fjord, Steilwände über euch, Seehundkolonien und Papageitaucher am Weg. Ab 12 Jahren, keine Vorkenntnisse.</p>
+      <a href="https://www.borea.is/">Borea Adventures</a>
+      <a href="https://www.westfjords.is/en/experiences/tours/kayak-tours-paddleboarding">Alle Anbieter</a>
+    </div>
+    <div class="act">
+      <span class="tag t-sea">Wasser</span>
+      <h3>Wakeboarding</h3>
+      <p>Der nächste Verwandte zum Strandsegeln, den Island zu bieten hat: Wasserski und Wakeboard in einem der ruhigen Fjorde. Kleiner lokaler Anbieter, vorher anfragen.</p>
+      <a href="https://www.westfjords.is/en/experiences/tours/kayak-tours-paddleboarding">Wakeboarding Iceland</a>
+    </div>
+    <div class="act">
+      <span class="tag t-hike">Wandern</span>
+      <h3>Hornstrandir per Boot</h3>
+      <p>Naturreservat ohne Straßen, ohne Strom, mit zutraulichen Polarfüchsen. Boot morgens hin, abends zurück — als Tagestour machbar, mehrtägig mit Zelt noch besser.</p>
+      <a href="https://www.borea.is/">Bootstransfer buchen</a>
+    </div>
+    <div class="act">
+      <span class="tag t-free">Frei</span>
+      <h3>Rauðasandur & Hellulaug</h3>
+      <p>Ein rot-goldener Strand, der nichts mit dem Rest Islands zu tun hat, und ein Naturhotpot direkt über dem Meer bei Flókalundur. Beides umsonst, beides fast leer.</p>
+      <span class="nolink">Keine Buchung nötig</span>
+    </div>
+  </div>
+  <div class="camp">
+    <span class="label">Camp</span>
+    <p>Ísafjörður als Basis, Þingeyri und Flókalundur für unterwegs. Tankt in den Westfjorden früher als ihr denkt — zwischen den Fjorden liegen weite Strecken ohne Zapfsäule.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="panel" id="p4" role="tabpanel" aria-labelledby="t4">
+  <div class="phead">
+    <p class="pnum">Etappe 4 · Tag 11–13</p>
+    <h2>Norden</h2>
+    <p>Akureyri und Húsavík überspringen wir weitgehend. Skagafjörður gilt als Wiege der isländischen Pferdezucht — hier wird geritten.</p>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <span class="tag t-horse">Pferd</span>
+      <h3>Reiten in Skagafjörður</h3>
+      <p>Von einer Stunde bis zum Tagesritt über Flussquerungen und weite Ebenen. Hestasport in Varmahlíð nimmt auch kurzfristige Buchungen, Syðra-Skörðugil ist der kleinere Familienbetrieb.</p>
+      <a href="https://riding.is/riding/">Hestasport</a>
+      <a href="https://sydraskordugil.is/riding-tours/">Syðra-Skörðugil</a>
+    </div>
+    <div class="act">
+      <span class="tag t-sea">Wasser</span>
+      <h3>Wale ab Hjalteyri</h3>
+      <p>Statt der vollen Boote in Húsavík: ein winziger Hafen im Eyjafjörður, kleine Gruppen, dieselben Buckelwale.</p>
+      <a href="https://www.northsailing.is/">Alternativen ansehen</a>
+    </div>
+    <div class="act">
+      <span class="tag t-hike">Wandern</span>
+      <h3>Askja — nur geführt</h3>
+      <p>Der Kratersee im Hochland ist eines der eindrucksvollsten Ziele Islands. Die Anfahrt hat mehrere Furten, also Super-Jeep-Tour ab Mývatn oder Akureyri buchen. Nicht selbst fahren.</p>
+      <a href="https://www.geoiceland.com/">Geo Iceland</a>
+    </div>
+    <div class="act">
+      <span class="tag t-free">Frei</span>
+      <h3>Kolugljúfur & Hvítserkur</h3>
+      <p>Eine Schlucht mit Wasserfall direkt an der Straße, und ein Basaltfelsen im Meer, der aussieht wie ein trinkender Drache. Beides auf dem Weg, beides ohne Ticket.</p>
+      <span class="nolink">Keine Buchung nötig</span>
+    </div>
+  </div>
+  <div class="camp">
+    <span class="label">Camp</span>
+    <p>Varmahlíð für die Reittage, danach Mývatn. Am Mývatn hilft Mückenschutz mit Kopfnetz — im Hochsommer sind die Schwärme kein Scherz.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="panel" id="p5" role="tabpanel" aria-labelledby="t5">
+  <div class="phead">
+    <p class="pnum">Etappe 5 · Tag 14–17</p>
+    <h2>Osten</h2>
+    <p>Die am wenigsten besuchte Ecke der Ringstraße. Enge Fjorde, Rentiere am Straßenrand, Dörfer mit 200 Einwohnern und ausgezeichnetem Kaffee.</p>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <span class="tag t-hike">Wandern</span>
+      <h3>Borgarfjörður eystri</h3>
+      <p>Die entspannteste Papageitaucher-Kolonie Islands: Holzsteg, Vögel auf Armlänge, kein Gedränge. Dazu markierte Wanderwege in die Víknaslóðir-Berge.</p>
+      <a href="https://www.borgarfjordureystri.is/en">Wanderkarte & Infos</a>
+    </div>
+    <div class="act">
+      <span class="tag t-hike">Wandern</span>
+      <h3>Stuðlagil</h3>
+      <p>Basaltsäulen über türkisem Gletscherfluss. Die Ostseite verlangt fünf Kilometer Fußweg und lohnt sich genau deshalb — die Westseite ist der volle Parkplatz.</p>
+      <span class="nolink">Keine Buchung nötig</span>
+    </div>
+    <div class="act">
+      <span class="tag t-sea">Wasser</span>
+      <h3>Kajak in Seyðisfjörður</h3>
+      <p>Paddeln im schmalen Fjord zwischen Wasserfällen, dazu das Künstlerdorf mit der regenbogenfarbenen Straße. Auch als Rundfahrt mit Tierbeobachtung buchbar.</p>
+      <a href="https://www.hlynur.is/">Seyðisfjörður Tours</a>
+    </div>
+    <div class="act">
+      <span class="tag t-free">Frei</span>
+      <h3>Vök Baths & Djúpivogur</h3>
+      <p>Schwimmende Thermalbecken im See bei Egilsstaðir — deutlich ruhiger als die Blaue Lagune. Djúpivogur lohnt den Umweg für den Hafen und die Steinei-Skulpturen.</p>
+      <a href="https://www.vokbaths.is/">Vök Baths</a>
+    </div>
+  </div>
+  <div class="camp">
+    <span class="label">Camp</span>
+    <p>Seyðisfjörður und Borgarfjörður eystri sind beide klein und gut. Die Passstraße nach Seyðisfjörður kann auch im Sommer neblig sein — früh fahren.</p>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="panel" id="p6" role="tabpanel" aria-labelledby="t6">
+  <div class="phead">
+    <p class="pnum">Etappe 6 · Tag 18–21</p>
+    <h2>Süden</h2>
+    <p>Jetzt wird es voll — deshalb kommt der Süden zum Schluss und wird mit Timing gespielt: früh morgens oder spät abends, dann gehören euch dieselben Orte fast allein.</p>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <span class="tag t-hike">Gletscher</span>
+      <h3>Gletscherwanderung Skaftafell</h3>
+      <p>Mit Steigeisen und Eispickel über Spalten und Gletschermühlen auf dem Falljökull. Drei bis vier Stunden, keine Vorkenntnisse, im Sommer täglich.</p>
+      <a href="https://adventures.is/iceland/day-tours/glacier-hiking/">Arctic Adventures</a>
+      <a href="https://icelandguidedtours.is/">Icelandic Mountain Guides</a>
+    </div>
+    <div class="act">
+      <span class="tag t-hike">Wandern</span>
+      <h3>Þórsmörk per Hochlandbus</h3>
+      <p>Tal zwischen drei Gletschern, erreichbar nur über tiefe Furten. Der Bus ab Hvolsvöllur fährt sie euch — Auto stehen lassen, Tag im Tal wandern, abends zurück.</p>
+      <a href="https://www.re.is/tour/thorsmork-volcano-hike/">Reykjavík Excursions</a>
+    </div>
+    <div class="act">
+      <span class="tag t-sea">Wasser</span>
+      <h3>Kajak auf Fjallsárlón</h3>
+      <p>Zwischen Eisbergen paddeln — auf der kleineren Lagune neben Jökulsárlón, mit Bruchteil der Besucher und direktem Blick auf die Gletscherzunge.</p>
+      <a href="https://www.fjallsarlon.is/">Fjallsárlón</a>
+    </div>
+    <div class="act">
+      <span class="tag t-free">Frei</span>
+      <h3>Fjaðrárgljúfur & Systrafoss</h3>
+      <p>Die Moosschlucht vor acht Uhr morgens ist ein anderer Ort als um zwei Uhr nachmittags. Systrafoss bei Kirkjubæjarklaustur bleibt ganztags ruhig.</p>
+      <span class="nolink">Keine Buchung nötig</span>
+    </div>
+  </div>
+  <div class="camp">
+    <span class="label">Camp</span>
+    <p>Skaftafell, Kirkjubæjarklaustur, Vík. Im Hochsommer sind die Südplätze abends voll — früh ankommen oder eine Ecke weiter fahren.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="panel" id="p7" role="tabpanel" aria-labelledby="t7">
+  <div class="phead">
+    <p class="pnum">Querschnitt · alle Etappen</p>
+    <h2>Heißes Wasser</h2>
+    <p>Nach Etappe sortiert, mit GPS und Temperatur. Die Blaue Lagune steht bewusst nicht drauf. Grundregel überall: vorher duschen, ohne Badesachen, Müll wieder mitnehmen — daran hängt, ob diese Orte offen bleiben.</p>
+  </div>
+
+  <div class="pots">
+
+    <div class="potgroup">
+      <h3 class="gtitle">Etappe 2 · Snæfellsnes</h3>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">37–40 °C</span><span class="price">frei</span></div>
+        <h4>Landbrotalaug</h4>
+        <p>Winziges Naturbecken für zwei Personen, mitten im Nichts nahe dem Eldborg-Krater. Keine Umkleide, kein Schild — und der falsche Pin auf Google Maps. War zeitweise gesperrt, seit 2024 wieder offen.</p>
+        <p class="gps">64.8322, −22.3185 · Abzweig von Straße 54, kurzer Fußweg</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">37–39 °C</span><span class="price">Eintritt</span></div>
+        <h4>Lýsuhólslaug</h4>
+        <p>Grünliches Algenwasser mit hohem Mineralgehalt, dazu zwei Hotpots, ein Eisbecken und ein Café. Nur Juni bis Mitte August geöffnet — passt genau in euer Zeitfenster.</p>
+        <p class="gps">64.7811, −23.2736 · Südküste der Halbinsel</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">38 °C</span><span class="price">frei</span></div>
+        <h4>Guðrúnarlaug</h4>
+        <p>Auf dem Weg von Snæfellsnes in die Westfjorde. Gemauertes Becken mit kleiner Torfhütte als Umkleide, benannt nach einer Saga-Heldin. Etwas bekannter als der Rest hier.</p>
+        <p class="gps">65.2465, −21.8033 · bei Laugar im Sælingsdalur</p>
+      </div>
+    </div>
+
+    <div class="potgroup">
+      <h3 class="gtitle">Etappe 3 · Westfjorde</h3>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">38 °C</span><span class="price">Spende</span></div>
+        <h4>Hellulaug</h4>
+        <p>Vier Meter Durchmesser, 60 Zentimeter tief, direkt über dem Meer bei Flókalundur. Keine Umkleide — man zieht sich am Auto um. Morgens oder spät abends habt ihr ihn meist allein.</p>
+        <p class="gps">65.5729, −23.1715 · direkt an Straße 60</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">bis 44 °C</span><span class="price">frei</span></div>
+        <h4>Drangsnes</h4>
+        <p>Drei Wannen direkt am Strand, von der Dorfgemeinschaft gepflegt, jede anders temperiert. Umgezogen wird im Schuppen gegenüber. Einheimische kommen mit Thermoskanne und bleiben stundenlang.</p>
+        <p class="gps">65.6806, −21.4528 · im Ort, an der Küstenstraße</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">32–52 °C</span><span class="price">frei</span></div>
+        <h4>Reykjafjarðarlaug</h4>
+        <p>Ein gemauertes Becken von 1975 und daneben der natürliche Pool. Achtung: der obere ist zeitweise deutlich zu heiß zum Reinsteigen — erst mit dem Fuß testen. Im Sommer mit jedem Auto erreichbar.</p>
+        <p class="gps">65.6478, −23.0783 · an Straße 63, Arnarfjörður</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
+        <h4>Krossneslaug</h4>
+        <p>Der spektakulärste der Liste: Betonbecken auf Kieselstrand, direkt vor dem offenen Nordatlantik. Die Zufahrt über Straße 643 ist praktisch eine F-Straße ohne Furten — Schlaglöcher, Klippenkante, sehr langsam fahren. Mai bis August.</p>
+        <p class="gps">66.0333, −21.5333 · Ende der Strandir-Küste</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
+        <h4>Pollurinn & Hörgshlíðarlaug</h4>
+        <p>Zwei stille Alternativen: „Die Pfütze" bei Tálknafjörður mit drei kleinen Becken, und ein einzelner Pool am Ísafjarðardjúp mit Blick über den Fjord. Beide selten besucht.</p>
+        <p class="gps">Tálknafjörður · Ísafjarðardjúp</p>
+      </div>
+    </div>
+
+    <div class="potgroup">
+      <h3 class="gtitle">Etappe 4 · Norden</h3>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">warm</span><span class="price">Eintritt</span></div>
+        <h4>Grettislaug</h4>
+        <p>Zwei Steinbecken am Meer mit Blick auf die Insel Drangey, benannt nach dem Saga-Helden Grettir. Umkleiden, Café und Campingplatz direkt daneben — praktisch für eure Reittage in Skagafjörður. April bis Oktober.</p>
+        <p class="gps">65.8869, −19.5000 · Hof Reykir, Straße 748 ab Sauðárkrókur</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">30–31 °C</span><span class="price">Eintritt</span></div>
+        <h4>Hofsós Infinity-Pool</h4>
+        <p>25-Meter-Becken am Hang, dessen Kante optisch in den Fjord übergeht. Dazu ein Hotpot und Blick auf Drangey. Unterhalb führt ein Holzsteg zu den Basaltformationen von Staðarbjargavík.</p>
+        <p class="gps">65.8942, −19.4131 · über dem Dorf, ganzjährig</p>
+      </div>
+    </div>
+
+    <div class="potgroup">
+      <h3 class="gtitle">Etappe 5 · Osten</h3>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">warm</span><span class="price">Eintritt</span></div>
+        <h4>Vök Baths</h4>
+        <p>Schwimmende Becken im See Urriðavatn bei Egilsstaðir. Das einzig Kommerzielle auf dieser Liste, dafür kann man zwischendurch in den kalten See springen. Deutlich ruhiger als die Blaue Lagune.</p>
+        <p class="gps">65.2833, −14.4333 · bei Egilsstaðir</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
+        <h4>Laugavallalaug</h4>
+        <p>Ein warmer Wasserfall, der über eine Felskante in ein flaches Naturbecken fällt — eine heiße Dusche in der Wildnis. Abgelegenes Tal nördlich des Vatnajökull, Zufahrt nur mit echtem Geländewagen. <strong>Für euren Wagen nicht geeignet</strong>, aber gut zu wissen.</p>
+        <p class="gps">65.0833, −15.7500 · nur mit echtem 4x4</p>
+      </div>
+    </div>
+
+    <div class="potgroup">
+      <h3 class="gtitle">Etappe 6 · Süden</h3>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">warm</span><span class="price">Eintritt</span></div>
+        <h4>Hoffell Hot Tubs</h4>
+        <p>Fünf Wannen am Hang mit direktem Blick auf die Gletscherzunge, bei Höfn. Genau das Richtige nach der Gletscherwanderung in Skaftafell.</p>
+        <p class="gps">64.4033, −15.3333 · Hoffell Guesthouse bei Höfn</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
+        <h4>Seljavallalaug</h4>
+        <p>Betonbecken von 1923 in einem Talkessel unter dem Eyjafjallajökull, kurzer Fußweg vom Parkplatz. Kein Chlor, keine Toiletten, keine Duschen — die Reinigung erfolgt nur ein paar Mal im Jahr ehrenamtlich. Erwartet eher lauwarm und algig, dafür an einem außergewöhnlichen Ort.</p>
+        <p class="gps">63.5658, −19.6067 · ca. 15 Min Fußweg</p>
+      </div>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">36–40 °C</span><span class="price">frei</span></div>
+        <h4>Reykjadalur Thermalfluss</h4>
+        <p>Kein Becken, sondern ein ganzer Bach, in dem man sich die passende Temperatur flussaufwärts sucht. Drei Kilometer Aufstieg ab Hveragerði, Holzstege und Sichtschutz oben. Der letzte Stopp vor dem Rückflug.</p>
+        <p class="gps">64.0286, −21.2072 · 45 Min Aufstieg ab Parkplatz</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="camp">
+    <span class="label">Regeln</span>
+    <p>In Naturhotpots gibt es keine Duschen — in öffentlichen Schwimmbädern ist das gründliche Duschen ohne Badesachen dagegen Pflicht und wird kontrolliert. Handtuch, Badeschuhe und ein Müllbeutel gehören ins Auto. Wo eine Spendenbox steht, benutzt sie: davon lebt der Unterhalt.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>Vor jeder Etappe prüfen:</strong> <a href="https://safetravel.is/">safetravel.is</a> für Warnungen · <a href="https://www.road.is/">road.is</a> für Straßenzustand und F-Straßen-Öffnung · <a href="https://en.vedur.is/">vedur.is</a> für Wetter und Wind.</p>
+  <p><strong>Camping:</strong> Wildcampen mit dem Camper ist in Island verboten. Der <a href="https://www.campingcard.is/">Camping Card</a> lohnt sich ab etwa zwei Wochen.</p>
+  <p><strong>Buchen:</strong> Höhlen, Gletscher und Kajak im Hochsommer möglichst ein paar Tage vorher — der Rest der Route funktioniert spontan.</p>
+  <p><strong>Hotpots:</strong> GPS-Koordinaten im Reiter „Hotpots" vor der Abfahrt offline speichern — in den Westfjorden und im Osten gibt es streckenweise kein Netz.</p>
+</footer>
+
+<script>
+const tabs = Array.from(document.querySelectorAll('.navbtn'));
+const panels = Array.from(document.querySelectorAll('.panel'));
+
+function select(i){
+  tabs.forEach((t,j)=>t.setAttribute('aria-selected', j===i));
+  panels.forEach((p,j)=>p.classList.toggle('active', j===i));
+  tabs[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+tabs.forEach((tab,i)=>{
+  tab.addEventListener('click',()=>select(i));
+  tab.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+      e.preventDefault();
+      const n = e.key==='ArrowRight' ? (i+1)%tabs.length : (i-1+tabs.length)%tabs.length;
+      tabs[n].focus();
+      select(n);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
