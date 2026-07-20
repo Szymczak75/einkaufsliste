@@ -365,6 +365,39 @@ main{padding:0 clamp(1.2rem,5vw,4rem) 5rem}
   .nametable{font-size:.95rem}
 }
 
+.transfer{
+  margin:1.6rem 0 0;
+  background:#f3efe7;
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:1.1rem 1.2rem;
+}
+.tlabel{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rust);margin-bottom:.2rem;
+}
+.troute{
+  font-size:1.02rem;font-weight:700;color:var(--paper);margin-bottom:.15rem;
+}
+.tdist{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6f757d;margin-bottom:.9rem;
+}
+.tstop{
+  border-left:2px solid #c9c2b4;padding:0 0 .9rem 1rem;
+}
+.tstop:last-child{padding-bottom:0}
+.tstop h4{font-size:.98rem;font-weight:700;color:var(--paper);margin-bottom:.25rem}
+.tstop p{font-size:.92rem;color:var(--ash)}
+.tstop .gps{
+  font-family:'JetBrains Mono',monospace;font-size:.69rem;color:#6f757d;margin-top:.35rem;
+}
+.tstop a{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--rust);
+  text-decoration:none;border-bottom:1px solid var(--rust);margin-right:.9rem;
+}
+.tstop a::after{content:" ↗"}
+
 /* ---------- Camping ---------- */
 .camp{
   padding:1.8rem 0 0;
@@ -419,7 +452,7 @@ footer p + p{margin-top:.7rem}
 <div class="legend">
   <span class="lkey"><span class="dot d-self"></span>Auf eigene Faust</span>
   <span class="lkey"><span class="dot d-guide"></span>Nur mit Guide möglich</span>
-  <span class="lkey"><span class="dot d-gpx"></span>komoot-Suche</span>
+  <span class="lkey"><span class="dot d-gpx"></span>Track / Region</span>
   <span class="lkey lnote">Links öffnen in neuem Tab</span>
 </div>
 
@@ -446,53 +479,53 @@ footer p + p{margin-top:.7rem}
   </div>
   <div class="acts">
     <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-cave">Höhle</span>
+      <span class="tag t-self">Selbst<a class="gpx" href="https://www.wikiloc.com/trails/hiking/iceland" target="_blank" rel="noopener">Wikiloc Island</a><a class="alt" href="https://de.wikipedia.org/wiki/Hj%C3%B6rleifsh%C3%B6f%C3%B0i" target="_blank" rel="noopener">Wikipedia</a></span><span class="tag t-cave">Höhle</span>
       <h3>Maríuhellar</h3>
       <p>Drei kleine Lavaröhren am Straßenrand bei Heiðmörk, 20 Minuten aus Reykjavík: Vífilsstaðahellir, Urriðakotshellir und Draugahellir — die „Geisterhöhle". Frei zugänglich, kein Ticket, keine Anmeldung. Gute Aufwärmrunde für Surtshellir später.</p>
       <p class="gps">64.0578, −21.8497 · Stirnlampe und Helm mitbringen</p>
-      <span class="links"><a class="info" href="https://guidetoiceland.is/connect-with-locals/regina/my-top-8-most-favourite-caves-in-iceland" target="_blank" rel="noopener">Höhlenbeschreibung</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=64.0578,-21.8497" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://guidetoiceland.is/connect-with-locals/regina/my-top-8-most-favourite-caves-in-iceland" target="_blank" rel="noopener">Höhlenbeschreibung</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.0578&mlon=-21.8497#map=16/64.0578/-21.8497" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Reykjadalur Thermalfluss</h3>
       <p>Drei Kilometer Aufstieg ab Hveragerði zu einem Bach, in dem man sich die Temperatur flussaufwärts selbst sucht. Holzstege und Sichtschutz oben. Kein Eintritt, kein Guide, ganzjährig offen.</p>
       <p class="gps">64.0286, −21.2072 · 45 Min Aufstieg, markiert</p>
-      <span class="links"><a class="info" href="https://www.iceland-highlights.com/guide-to-the-reykjadalur-hot-spring-thermal-river-trail/" target="_blank" rel="noopener">Wegbeschreibung</a><a class="gpx" href="https://www.alltrails.com/trail/iceland/southern/reykjadalur-hot-spring-thermal-river" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a></span>
+      <span class="links"><a class="info" href="https://www.iceland-highlights.com/guide-to-the-reykjadalur-hot-spring-thermal-river-trail/" target="_blank" rel="noopener">Wegbeschreibung</a><a class="gpx" href="https://www.alltrails.com/trail/iceland/southern/reykjadalur-hot-spring-thermal-river" target="_blank" rel="noopener">AllTrails Tour</a><a class="alt" href="https://www.komoot.com/guide/3608819/easy-hikes-in-iceland" target="_blank" rel="noopener">komoot</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Krýsuvík & Helgafell</h3>
       <p>Blubbernde Schlammtöpfe auf Holzstegen, danach ein kurzer steiler Aufstieg mit Blick über die Lavafelder. Beides frei begehbar, halber Tag für die Kombination.</p>
       <p class="gps">Straße 42 · keine Anmeldung</p>
-      <span class="links"><a class="info" href="https://adventures.is/iceland/attractions/seltun-geothermal-area/" target="_blank" rel="noopener">Krýsuvík / Seltún</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a></span>
+      <span class="links"><a class="info" href="https://adventures.is/iceland/attractions/seltun-geothermal-area/" target="_blank" rel="noopener">Krýsuvík / Seltún</a><a class="gpx" href="https://www.komoot.com/guide/33535/hiking-in-the-iceland-mountains" target="_blank" rel="noopener">komoot Region</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.8936&mlon=-22.0553#map=15/63.8936/-22.0553" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Brimketill & Kleifarvatn</h3>
       <p>Ein natürliches Lavabecken direkt in der Brandung — Aussichtsplattform vorhanden, reingehen ist wegen der Wellen nicht ratsam. Dazu der tiefste See der Halbinsel mit schwarzem Sandstrand.</p>
       <p class="gps">63.8306, −22.5019 · direkt am Parkplatz</p>
-      <span class="links"><a class="info" href="https://www.visitreykjanes.is/en/destinations/top-destinations" target="_blank" rel="noopener">Visit Reykjanes</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=63.8306,-22.5019" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Kleifarvatn" target="_blank" rel="noopener">Wikipedia Kleifarvatn</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.8306&mlon=-22.5019#map=15/63.8306/-22.5019" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Reykjanesviti & Gunnuhver</h3>
       <p>Islands ältester Leuchtturm auf einem Hügel über der Brandung, ringsum nichts als Lava — das einzige Bauwerk weit und breit. Gleich daneben Gunnuhver, das heißeste Solfatarenfeld des Landes, wo eine Hexe der Sage nach in den Dampf gebannt wurde.</p>
       <p class="gps">63.8119, −22.7053 · Straße 425, Ende der Halbinsel</p>
-      <span class="links"><a class="info" href="https://www.visitreykjanes.is/en/destinations/top-destinations" target="_blank" rel="noopener">Visit Reykjanes</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=63.8119,-22.7053" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Reykjanesviti" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.8119&mlon=-22.7053#map=15/63.8119/-22.7053" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-cave">Höhle</span>
       <h3>Leiðarendi</h3>
       <p>900 Meter Lavatunnel als Rundweg, teilweise kriechend. Anders als Maríuhellar nur geführt zugänglich — dafür deutlich spektakulärer. Kombinierbar mit Silfra-Schnorcheln an einem Tag.</p>
       <p class="gps">Höhle: 63.9333, −21.8500 · Bláfjöll · Abholung ab Reykjavík oder Selbstanfahrt</p>
-      <a href="https://adventurevikings.is/tours/caving/" target="_blank" rel="noopener">Adventure Vikings</a>
+      <a href="https://adventurevikings.is/tours/caving/" target="_blank" rel="noopener">Adventure Vikings</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.9333&mlon=-21.85#map=15/63.9333/-21.85" target="_blank" rel="noopener">OSM</a>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-sea">Wasser</span>
       <h3>Silfra-Spalte</h3>
       <p>Zwischen zwei Kontinentalplatten bei 2 °C und über 100 Metern Sicht. Trockenanzug-Pflicht, deshalb nur mit Anbieter — Alleinschnorcheln ist verboten.</p>
       <p class="gps">64.2558, −21.1178 · Þingvellir-Nationalpark, Silfra-Parkplatz P5</p>
-      <a href="https://adventurevikings.is/tours/caving/" target="_blank" rel="noopener">Kombi mit Höhle</a>
+      <a href="https://adventurevikings.is/tours/caving/" target="_blank" rel="noopener">Kombi mit Höhle</a><a class="alt" href="https://de.wikipedia.org/wiki/Silfra" target="_blank" rel="noopener">Wikipedia</a>
     </div>
   </div>
   <div class="camp">
@@ -514,51 +547,69 @@ footer p + p{margin-top:.7rem}
       <h3>Surtshellir</h3>
       <p>Islands längste Lavaröhre, knapp 2 km, mit Stefánshellir zusammen 3,5 km — und komplett wild. Kein Licht, keine Stege, kein Eintritt. Mehrere Eingänge, man sucht sich einen passenden. Im hinteren Teil, dem Íshellir, stehen Eissäulen. Drinnen lagerten der Sage nach Geächtete; ihre Steinstrukturen sind noch sichtbar.</p>
       <p class="gps">64.7167, −20.6000 · Straße 518, dann F578 (8 km Schotter, keine Furt)</p>
-      <span class="links"><a class="info" href="https://icelandthebeautiful.com/surtshellir-lava-cave-vesturland-island/" target="_blank" rel="noopener">Höhlenbeschreibung</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=64.7167,-20.6000" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://icelandthebeautiful.com/surtshellir-lava-cave-vesturland-island/" target="_blank" rel="noopener">Zugang & Eingänge</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.7167&mlon=-20.6#map=14/64.7167/-20.6" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Rauðfeldsgjá</h3>
       <p>Eine handbreite Spalte im Berg, in die man am Bach entlang hineinwaten kann. Je weiter rein, desto nasser und dunkler — wie weit ihr geht, entscheidet ihr. Kein Ticket, kein Geländer.</p>
       <p class="gps">64.8106, −23.3236 · kurzer Fußweg vom Parkplatz</p>
-      <span class="links"><a class="info" href="https://www.west.is/en" target="_blank" rel="noopener">Visit West Iceland</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=64.8106,-23.3236" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Rau%C3%B0feldsgj%C3%A1" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.komoot.com/de-de/guide/60275/wandern-in-snfellsbr" target="_blank" rel="noopener">komoot Snæfellsbær</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.8106&mlon=-23.3236#map=15/64.8106/-23.3236" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Snæfellsjökull-Umrundung & Saxhóll</h3>
       <p>Markierte Wege rund um den Gletscher, dazu der Kraterkegel Saxhóll mit Metalltreppe — zehn Minuten hoch, Rundblick über die ganze Halbinsel. Alles frei begehbar.</p>
       <p class="gps">64.9067, −23.8067 · Straße 574</p>
-      <span class="links"><a class="info" href="https://www.west.is/en" target="_blank" rel="noopener">Nationalpark</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Sn%C3%A6fellsj%C3%B6kull" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.komoot.com/de-de/guide/60275/wandern-in-snfellsbr" target="_blank" rel="noopener">komoot Snæfellsbær</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.9067&mlon=-23.8067#map=13/64.9067/-23.8067" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Djúpalónssandur & Gerðuberg</h3>
       <p>Der Strand mit den vier Kraftsteinen der alten Fischer — anheben ausdrücklich erlaubt, der schwerste wiegt 154 kg. Dazu die Basaltsäulenwand von Gerðuberg im Osten der Halbinsel.</p>
       <p class="gps">64.7539, −23.9019 · Achtung Sneaker Waves am Strand</p>
-      <span class="links"><a class="info" href="https://www.west.is/en" target="_blank" rel="noopener">Visit West Iceland</a><a class="info" href="https://safetravel.is/" target="_blank" rel="noopener">Wellenwarnung</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Dj%C3%BApal%C3%B3nssandur" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.7539&mlon=-23.9019#map=15/64.7539/-23.9019" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Hraunfossar & Barnafoss</h3>
       <p>Auf dem Weg nach Surtshellir: Über einen Kilometer sickert Wasser aus dem Lavafeld heraus und fällt in hunderten kleinen Kaskaden in den Fluss — kein einzelner Wasserfall, sondern eine ganze Wand. Barnafoss daneben ist die wilde Variante, eine tosende Enge im Fels.</p>
       <p class="gps">64.7028, −20.9786 · Straße 518, direkt an der Strecke</p>
-      <span class="links"><a class="info" href="https://www.west.is/en" target="_blank" rel="noopener">Visit West Iceland</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=64.7028,-20.9786" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Hraunfossar" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.7028&mlon=-20.9786#map=15/64.7028/-20.9786" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-cave">Höhle</span>
       <h3>Vatnshellir</h3>
       <p>Wendeltreppe 35 Meter tief in eine 8.000 Jahre alte Röhre. Nur geführt, 45 Minuten, im Sommer stündlich ab 10 Uhr. Der zahme Gegenentwurf zu Surtshellir — wenn ihr dort wart, könnt ihr euch das hier sparen.</p>
       <p class="gps">64.7472, −23.8181 · Straße 574, eigener Parkplatz · stündlich 10–18 Uhr</p>
-      <a href="https://www.summitguides.is/vatnshellir-cave-tour" target="_blank" rel="noopener">Summit Guides</a>
+      <a href="https://www.summitguides.is/vatnshellir-cave-tour" target="_blank" rel="noopener">Summit Guides</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.7472&mlon=-23.8181#map=15/64.7472/-23.8181" target="_blank" rel="noopener">OSM</a>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-horse">Pferd</span>
       <h3>Ausritt an der Küste</h3>
       <p>Islandpferde im Tölt über Schwarzsand und Lavafeld. Höfe rund um Stykkishólmur und Grundarfjörður, meist auch kurzfristig buchbar.</p>
       <p class="gps">Höfe um Stykkishólmur (65.0745, −22.7297) und Grundarfjörður</p>
-      <a href="https://www.west.is/en" target="_blank" rel="noopener">Höfe vergleichen</a>
+      <a href="https://www.west.is/en" target="_blank" rel="noopener">Höfe vergleichen</a><a class="alt" href="https://de.wikipedia.org/wiki/Islandpferd" target="_blank" rel="noopener">Islandpferd</a>
     </div>
   </div>
+  <div class="transfer">
+    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
+    <div class="troute">Reykjanes → Snæfellsnes</div>
+    <div class="tdist">ca. 200 km · 2,5 Std ohne Stopps · über Borgarnes</div>
+    <div class="tstop">
+      <h4>Glymur</h4>
+      <p>Zweithöchster Wasserfall Islands, 198 Meter, in einer engen Schlucht versteckt. Der Weg dorthin ist der eigentliche Reiz: durch eine Höhle, über einen Baumstamm mit Drahtseil als Geländer, dann steil am Abgrund entlang. Drei Stunden hin und zurück. Die Furt am Rückweg lässt sich im Sommer barfuß queren.</p>
+      <p class="gps">64.3939, −21.2472 · Abzweig Straße 47 am Hvalfjörður</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=64.3939,-21.2472" target="_blank" rel="noopener">Karte</a><a href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a>
+    </div>
+    <div class="tstop">
+      <h4>Borgarnes &amp; Settlement Centre</h4>
+      <p>Der praktische Zwischenstopp: großer Bónus, Tankstelle, und im alten Lagerhaus am Hafen zwei Ausstellungen zur Besiedlung Islands und zur Egils-Saga. Audioguide auf Deutsch. Wenn ihr nur eine Stunde habt, nehmt die Saga-Hälfte.</p>
+      <p class="gps">64.5386, −21.9219 · Brákarbraut 13–15</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=64.5386,-21.9219" target="_blank" rel="noopener">Karte</a><a href="https://www.west.is/en" target="_blank" rel="noopener">Visit West</a>
+    </div>
+  </div>
+
   <div class="camp">
     <span class="label">Camp</span>
     <p>Für Surtshellir: Húsafell als Zwischenstopp. Danach Grundarfjörður oder Arnarstapi — Arnarstapi liegt direkt an der Steilküste.</p>
@@ -578,35 +629,35 @@ footer p + p{margin-top:.7rem}
       <h3>Látrabjarg</h3>
       <p>Vierzehn Kilometer Vogelfelsen, bis 440 Meter hoch, westlichster Punkt Europas. Papageitaucher auf wenige Meter, oft ohne andere Menschen. Kein Geländer, keine Absperrung — die Kante ist unterhöhlt, also Abstand halten und nicht zum Fotografieren hinlegen.</p>
       <p class="gps">65.5031, −24.5325 · Straße 612, Schotter</p>
-      <span class="links"><a class="info" href="https://en.wikipedia.org/wiki/L%C3%A1trabjarg" target="_blank" rel="noopener">Visit Westfjords</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a><a class="alt" href="https://www.wikiloc.com/hiking-trails/latrabjarg-cliffs-iceland-46680428" target="_blank" rel="noopener">Wikiloc</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/L%C3%A1trabjarg" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.komoot.com/de-de/guide/66143/wandern-in-vesturbygg" target="_blank" rel="noopener">komoot Vesturbyggð</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.5031&mlon=-24.5325#map=13/65.5031/-24.5325" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Dynjandi</h3>
       <p>Hundert Meter breiter Fächerwasserfall, davor sechs kleinere Stufen, die man auf dem Aufstieg nacheinander mitnimmt. Zwanzig Minuten hoch, frei zugänglich, Campingplatz direkt unten.</p>
       <p class="gps">65.7333, −23.2000 · an Straße 60</p>
-      <span class="links"><a class="info" href="https://en.wikipedia.org/wiki/Dynjandi" target="_blank" rel="noopener">Visit Westfjords</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=65.7333,-23.2000" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Dynjandi" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.komoot.com/de-de/guide/34091/wandern-in-isafjararbr" target="_blank" rel="noopener">komoot Ísafjarðarbær</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.7333&mlon=-23.2#map=15/65.7333/-23.2" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Rauðasandur</h3>
       <p>Rot-goldener Strand über mehrere Kilometer, der farblich nichts mit dem Rest Islands zu tun hat. Bei Ebbe weit rauslaufbar. Die Zufahrt ist eine steile Serpentinenpiste — für euren Wagen machbar, aber langsam.</p>
       <p class="gps">65.4667, −24.0333 · Straße 614</p>
-      <span class="links"><a class="info" href="https://thingstodoiniceland.is/attractions/raudasandur" target="_blank" rel="noopener">Visit Westfjords</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=65.4667,-24.0333" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Rau%C3%B0asandur" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.4667&mlon=-24.0333#map=13/65.4667/-24.0333" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Garðar BA 64</h3>
       <p>Islands ältestes Stahlschiff, Baujahr 1912 wie die Titanic, liegt seit Jahrzehnten am Strand bei Patreksfjörður und rostet vor sich hin. Man kann direkt heranlaufen und hineinsehen. Kein Zaun, kein Ticket, meist niemand da.</p>
       <p class="gps">65.6019, −23.9861 · Straße 62 bei Patreksfjörður</p>
-      <span class="links"><a class="info" href="https://guidetoiceland.is/nature-info/the-wild-westfjords-of-iceland" target="_blank" rel="noopener">Hintergrund</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=65.6019,-23.9861" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Gar%C3%B0ar_BA_64" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.6019&mlon=-23.9861#map=15/65.6019/-23.9861" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Sæból im Dýrafjörður</h3>
       <p>Ein abgelegenes Tal zwischen Flateyri und Þingeyri, in dem nur noch ein einziger Hof steht — dazu eine gepflegte Kirche aus einer Zeit, als hier mehr Leute lebten. Die Bäuerin verkauft Handarbeiten und guten Kaffee. Die Anfahrt allein lohnt den Umweg.</p>
       <p class="gps">65.9500, −23.5333 · Straße 624 am Dýrafjörður</p>
-      <span class="links"><a class="info" href="https://www.westfjords.is/" target="_blank" rel="noopener">Visit Westfjords</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=65.9500,-23.5333" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/D%C3%BDrafj%C3%B6r%C3%B0ur" target="_blank" rel="noopener">Wikipedia Dýrafjörður</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.95&mlon=-23.5333#map=13/65.95/-23.5333" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
@@ -620,16 +671,40 @@ footer p + p{margin-top:.7rem}
       <h3>Kajak ab Ísafjörður</h3>
       <p>Zweieinhalb Stunden auf dem Fjord, Steilwände über euch, Seehunde am Weg. Ohne eigenes Boot nur geführt — dafür kleine Gruppen.</p>
       <p class="gps">Treffpunkt Mávagarður C, Ísafjörður · 66.0748, −23.1355</p>
-      <a href="https://www.westfjords.is/" target="_blank" rel="noopener">Anbieter</a>
+      <a href="https://www.westfjords.is/" target="_blank" rel="noopener">Anbieter</a><a class="alt" href="https://de.wikipedia.org/wiki/%C3%8Dsafj%C3%B6r%C3%B0ur" target="_blank" rel="noopener">Wikipedia</a>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-sea">Wasser</span>
       <h3>Wakeboarding</h3>
       <p>Der nächste Verwandte zum Strandsegeln, den Island bietet. Kleiner lokaler Betrieb, vorher per Mail anfragen.</p>
       <p class="gps">Westfjorde, Ort je nach Wind · vorher per Mail anfragen</p>
-      <a href="https://www.westfjords.is/" target="_blank" rel="noopener">Wakeboarding Iceland</a>
+      <a href="https://www.westfjords.is/" target="_blank" rel="noopener">Wakeboarding Iceland</a><a class="alt" href="https://www.westfjords.is/" target="_blank" rel="noopener">Visit Westfjords</a>
     </div>
   </div>
+  <div class="transfer">
+    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
+    <div class="troute">Snæfellsnes → Westfjorde</div>
+    <div class="tdist">ca. 230 km · 3,5 Std über Land · Alternative: Fähre Baldur</div>
+    <div class="tstop">
+      <h4>Eiríksstaðir</h4>
+      <p>Rekonstruierter Torfhof an der Stelle, wo Erik der Rote lebte, bevor er Grönland besiedelte — und wo sein Sohn Leif geboren wurde, der 500 Jahre vor Kolumbus in Amerika landete. Darsteller in Wollkleidung erklären das Haus, man darf alles anfassen. Klein, ehrlich, nicht überinszeniert.</p>
+      <p class="gps">65.0619, −21.5306 · Straße 586 bei Búðardalur</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.0619,-21.5306" target="_blank" rel="noopener">Karte</a><a href="https://www.west.is/en" target="_blank" rel="noopener">Visit West</a>
+    </div>
+    <div class="tstop">
+      <h4>Hólmavík — Museum für Zauberei</h4>
+      <p>Das Tor zu den Westfjorden, und ein Museum über die Hexenverfolgung des 17. Jahrhunderts, bei der in Island überwiegend arme Männer verurteilt wurden. Ausgestellt sind Zauberstäbe, Runen — und die berüchtigten Nábrók, eine Hose aus der Haut eines Toten, die endlosen Reichtum bringen sollte. Skurril und ernst zugleich.</p>
+      <p class="gps">65.7078, −21.6836 · Höfðagata 8–10, Hólmavík</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.7078,-21.6836" target="_blank" rel="noopener">Karte</a><a href="https://www.westfjords.is/" target="_blank" rel="noopener">Visit Westfjords</a>
+    </div>
+    <div class="tstop">
+      <h4>Fähre Baldur als Alternative</h4>
+      <p>Von Stykkishólmur nach Brjánslækur, gut zweieinhalb Stunden mit Zwischenstopp auf der Insel Flatey. Spart die lange Landstrecke und bringt euch direkt in die Südwestfjorde — praktisch, wenn ihr mit Látrabjarg und Rauðasandur beginnen wollt. Camper müssen vorgebucht werden.</p>
+      <p class="gps">65.0745, −22.7297 · Hafen Stykkishólmur</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.0745,-22.7297" target="_blank" rel="noopener">Karte</a>
+    </div>
+  </div>
+
   <div class="camp">
     <span class="label">Camp</span>
     <p>Ísafjörður als Basis, Þingeyri und Flókalundur für unterwegs. Tankt früher als ihr denkt — zwischen den Fjorden liegen weite Strecken ohne Zapfsäule. Vier der besten Hotpots der Reise liegen auf dieser Etappe.</p>
@@ -649,42 +724,42 @@ footer p + p{margin-top:.7rem}
       <h3>Kverkfjöll-Alternative: Hverir & Leirhnjúkur</h3>
       <p>Leirhnjúkur bei Krafla ist ein noch dampfendes Lavafeld von 1984, auf markierten Pfaden begehbar — der Boden ist stellenweise handwarm. Hverir gegenüber ist ein Solfatarenfeld mit kochenden Schlammtöpfen. Beides frei, beides ohne Guide.</p>
       <p class="gps">65.7167, −16.7833 · bei Mývatn, Straße 1</p>
-      <span class="links"><a class="info" href="https://www.northiceland.is/en" target="_blank" rel="noopener">Hverir</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Krafla" target="_blank" rel="noopener">Wikipedia Krafla</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.7167&mlon=-16.7833#map=15/65.7167/-16.7833" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Ásbyrgi & Hljóðaklettar</h3>
       <p>Hufeisenförmige Schlucht im Vatnajökull-Nationalpark mit markierten Runden von 1 bis 7 km. Hljóðaklettar weiter südlich sind Basaltformationen in konzentrischen Kreisen. Zufahrt über Straße 862, asphaltiert.</p>
       <p class="gps">66.0206, −16.5069 · keine Anmeldung</p>
-      <span class="links"><a class="info" href="https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur/asbyrgi" target="_blank" rel="noopener">Nationalpark</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/%C3%81sbyrgi" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a><a class="alt" href="https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur/asbyrgi" target="_blank" rel="noopener">Nationalpark</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Hólmatungur</h3>
       <p>Zwischen Hljóðaklettar und Hólmatungur führt einer der schönsten Fußwege Islands am Jökulsá entlang: üppige Vegetation, Basaltformationen und Quellbäche, die über Felskanten in den Gletscherfluss stürzen. Deutlich stiller als Dettifoss weiter südlich.</p>
       <p class="gps">65.8500, −16.5167 · Straße 862, Jökulsárgljúfur</p>
-      <span class="links"><a class="info" href="https://www.northiceland.is/en/destinations/nature/scenic-nature" target="_blank" rel="noopener">Wegbeschreibung</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a></span>
+      <span class="links"><a class="info" href="https://www.openstreetmap.org/?mlat=65.85&mlon=-16.5167#map=14/65.85/-16.5167" target="_blank" rel="noopener">OSM Karte</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Kolugljúfur & Hvítserkur</h3>
       <p>Eine Schlucht mit Wasserfall direkt an der Straße, und ein Basaltfelsen im Meer, der aussieht wie ein trinkender Drache. Bei Ebbe läuft man bis an ihn heran.</p>
       <p class="gps">65.6089, −20.6350 · beide auf dem Weg</p>
-      <span class="links"><a class="info" href="https://www.northiceland.is/en" target="_blank" rel="noopener">Hvítserkur</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Hv%C3%ADtserkur" target="_blank" rel="noopener">Wikipedia Hvítserkur</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.6089&mlon=-20.635#map=13/65.6089/-20.635" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Kálfshamarsvík</h3>
       <p>Basaltsäulen, die in alle Richtungen laufen — senkrecht, waagerecht, gebogen, vor zwei Millionen Jahren erstarrt. Dazu ein Leuchtturm und die Ruinen eines Fischerdorfs, das um 1940 aufgegeben wurde. Auf der Skagi-Halbinsel, die fast niemand ansteuert.</p>
       <p class="gps">66.0389, −20.3583 · Straßen 74 und 745 ab Blönduós</p>
-      <span class="links"><a class="info" href="https://guidetoiceland.is/connect-with-locals/regina/kalfastrandavogur-extraordinary-basalt-columns-in-skagi" target="_blank" rel="noopener">Ausführlich</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=66.0389,-20.3583" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/K%C3%A1lfshamarsv%C3%ADk" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=66.0389&mlon=-20.3583#map=15/66.0389/-20.3583" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Illugastaðir & Vatnsnes</h3>
       <p>Eine der größten Robbenkolonien Islands, von Land aus zu beobachten — Fußweg am Wasser entlang, kleine Hütte als Sichtschutz. Auf derselben Halbinsel liegt Hvítserkur, das lässt sich verbinden.</p>
       <p class="gps">65.4667, −20.7333 · Straße 711, Westseite Vatnsnes</p>
-      <span class="links"><a class="info" href="https://www.northiceland.is/en" target="_blank" rel="noopener">Visit North Iceland</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=65.4667,-20.7333" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Vatnsnes" target="_blank" rel="noopener">Wikipedia Vatnsnes</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.4667&mlon=-20.7333#map=13/65.4667/-20.7333" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-horse">Pferd</span>
@@ -695,20 +770,38 @@ footer p + p{margin-top:.7rem}
       <a href="https://sydraskordugil.is/riding-tours/" target="_blank" rel="noopener">Syðra-Skörðugil</a>
     </div>
     <div class="act">
-      <span class="tag t-guide">Guide</span><span class="tag t-hike">Hochland</span>
+      <span class="tag t-guide">Guide<a class="gpx" href="https://www.komoot.com/de-de/guide/62667/wandern-in-sveitarfelagi-skagafjoerur" target="_blank" rel="noopener">komoot Skagafjörður</a></span><span class="tag t-hike">Hochland</span>
       <h3>Askja — nur so erreichbar</h3>
       <p>Der Kratersee mit dem badewarmen Víti daneben. Die Anfahrt hat mehrere echte Furten. Super-Jeep-Tour ab Mývatn ist die einzige Option für euch — <strong>nicht selbst fahren</strong>, das kostet euren Kaskoschutz.</p>
       <p class="gps">Askja: 65.0333, −16.7500 · Abfahrt ab Mývatn oder Akureyri</p>
-      <a href="https://www.geoiceland.com/" target="_blank" rel="noopener">Geo Iceland</a>
+      <a href="https://www.geoiceland.com/" target="_blank" rel="noopener">Geo Iceland</a><a class="alt" href="https://de.wikipedia.org/wiki/Askja" target="_blank" rel="noopener">Wikipedia</a>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-sea">Wasser</span>
       <h3>Wale ab Hjalteyri</h3>
       <p>Winziger Hafen im Eyjafjörður statt der vollen Boote in Húsavík. Kleine Gruppen, dieselben Buckelwale.</p>
       <p class="gps">Hjalteyri, 65.8664, −18.1936 · 25 Min nördlich von Akureyri</p>
-      <a href="https://www.northsailing.is/" target="_blank" rel="noopener">Anbieter</a>
+      <a href="https://www.northsailing.is/" target="_blank" rel="noopener">Anbieter</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.8664&mlon=-18.1936#map=14/65.8664/-18.1936" target="_blank" rel="noopener">OSM</a>
     </div>
   </div>
+  <div class="transfer">
+    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
+    <div class="troute">Westfjorde → Norden</div>
+    <div class="tdist">ca. 330 km ab Ísafjörður · 5 Std · lange Etappe, früh los</div>
+    <div class="tstop">
+      <h4>Kollafjörður &amp; Hveravík</h4>
+      <p>Auf der Strandir-Küste zwischen Hólmavík und Drangsnes liegt ein kleiner Hotpot direkt am Wasser, dazu ein ruhiger Campingplatz. Wenn ihr die Westfjorde über die Ostseite verlasst, ist das der letzte stille Halt, bevor die Ringstraße wieder voller wird.</p>
+      <p class="gps">65.7500, −21.4667 · Straße 61 nördlich Hólmavík</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.7500,-21.4667" target="_blank" rel="noopener">Karte</a>
+    </div>
+    <div class="tstop">
+      <h4>Hvammstangi &amp; Selasetur</h4>
+      <p>Das isländische Robbenzentrum in einem alten Handelshaus am Hafen — kleine Ausstellung, aktuelle Sichtungskarte für die Vatnsnes-Halbinsel. Praktisch, bevor ihr zu Illugastaðir hochfahrt: dort erfahrt ihr, wo die Tiere gerade liegen.</p>
+      <p class="gps">65.3958, −20.9425 · Strandgata 1, Hvammstangi</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.3958,-20.9425" target="_blank" rel="noopener">Karte</a><a href="https://www.northiceland.is/en" target="_blank" rel="noopener">Visit North</a>
+    </div>
+  </div>
+
   <div class="camp">
     <span class="label">Camp</span>
     <p>Varmahlíð für die Reittage, danach Mývatn. Am Mývatn hilft Mückenschutz mit Kopfnetz — im Hochsommer sind die Schwärme kein Scherz.</p>
@@ -735,58 +828,76 @@ footer p + p{margin-top:.7rem}
       <h3>Hafnarhólmi</h3>
       <p>Die entspannteste Papageitaucher-Kolonie Islands: Holzsteg und Plattform, Vögel auf Armlänge, kein Gedränge und kein Eintritt. Bis etwa Mitte August, danach sind sie weg.</p>
       <p class="gps">65.5300, −13.7856 · im Hafen von Borgarfjörður eystri</p>
-      <span class="links"><a class="info" href="https://www.east.is/en/destinations/communities/borgarfjordur-eystri" target="_blank" rel="noopener">Puffin-Infos</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=65.5300,-13.7856" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://www.borgarfjordureystri.is/en/aboutborgarfjordur/picture-gallery/hiking-in-east-iceland/storurd1" target="_blank" rel="noopener">Borgarfjörður</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.53&mlon=-13.7856#map=15/65.53/-13.7856" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Stuðlagil — die Ostseite</h3>
       <p>Basaltsäulen über türkisem Gletscherfluss. Die Westseite ist der volle Parkplatz mit Aussichtsplattform; die Ostseite verlangt fünf Kilometer Fußweg und bringt euch dafür ganz nach unten ans Wasser. Nehmt die Ostseite.</p>
       <p class="gps">65.1439, −15.3372 · Parkplatz Grund, dann 5 km</p>
-      <span class="links"><a class="info" href="https://www.east.is/en" target="_blank" rel="noopener">Visit East Iceland</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a><a class="alt" href="https://www.wikiloc.com/hiking-trails/studlagil-canyon-east-side-iceland-83429516" target="_blank" rel="noopener">Wikiloc</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Stu%C3%B0lagil" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.wikiloc.com/trails/hiking/iceland/east" target="_blank" rel="noopener">Wikiloc Ostisland</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.1439&mlon=-15.3372#map=14/65.1439/-15.3372" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Stórurð</h3>
       <p>Riesige Felsblöcke in türkisen Tümpeln auf einer Hochebene, sechs bis sieben Stunden hin und zurück ab dem Vatnsskarð-Pass. Anspruchsvoll, markiert, und selbst im August oft menschenleer. Erst ab etwa Ende Juni schneefrei.</p>
       <p class="gps">65.4661, −14.2833 · Pass an Straße 94</p>
-      <span class="links"><a class="info" href="https://www.east.is/en/destinations/communities/borgarfjordur-eystri" target="_blank" rel="noopener">Wegbeschreibung</a><a class="gpx" href="https://www.alltrails.com/trail/iceland/eastern/stutro" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a><a class="alt" href="https://www.wikiloc.com/hiking-trails/storurd-iceland-42258297" target="_blank" rel="noopener">Wikiloc</a></span>
+      <span class="links"><a class="info" href="https://www.borgarfjordureystri.is/en/hiking-walking/from-the-village-and-back-3d" target="_blank" rel="noopener">Víknaslóðir</a><a class="gpx" href="https://www.wikiloc.com/hiking-trails/storurd-54588955" target="_blank" rel="noopener">Wikiloc Tour</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.4661&mlon=-14.2833#map=13/65.4661/-14.2833" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Strútsfoss</h3>
       <p>Hengifoss hat den vollen Parkplatz und Stau auf dem Pfad. Strútsfoss ist größer, hat dieselben roten Tonschichten im Fels, zwei Stufen — und ihr steht dort meist allein. Der Haken ist nur der Einstieg: bis zum Hof Sturluflöt über Straße 935 durchfahren, der Parkplatz liegt direkt daneben.</p>
       <p class="gps">64.8667, −14.8833 · Straße 935 bis Sturluflöt</p>
-      <span class="links"><a class="info" href="https://epiciceland.net/hidden-gems-iceland/" target="_blank" rel="noopener">Anfahrt & Weg</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a></span>
+      <span class="links"><a class="info" href="https://epiciceland.net/hidden-gems-iceland/" target="_blank" rel="noopener">Anfahrt & Weg</a><a class="gpx" href="https://www.openstreetmap.org/?mlat=64.8667&mlon=-14.8833#map=13/64.8667/-14.8833" target="_blank" rel="noopener">OSM Karte</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Petras Steinsammlung</h3>
       <p>Eine Frau aus Stöðvarfjörður trug ab 1946 ihr Leben lang Mineralien zusammen — Achat, Amethyst, Jaspis, Quarz. Alles steht heute in ihrem Wohnhaus und im Garten, nicht in Vitrinen. Ausgewählte Stücke darf man anfassen, Lupen liegen bereit. Kein klassisches Museum, sondern jemandes Zuhause.</p>
       <p class="gps">64.8322, −13.8489 · Fjarðarbraut 21, Stöðvarfjörður</p>
-      <span class="links"><a class="info" href="https://www.east.is/en/blog/petras-stone-collection-a-rare-mineral-museum-in-the-east-fjords" target="_blank" rel="noopener">Visit Austurland</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=64.8322,-13.8489" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://www.east.is/en/blog/petras-stone-collection-a-rare-mineral-museum-in-the-east-fjords" target="_blank" rel="noopener">Visit Austurland</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.8322&mlon=-13.8489#map=15/64.8322/-13.8489" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Seyðisfjörður & Fjarðarheiði</h3>
       <p>Künstlerdorf mit regenbogenfarbener Straße, dazu die Passstraße mit einem Dutzend Wasserfällen. Der Weg selbst ist die Attraktion — auch im Sommer kann oben Nebel liegen, also früh fahren.</p>
       <p class="gps">65.2600, −14.0100 · Straße 93</p>
-      <span class="links"><a class="info" href="https://www.visitseydisfjordur.com/" target="_blank" rel="noopener">Visit Seyðisfjörður</a><a class="info" href="https://www.road.is/" target="_blank" rel="noopener">Passzustand</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Sey%C3%B0isfj%C3%B6r%C3%B0ur" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.road.is/" target="_blank" rel="noopener">Passzustand</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Djúpivogur & Auðunns Steine</h3>
       <p>Einer der schönsten Häfen Islands, dazu Eggin í Gleðivík — 34 überdimensionale Steineier am Kai, je eines für eine heimische Vogelart. Im alten Bankgebäude zeigt Auðunn seine aufgesägten und polierten Fundstücke aus den Bergen ringsum.</p>
       <p class="gps">64.6558, −14.2833 · Markland 1, Djúpivogur</p>
-      <span class="links"><a class="info" href="https://www.east.is/en/natural-and-cultural-monuments/stone-collections-in-east-iceland" target="_blank" rel="noopener">Steinsammlungen Ost</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=64.6558,-14.2833" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://www.east.is/en/natural-and-cultural-monuments/stone-collections-in-east-iceland" target="_blank" rel="noopener">Steinsammlungen</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.6558&mlon=-14.2833#map=15/64.6558/-14.2833" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-sea">Wasser</span>
       <h3>Kajak in Seyðisfjörður</h3>
       <p>Paddeln im schmalen Fjord zwischen Wasserfällen. Ohne eigenes Boot nur geführt.</p>
       <p class="gps">Hafen Seyðisfjörður · 65.2600, −14.0100</p>
-      <a href="https://www.hlynur.is/" target="_blank" rel="noopener">Seyðisfjörður Tours</a>
+      <a href="https://www.hlynur.is/" target="_blank" rel="noopener">Seyðisfjörður Tours</a><a class="alt" href="https://de.wikipedia.org/wiki/Sey%C3%B0isfj%C3%B6r%C3%B0ur" target="_blank" rel="noopener">Wikipedia</a>
     </div>
   </div>
+  <div class="transfer">
+    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
+    <div class="troute">Norden → Osten</div>
+    <div class="tdist">ca. 165 km Mývatn–Egilsstaðir · 2,5 Std · Hochebene ohne Tankstelle</div>
+    <div class="tstop">
+      <h4>Möðrudalur — Fjallakaffi</h4>
+      <p>Islands höchstgelegener bewohnter Hof, 469 Meter, mitten in der Vulkanwüste. Torfkirche, Campingplatz und ein Café, das Kjötsúpa und selbstgebackenes Brot serviert. Bei klarer Sicht steht rechts der Herðubreið, den die Isländer die Königin ihrer Berge nennen. Zufahrt über Straße 901, Schotter, im Sommer für jedes Auto machbar.</p>
+      <p class="gps">65.3667, −15.9000 · Straße 901, Abzweig von der Ringstraße</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.3667,-15.9000" target="_blank" rel="noopener">Karte</a><a href="https://fjalladyrd.is/" target="_blank" rel="noopener">Fjalladýrð</a>
+    </div>
+    <div class="tstop">
+      <h4>Dettifoss über die Westseite</h4>
+      <p>Europas wasserreichster Wasserfall, 500 Kubikmeter pro Sekunde. Die Westseite über Straße 862 ist asphaltiert und führt näher ans Wasser — Gischt bis auf den Weg. Die Ostseite ist Schotter und meist voller. Liegt genau zwischen Mývatn und der Abzweigung nach Osten.</p>
+      <p class="gps">65.8144, −16.3844 · Straße 862, asphaltiert</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.8144,-16.3844" target="_blank" rel="noopener">Karte</a><a href="https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur" target="_blank" rel="noopener">Nationalpark</a>
+    </div>
+  </div>
+
   <div class="camp">
     <span class="label">Camp</span>
     <p>Seyðisfjörður und Borgarfjörður eystri sind beide klein und gut. Für Stórurð lohnt eine Nacht in Borgarfjörður, um früh loszukommen.</p>
@@ -806,42 +917,42 @@ footer p + p{margin-top:.7rem}
       <h3>Skaftafell auf eigene Faust</h3>
       <p>Vom Besucherzentrum führen markierte Wege zu Svartifoss, weiter zum Sjónarnípa-Aussichtspunkt über der Gletscherzunge und auf die Hochebene Skerhóll. Halber bis ganzer Tag, keine Anmeldung. <strong>Aber:</strong> die Gletscherzunge selbst nicht ohne Guide betreten — Spalten unter Schneebrücken.</p>
       <p class="gps">64.0167, −16.9667 · Nationalpark-Zentrum</p>
-      <span class="links"><a class="info" href="https://www.vatnajokulsthjodgardur.is/en/areas/skaftafell" target="_blank" rel="noopener">Alle Wege im Park</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a></span>
+      <span class="links"><a class="info" href="https://www.vatnajokulsthjodgardur.is/en/areas/skaftafell" target="_blank" rel="noopener">Nationalpark</a><a class="gpx" href="https://www.wikiloc.com/hiking-trails/skaftafellsstofa-svartifoss-sjonarnipa-iceland-16713142" target="_blank" rel="noopener">Wikiloc Tour</a><a class="alt" href="https://www.vatnajokulsthjodgardur.is/en/areas/skaftafell/svartifoss-sjonarnipa-s6" target="_blank" rel="noopener">Route S6 offiziell</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Fimmvörðuháls — oberer Teil</h3>
       <p>Der Klassiker geht über 25 km nach Þórsmörk. Ihr könnt aber vom Süden ab Skógafoss die Treppe hoch und dem Fluss folgen, so weit ihr wollt: 26 Wasserfälle auf den ersten acht Kilometern, dann umdrehen. Keine Furt, keine Buchung.</p>
       <p class="gps">63.5319, −19.5114 · ab Skógafoss-Parkplatz</p>
-      <span class="links"><a class="info" href="https://en.wikipedia.org/wiki/Fimmv%C3%B6r%C3%B0uh%C3%A1ls" target="_blank" rel="noopener">Streckeninfo</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Fimmv%C3%B6r%C3%B0uh%C3%A1ls" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.wikiloc.com/hiking-trails/fimmvorduhals-skogar-thorsmork-1694199" target="_blank" rel="noopener">Wikiloc Tour</a><a class="alt" href="https://www.fi.is/en/hiking-trails/trails/fimmvorduhals" target="_blank" rel="noopener">Ferðafélag Íslands</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Hjörleifshöfði & Fjaðrárgljúfur</h3>
       <p>Die „Yoda-Höhle" Gýgjagjá in einem Tuffberg mitten im Schwarzsand — 20 Meter hohe Öffnung, frei begehbar, kaum besucht. Fjaðrárgljúfur dagegen nur vor acht Uhr morgens, danach ist die Moosschlucht ein anderer Ort.</p>
       <p class="gps">63.4167, −18.7667 · Hjörleifshöfði, Abzweig Straße 1</p>
-      <span class="links"><a class="info" href="https://guidetoiceland.is/connect-with-locals/regina/my-top-8-most-favourite-caves-in-iceland" target="_blank" rel="noopener">Yoda-Höhle</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a><a class="alt" href="https://www.wikiloc.com/hiking-trails/hjorleifshofdi-iceland-64790825" target="_blank" rel="noopener">Wikiloc</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Hj%C3%B6rleifsh%C3%B6f%C3%B0i" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.wikiloc.com/trails/hiking/iceland" target="_blank" rel="noopener">Wikiloc Island</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.4167&mlon=-18.7667#map=13/63.4167/-18.7667" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Þakgil</h3>
       <p>Ein grünes Tal zwischen Mýrdalsjökull und Schwarzsand, 15 km Schotterpiste ab Vík — steil und kurvig, aber ohne Furt. Oben Campingplatz und markierte Wege. Deutlich stiller als alles andere im Süden.</p>
       <p class="gps">63.5333, −18.8833 · Straße 214</p>
-      <span class="links"><a class="info" href="https://www.thakgil.is/" target="_blank" rel="noopener">Þakgil</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a><a class="alt" href="https://www.komoot.com/guide/71967/hiking-in-iceland" target="_blank" rel="noopener">komoot</a><a class="alt" href="https://www.wikiloc.com/hiking-trails/thakgil-iceland-38769617" target="_blank" rel="noopener">Wikiloc</a></span>
+      <span class="links"><a class="info" href="https://www.thakgil.is/" target="_blank" rel="noopener">Þakgil</a><a class="gpx" href="https://www.wikiloc.com/trails/hiking/iceland" target="_blank" rel="noopener">Wikiloc Island</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.5333&mlon=-18.8833#map=13/63.5333/-18.8833" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Vestrahorn bei Höfn</h3>
       <p>Ein 454 Meter hoher Gabbro-Zacken, der direkt aus dem schwarzen Sand aufsteigt, davor Dünen mit Strandhafer und bei Windstille eine Spiegelung im nassen Sand. Privatgrund mit kleiner Schranke und Gebühr am Café — dafür fast immer leer.</p>
       <p class="gps">64.2500, −14.9833 · Stokksnes, Abzweig Straße 1 bei Höfn</p>
-      <span class="links"><a class="info" href="https://www.east.is/en" target="_blank" rel="noopener">Visit Austurland</a><a class="info" href="https://www.google.com/maps/search/?api=1&query=64.2500,-14.9833" target="_blank" rel="noopener">Karte</a></span>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Vestrahorn" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.25&mlon=-14.9833#map=13/64.25/-14.9833" target="_blank" rel="noopener">OSM</a></span>
     </div>
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
       <h3>Múlagljúfur</h3>
       <p>Die Schlucht, die Fjaðrárgljúfur sein könnte, wenn dort niemand wäre: Moosgrüne Wände, zwei Wasserfälle, Blick bis zum Gletscher. Der Einstieg ist ein unbeschilderter Schotterabzweig von der Ringstraße, danach 45 Minuten steil bergauf ohne Geländer.</p>
       <p class="gps">63.9739, −16.4147 · Abzweig zwischen Svínafell und Fjallsárlón</p>
-      <span class="links"><a class="info" href="https://epiciceland.net/hidden-gems-iceland/" target="_blank" rel="noopener">Anfahrt & Weg</a><a class="gpx" href="https://www.alltrails.com/iceland" target="_blank" rel="noopener">AllTrails</a></span>
+      <span class="links"><a class="info" href="https://epiciceland.net/hidden-gems-iceland/" target="_blank" rel="noopener">Anfahrt & Weg</a><a class="gpx" href="https://www.openstreetmap.org/?mlat=63.9739&mlon=-16.4147#map=14/63.9739/-16.4147" target="_blank" rel="noopener">OSM Karte</a></span>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-hike">Gletscher</span>
@@ -849,16 +960,34 @@ footer p + p{margin-top:.7rem}
       <p>Mit Steigeisen und Eispickel über Spalten und Gletschermühlen. Drei bis vier Stunden. Das Einzige auf dieser Etappe, das ihr wirklich nicht allein machen solltet — Spaltensturz ist die häufigste Todesursache auf isländischen Gletschern.</p>
       <p class="gps">Treffpunkt Skaftafell-Besucherzentrum · 64.0167, −16.9667</p>
       <a href="https://adventures.is/iceland/day-tours/glacier-hiking/" target="_blank" rel="noopener">Arctic Adventures</a>
-      <a href="https://icelandguidedtours.is/" target="_blank" rel="noopener">Mountain Guides</a>
+      <a href="https://icelandguidedtours.is/" target="_blank" rel="noopener">Mountain Guides</a><a class="alt" href="https://de.wikipedia.org/wiki/Fallj%C3%B6kull" target="_blank" rel="noopener">Wikipedia</a>
     </div>
     <div class="act">
       <span class="tag t-guide">Guide</span><span class="tag t-hike">Hochland</span>
       <h3>Þórsmörk per Hochlandbus</h3>
       <p>Tal zwischen drei Gletschern, erreichbar nur über tiefe Furten. Der Bus fährt sie euch — Auto stehen lassen, oben selbstständig wandern, abends zurück. Der Bus ist die Buchung, der Tag gehört euch.</p>
       <p class="gps">Bus ab Hvolsvöllur (63.7494, −20.2242) oder Seljalandsfoss · Ziel Básar/Langidalur</p>
-      <a href="https://www.re.is/tour/thorsmork-volcano-hike/" target="_blank" rel="noopener">Reykjavík Excursions</a>
+      <a href="https://www.re.is/tour/thorsmork-volcano-hike/" target="_blank" rel="noopener">Reykjavík Excursions</a><a class="alt" href="https://de.wikipedia.org/wiki/%C3%9E%C3%B3rsm%C3%B6rk" target="_blank" rel="noopener">Wikipedia</a>
     </div>
   </div>
+  <div class="transfer">
+    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
+    <div class="troute">Osten → Süden</div>
+    <div class="tdist">ca. 265 km Egilsstaðir–Höfn · 3,5 Std · Küstenstraße durch die Ostfjorde</div>
+    <div class="tstop">
+      <h4>Stöðvarfjörður &amp; Fáskrúðsfjörður</h4>
+      <p>Zwei winzige Fjorddörfer auf der Küstenroute. In Fáskrúðsfjörður stehen die Straßenschilder zweisprachig isländisch-französisch — hier lag über Jahrzehnte die Basis der französischen Fischer, mit eigenem Krankenhaus und Friedhof. In Stöðvarfjörður liegt Petras Steinsammlung.</p>
+      <p class="gps">64.9333, −14.0167 · Straße 96, Küstenroute</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=64.9333,-14.0167" target="_blank" rel="noopener">Karte</a><a href="https://www.east.is/en" target="_blank" rel="noopener">Visit Austurland</a>
+    </div>
+    <div class="tstop">
+      <h4>Hvalnes &amp; Þvottárskriður</h4>
+      <p>Zwischen Djúpivogur und Höfn läuft die Straße direkt unter den Geröllhängen des Vestrahorn-Massivs entlang, links das Meer, rechts schwarze Felswände. Am Leuchtturm von Hvalnes ein Parkplatz mit Blick auf den Schwarzsandstrand und die Lagune — fünf Minuten Halt, große Wirkung.</p>
+      <p class="gps">64.4014, −14.5411 · Ringstraße, Abzweig am Leuchtturm</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=64.4014,-14.5411" target="_blank" rel="noopener">Karte</a>
+    </div>
+  </div>
+
   <div class="camp">
     <span class="label">Camp</span>
     <p>Þakgil, Skaftafell, Kirkjubæjarklaustur. Im Hochsommer sind die Südplätze abends voll — früh ankommen oder eine Ecke weiter fahren.</p>
@@ -1019,6 +1148,24 @@ footer p + p{margin-top:.7rem}
     <p class="snote"><strong>Tipp:</strong> Lade die Regionskarten für Vestfirðir (Westfjorde) und Austurland (Ostisland) vor der Abreise offline herunter. Dort ist über weite Strecken kein Netz — und genau da liegen die Ziele, die sonst niemand ansteuert.</p>
   </div>
 
+  <div class="transfer">
+    <div class="tlabel">Letzter Abschnitt</div>
+    <div class="troute">Süden → Keflavík</div>
+    <div class="tdist">ca. 190 km ab Vík · 2,5 Std · Rückgabe und Abflug</div>
+    <div class="tstop">
+      <h4>Seljalandsfoss von hinten</h4>
+      <p>Der Wasserfall, hinter den man laufen kann — und deshalb tagsüber überlaufen. Nach 21 Uhr ist der Parkplatz halb leer und die Abendsonne steht direkt im Wasservorhang. Regenjacke anziehen, ihr werdet nass. 60 Meter weiter versteckt sich Gljúfrabúi in einer Felsspalte, den übersehen die meisten.</p>
+      <p class="gps">63.6156, −19.9886 · Ringstraße, eigener Parkplatz</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=63.6156,-19.9886" target="_blank" rel="noopener">Karte</a>
+    </div>
+    <div class="tstop">
+      <h4>Puffer für den Rückflug</h4>
+      <p>Zwischen Vík und Keflavík liegen 2,5 Stunden ohne Stopp. Plant den letzten Abend lieber in Hveragerði oder Selfoss statt in Vík — dann sind es morgens nur 45 Minuten zum Flughafen, und ihr habt Zeit für Tanken, Camper-Reinigung und die Rückgabe.</p>
+      <p class="gps">63.9931, −22.6056 · Flughafen Keflavík</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=63.9931,-22.6056" target="_blank" rel="noopener">Karte</a>
+    </div>
+  </div>
+
   <div class="camp">
     <span class="label">Regeln</span>
     <p>In Naturhotpots gibt es keine Duschen — in öffentlichen Schwimmbädern ist das gründliche Duschen ohne Badesachen dagegen Pflicht und wird kontrolliert. Handtuch, Badeschuhe und ein Müllbeutel gehören ins Auto. Wo eine Spendenbox steht, benutzt sie: davon lebt der Unterhalt.</p>
@@ -1031,8 +1178,8 @@ footer p + p{margin-top:.7rem}
   <p><strong>Vor jeder Etappe prüfen:</strong> <a href="https://safetravel.is/" target="_blank" rel="noopener">safetravel.is</a> für Warnungen · <a href="https://www.road.is/" target="_blank" rel="noopener">road.is</a> für Straßenzustand und F-Straßen-Öffnung · <a href="https://en.vedur.is/" target="_blank" rel="noopener">vedur.is</a> für Wetter und Wind.</p>
   <p><strong>Camping:</strong> Wildcampen mit dem Camper ist in Island verboten. Der <a href="https://www.campingcard.is/" target="_blank" rel="noopener">Camping Card</a> lohnt sich ab etwa zwei Wochen.</p>
   <p><strong>Buchen:</strong> Höhlen, Gletscher und Kajak im Hochsommer möglichst ein paar Tage vorher — der Rest der Route funktioniert spontan.</p>
-  <p><strong>Karte:</strong> Alle 56 Ziele dieser Seite gibt es als interaktive Karte (<code>island-karte.html</code>) und als GPX-Datei (<code>island-route.gpx</code>) zum Import in komoot, Organic Maps oder OsmAnd.</p>
-  <p><strong>Tracks:</strong> Die komoot-Links führen zur Suche für das jeweilige Ziel — Tour aussuchen, offline speichern. Bei fünf abgelegenen Zielen steht Wikiloc als Zweitquelle daneben, dort ist die Abdeckung teils dichter. Die Suchbegriffe in Originalschreibweise stehen im Reiter „Hotpots" unten.</p>
+  <p><strong>Karte:</strong> Alle 68 Ziele dieser Seite gibt es als interaktive Karte (<code>island-karte.html</code>) und als GPX-Datei (<code>island-route.gpx</code>) zum Import in komoot, Organic Maps oder OsmAnd.</p>
+  <p><strong>Tracks:</strong> Drei Ziele haben einen direkten Wikiloc-Track (Stórurð, Skaftafell, Fimmvörðuháls), Reykjadalur einen auf AllTrails. Bei den übrigen führt der grüne Link auf den komoot-Regionsführer der jeweiligen Gemeinde oder die Wikiloc-Regionsseite — dort ist die passende Tour ein bis zwei Klicks entfernt. Für Skaftafell und Fimmvörðuháls steht zusätzlich die offizielle Routenbeschreibung des Nationalparks bzw. des isländischen Wandervereins daneben; die ist verlässlicher als jeder nutzergenerierte Track.</p>
   <p><strong>Ausrüstung für die wilden Höhlen:</strong> Zwei Lichtquellen pro Person (Stirnlampe plus Reserve), Helm, feste Schuhe, Handschuhe. In Surtshellir und Maríuhellar gibt es kein Licht, keine Stege und kein Personal. Sagt jemandem, wo ihr seid.</p>
   <p><strong>Hotpots:</strong> GPS-Koordinaten im Reiter „Hotpots" vor der Abfahrt offline speichern — in den Westfjorden und im Osten gibt es streckenweise kein Netz.</p>
 </footer>
