@@ -398,6 +398,57 @@ main{padding:0 clamp(1.2rem,5vw,4rem) 5rem}
 }
 .tstop a::after{content:" ↗"}
 
+.subetappe{
+  margin:2rem 0 0;
+  border:2px solid var(--rust);
+  border-radius:8px;
+  overflow:hidden;
+}
+.sub-head{
+  background:var(--rust);
+  color:#fff;
+  padding:1rem 1.2rem;
+}
+.sub-head .tlabel{color:#fbe3d6;margin-bottom:.25rem}
+.sub-head h3{font-size:1.35rem;font-weight:700;line-height:1.2}
+.sub-head p{font-size:.93rem;color:#fbe3d6;margin-top:.35rem}
+.sub-body{padding:1.2rem;background:#fff}
+.step{
+  display:flex;gap:.9rem;padding:0 0 1.2rem;
+}
+.step:last-of-type{padding-bottom:.3rem}
+.stepnum{
+  flex:0 0 auto;width:26px;height:26px;border-radius:50%;
+  background:var(--rust);color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+}
+.stepbody h4{font-size:1rem;font-weight:700;color:var(--paper);margin-bottom:.3rem}
+.stepbody p{font-size:.93rem;color:var(--ash)}
+.stepbody p + p{margin-top:.5rem}
+.stepbody a{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--rust);
+  text-decoration:none;border-bottom:1px solid var(--rust);
+  margin-right:.9rem;display:inline-block;margin-top:.5rem;
+}
+.stepbody a::after{content:" ↗"}
+.fares{
+  width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.6rem;
+}
+.fares th{
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ash);text-align:left;font-weight:400;
+  padding:.4rem .5rem .4rem 0;border-bottom:1px solid var(--line);
+}
+.fares td{padding:.45rem .5rem .45rem 0;border-bottom:1px solid #ece8e0;color:var(--ash)}
+.fares td:first-child{color:var(--paper);font-weight:600}
+.fares td:last-child{font-family:'JetBrains Mono',monospace;font-size:.82rem}
+.foxbox{
+  background:#f3efe7;border-left:3px solid var(--moss);
+  padding:.9rem 1.1rem;margin-top:1rem;font-size:.92rem;color:var(--ash);
+}
+.foxbox strong{color:var(--paper)}
+
 /* ---------- Camping ---------- */
 .camp{
   padding:1.8rem 0 0;
@@ -802,6 +853,94 @@ footer p + p{margin-top:.7rem}
     </div>
   </div>
 
+  <div class="subetappe">
+    <div class="sub-head">
+      <div class="tlabel">Unteretappe · 2–3 Nächte im Zelt</div>
+      <h3>Hornstrandir</h3>
+      <p>Keine Insel, sondern die Nordspitze der Westfjorde — ohne Straße, ohne Strom, ohne Läden. Der einzige Zugang ist per Boot ab Ísafjörður. Polarfüchse werden hier seit 1975 nicht gejagt und sind entsprechend zutraulich.</p>
+    </div>
+    <div class="sub-body">
+
+      <div class="step">
+        <div class="stepnum">1</div>
+        <div class="stepbody">
+          <h4>Boot buchen — das Nadelöhr</h4>
+          <p>Borea Adventures fährt im Sommer täglich ab Ísafjörður. Hesteyri und Veiðileysufjörður kosten 14.900 ISK pro Strecke, Hornvík 19.300 ISK. Preise gelten pro Richtung, Hin- und Rückfahrt also doppelt.</p>
+          <table class="fares">
+            <thead><tr><th>Ziel</th><th>Anbieter · Abfahrten</th><th>Preis</th></tr></thead>
+            <tbody>
+              <tr><td>Hesteyri</td><td>Borea: Mo, Mi, Do, So · 9:00 und 16:00</td><td>14.900</td></tr>
+              <tr><td>Hesteyri</td><td>Sjóferðir: Mo, Mi 14:00 · Di 17:00 · Fr, Sa 9:00</td><td>—</td></tr>
+              <tr><td>Hesteyri</td><td>HornstrandirTours ab Bolungarvík: <strong>täglich 9:00</strong></td><td>—</td></tr>
+              <tr><td>Veiðileysufjörður</td><td>Borea: Mo, Di, Mi, Do, Fr, So</td><td>14.900</td></tr>
+              <tr><td>Aðalvík</td><td>Sjóferðir: Di, Mi 9:00 · Fr 17:30 · Sa 15:30</td><td>—</td></tr>
+              <tr><td>Hornvík</td><td>Borea: Mo und Sa 9:00 · Sjóferðir: Do 9:00, So 13:00</td><td>19.300</td></tr>
+            </tbody>
+          </table>
+          <p>Preise sind Borea-Preise pro Strecke; Sjóferðir und HornstrandirTours liegen in ähnlicher Höhe, dort direkt anfragen. Die Zeiten sind Abfahrten <strong>ab</strong> Hafen. Für die Rückfahrt steht die Abholzeit im Buchungskalender oder auf dem Ticket — sie hängt davon ab, wie viele Ziele das Boot an dem Tag anläuft. 20 Minuten vor Abfahrt am Hafen sein.</p>
+          <p>Es fahren drei Firmen: Borea und Sjóferðir ab Ísafjörður, HornstrandirTours ab Bolungarvík. <strong>Hesteyri wird von Bolungarvík aus täglich um 9:00 bedient</strong> — die flexibelste Verbindung überhaupt. Hin- und Rückfahrt dürfen bei verschiedenen Firmen gebucht werden, ein Wechsel nach der Buchung ist aber oft kostenpflichtig.</p>
+          <p>Über die letzte Entscheidung bei Sturm verfügt immer der Kapitän. Bei anderen Zielen wie Hlöðuvík oder Hrafnfjörður lohnt eine Anfrage bei West Tours, die als Agentur für alle drei arbeiten.</p>
+          <p><strong>Es gibt keine Anleger im Schutzgebiet</strong> — ein Schlauchboot setzt euch an Land. Rechnet mit nassen Füßen und packt entsprechend.</p>
+          <p><strong>Gepäck:</strong> Ein Rucksack pro Person inklusive Campingausrüstung, etwa 20 kg, ist inbegriffen. Jedes weitere Gepäckstück kostet 5.000 ISK.</p>
+          <p class="gps">Borea: Aðalstræti 17, Ísafjörður · +354 456 3322 · info@borea.is<br>Sjóferðir: Ásgeirsgata, Ísafjörður · +354 825 5550 · sjoferdir@sjoferdir.is<br>West Tours (Agentur für alle drei): Aðalstræti 7, Ísafjörður · +354 456 5111 · info@westtours.is</p>
+          <a href="https://boreaadventures.com/schedule-destinations/" target="_blank" rel="noopener">Borea Fahrplan 2026</a>
+          <a href="https://www.sjoferdir.is/en" target="_blank" rel="noopener">Sjóferðir</a>
+          <a href="https://westtours.is/ferry-schedules-2024/" target="_blank" rel="noopener">Alle Fahrpläne</a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="stepnum">2</div>
+        <div class="stepbody">
+          <h4>Route wählen</h4>
+          <p><strong>Variante A — Hesteyri, zwei Nächte.</strong> Hin und zurück ab Hesteyri, von dort Tagestouren. Die meisten Abfahrten, also am flexibelsten. Mögliche Tagesrunde: Hesteyri → Látrar über den Pass Hesteyrarskarð (270 m), 10 km, 4 Stunden — alter, gut sichtbarer Weg, am Ende die Furt durch den Stakkadalsós mit Sandgrund.</p>
+          <p><strong>Variante B — Hornvík, drei Nächte.</strong> Rein über Veiðileysufjörður, über den Hafnarskarð-Pass (519 m) nach Hornvík: 10 km, 4–5 Stunden, gut mit Steinmännern markiert. Der Pass ist steil und liegt bis weit in den Sommer unter Schnee, dazu viele Bäche, die bei Nässe nicht mehr überspringbar sind. Von Hornvík aus die große Runde zum Vogelfelsen Hornbjarg: 13 km, 8–10 Stunden, mit Furt durch den Hafnarós.</p>
+          <p><strong>Achtung Fahrplan:</strong> Hornvík wird nur montags und samstags bedient. Das legt eure Tage fest — rein am Montag, raus am Samstag oder umgekehrt.</p>
+          <p>Die Wege sind mit Steinmännern markiert, aber die Behörde weist ausdrücklich darauf hin, dass man sie in fremder Umgebung leicht verfehlt. Karte und Kompass oder GPS sind Pflicht.</p>
+          <a href="https://ust.is/library/Skrar/Einstaklingar/Nattura/Fridlyst-Svaedi/Vestfirdir/Hornstrandir/Hornst_fix_300_A4_2019.pdf" target="_blank" rel="noopener">Offizielle Wanderkarte (PDF)</a>
+          <a href="https://ust.is/english/visiting-iceland/protected-areas/westfjords/hornstrandir/hiking-trails/" target="_blank" rel="noopener">Alle Etappen im Detail</a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="stepnum">3</div>
+        <div class="stepbody">
+          <h4>Elektronisch registrieren</h4>
+          <p>Jede Aktivität im Schutzgebiet muss vorab elektronisch bei der Umweltbehörde angemeldet werden. Dazu den Reiseplan bei SafeTravel hinterlegen — das ist im Notfall die Grundlage für die Suche.</p>
+          <p>Anlaufstelle vor Ort ist die Hornstrandastofa in Ísafjörður, Silfurgata 1, mitten im Ort. Im Sommer Montag bis Samstag 8:15 bis 15:30, mit Rangern, die bei der Planung helfen.</p>
+          <a href="https://ust.is/english/visiting-iceland/protected-areas/westfjords/hornstrandir/useful-information/" target="_blank" rel="noopener">Behörden-Infoseite</a>
+          <a href="https://safetravel.is/" target="_blank" rel="noopener">Reiseplan hinterlegen</a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="stepnum">4</div>
+        <div class="stepbody">
+          <h4>Zelten — kostenlos, aber nur auf Plätzen</h4>
+          <p>Die Campingplätze sind gratis: vierzehn von der Umweltbehörde plus zwei private. Alle haben Trockenklo oder WC. Außerhalb dieser Flächen ist Zelten verboten, das normale isländische Jedermannsrecht gilt hier nicht.</p>
+          <p>Offenes Feuer ist im gesamten Schutzgebiet untersagt, Gaskocher sind erlaubt. Hunde dürfen nicht mit, Fahrräder auch nicht, Drohnen nur mit Genehmigung.</p>
+          <a href="https://ust.is/english/visiting-iceland/protected-areas/westfjords/hornstrandir/" target="_blank" rel="noopener">Schutzgebiet</a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="stepnum">5</div>
+        <div class="stepbody">
+          <h4>Packen und Puffer einplanen</h4>
+          <p>Sturmfestes Zelt, warmer Schlafsack, wasserdichte Kleidung, Schuhe für Bachquerungen. Verpflegung für mindestens einen Tag mehr als geplant — bei Wind fährt das Boot nicht, und das kommt regelmäßig vor. Legt Hornstrandir nicht direkt vor einen Anschlusstermin.</p>
+          <p>Schneefelder liegen ganzjährig, im Frühsommer teils steil. Das Gebiet ist bewusst WLAN-frei; Handyempfang gibt es nur auf Gipfeln und Pässen. Satellitengerät oder heruntergeladene Offline-Karten sind daher Pflicht. In Notunterkünften stehen Funkgeräte, die aber nur im echten Notfall benutzt werden dürfen.</p>
+          <a href="https://boreaadventures.com/hornstrandir/know-before-you-go/" target="_blank" rel="noopener">Borea: Before you go</a>
+          <a href="https://en.vedur.is/" target="_blank" rel="noopener">Wetter</a>
+        </div>
+      </div>
+
+      <div class="foxbox">
+        <strong>Regeln am Fuchsbau.</strong> Mindestens 40 Meter Abstand, höchstens 20 Minuten in der Nähe bleiben. Nie zwischen Fähe und Welpen geraten. Wenn ihr an einem Bau vorbeimüsst: zügig und leise, und erst nach 40 Metern wieder stehenbleiben. Nicht füttern. Die Tiere sind zutraulich, weil sie hier nie gejagt wurden — das bleibt nur so, wenn niemand die Distanz unterschreitet.
+      </div>
+
+    </div>
+  </div>
+
   <div class="camp">
     <span class="label">Camp</span>
     <p>Varmahlíð für die Reittage, danach Mývatn. Am Mývatn hilft Mückenschutz mit Kopfnetz — im Hochsommer sind die Schwärme kein Scherz.</p>
@@ -1178,7 +1317,7 @@ footer p + p{margin-top:.7rem}
   <p><strong>Vor jeder Etappe prüfen:</strong> <a href="https://safetravel.is/" target="_blank" rel="noopener">safetravel.is</a> für Warnungen · <a href="https://www.road.is/" target="_blank" rel="noopener">road.is</a> für Straßenzustand und F-Straßen-Öffnung · <a href="https://en.vedur.is/" target="_blank" rel="noopener">vedur.is</a> für Wetter und Wind.</p>
   <p><strong>Camping:</strong> Wildcampen mit dem Camper ist in Island verboten. Der <a href="https://www.campingcard.is/" target="_blank" rel="noopener">Camping Card</a> lohnt sich ab etwa zwei Wochen.</p>
   <p><strong>Buchen:</strong> Höhlen, Gletscher und Kajak im Hochsommer möglichst ein paar Tage vorher — der Rest der Route funktioniert spontan.</p>
-  <p><strong>Karte:</strong> Alle 68 Ziele dieser Seite gibt es als interaktive Karte (<code>island-karte.html</code>) und als GPX-Datei (<code>island-route.gpx</code>) zum Import in komoot, Organic Maps oder OsmAnd.</p>
+  <p><strong>Karte:</strong> Alle 71 Ziele dieser Seite gibt es als interaktive Karte (<code>island-karte.html</code>) und als GPX-Datei (<code>island-route.gpx</code>) zum Import in komoot, Organic Maps oder OsmAnd.</p>
   <p><strong>Tracks:</strong> Drei Ziele haben einen direkten Wikiloc-Track (Stórurð, Skaftafell, Fimmvörðuháls), Reykjadalur einen auf AllTrails. Bei den übrigen führt der grüne Link auf den komoot-Regionsführer der jeweiligen Gemeinde oder die Wikiloc-Regionsseite — dort ist die passende Tour ein bis zwei Klicks entfernt. Für Skaftafell und Fimmvörðuháls steht zusätzlich die offizielle Routenbeschreibung des Nationalparks bzw. des isländischen Wandervereins daneben; die ist verlässlicher als jeder nutzergenerierte Track.</p>
   <p><strong>Ausrüstung für die wilden Höhlen:</strong> Zwei Lichtquellen pro Person (Stirnlampe plus Reserve), Helm, feste Schuhe, Handschuhe. In Surtshellir und Maríuhellar gibt es kein Licht, keine Stege und kein Personal. Sagt jemandem, wo ihr seid.</p>
   <p><strong>Hotpots:</strong> GPS-Koordinaten im Reiter „Hotpots" vor der Abfahrt offline speichern — in den Westfjorden und im Osten gibt es streckenweise kein Netz.</p>
