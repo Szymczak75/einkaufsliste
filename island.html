@@ -161,6 +161,8 @@ nav{
   margin-top:.15rem;
 }
 .navbtn[aria-selected="true"] .days{color:var(--rust)}
+.navbtn-tr{color:#9aa0a7;font-style:italic}
+.navbtn-tr[aria-selected="true"]{color:var(--paper);font-style:normal}
 
 /* ---------- Panels ---------- */
 main{padding:0 clamp(1.2rem,5vw,4rem) 5rem}
@@ -509,20 +511,26 @@ footer p + p{margin-top:.7rem}
 
 <nav>
   <div class="navscroll" role="tablist" aria-label="Etappen">
-    <button class="navbtn" role="tab" aria-selected="true" aria-controls="p1" id="t1">Reykjanes<span class="days">Tag 1–3</span></button>
-    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p2" id="t2">Snæfellsnes<span class="days">Tag 4–6</span></button>
-    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p3" id="t3">Westfjorde<span class="days">Tag 7–10</span></button>
-    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p4" id="t4">Norden<span class="days">Tag 11–13</span></button>
-    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p5" id="t5">Osten<span class="days">Tag 14–17</span></button>
-    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p6" id="t6">Süden<span class="days">Tag 18–21</span></button>
-    <button class="navbtn" role="tab" aria-selected="false" aria-controls="p7" id="t7">Hotpots<span class="days">alle Etappen</span></button>
+    <button class="navbtn" role="tab" aria-selected="true" aria-controls="reg1" id="tt1">Reykjanes<span class="days">Tag 1–3</span></button>
+    <button class="navbtn navbtn-tr" role="tab" aria-selected="false" aria-controls="trA" id="ttA">1→2<span class="days">Fahrtag</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="reg2" id="tt2">Snæfellsnes<span class="days">Tag 4–6</span></button>
+    <button class="navbtn navbtn-tr" role="tab" aria-selected="false" aria-controls="trB" id="ttB">2→3<span class="days">Fahrtag</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="reg3" id="tt3">Westfjorde<span class="days">Tag 7–10</span></button>
+    <button class="navbtn navbtn-tr" role="tab" aria-selected="false" aria-controls="trC" id="ttC">3→4<span class="days">Fahrtag</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="reg4" id="tt4">Norden<span class="days">Tag 11–13</span></button>
+    <button class="navbtn navbtn-tr" role="tab" aria-selected="false" aria-controls="trD" id="ttD">4→5<span class="days">Fahrtag</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="reg5" id="tt5">Osten<span class="days">Tag 14–17</span></button>
+    <button class="navbtn navbtn-tr" role="tab" aria-selected="false" aria-controls="trE" id="ttE">5→6<span class="days">Fahrtag</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="reg6" id="tt6">Süden<span class="days">Tag 18–21</span></button>
+    <button class="navbtn navbtn-tr" role="tab" aria-selected="false" aria-controls="trF" id="ttF">→ Keflavík<span class="days">Heimreise</span></button>
+    <button class="navbtn" role="tab" aria-selected="false" aria-controls="hot" id="ttH">Hotpots<span class="days">alle Etappen</span></button>
   </div>
 </nav>
 
 <main>
 
 <!-- 1 -->
-<section class="panel active" id="p1" role="tabpanel" aria-labelledby="t1">
+<section class="panel active" id="reg1" role="tabpanel" aria-labelledby="tt1">
   <div class="phead">
     <p class="pnum">Etappe 1 · Tag 1–3</p>
     <h2>Reykjanes</h2>
@@ -578,8 +586,57 @@ footer p + p{margin-top:.7rem}
   </div>
 </section>
 
-<!-- 2 -->
-<section class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
+<section class="panel" id="trA" role="tabpanel" aria-labelledby="ttA">
+  <div class="phead">
+    <p class="pnum">Fahrtag · Reykjanes → Snæfellsnes</p>
+    <h2>Grindavík → Húsafell</h2>
+  </div>
+  <div class="transfer">
+    <div class="tdist">ca. 250 km · 3,5 Std reine Fahrt · plus 6 Std Aktivität · langer Tag, früh los</div>
+
+    <div class="tstop">
+      <h4>1 · Reykjadalur — Thermalfluss</h4>
+      <p>Gut eine Stunde ab Grindavík. Drei Kilometer Aufstieg ab Hveragerði zu einem Bach, in dem man sich die Temperatur flussaufwärts selbst sucht: weiter oben heißer, weiter unten kühler. Holzstege mit Sichtschutz zum Umziehen. 45 Minuten hoch, mindestens eine Stunde im Wasser, 45 Minuten runter.</p>
+      <p>Kein Eintritt, keine Anmeldung. Badesachen und Handtuch in den Tagesrucksack — ihr steigt hier als Erstes ins Warme und seid danach den Rest des Tages trocken.</p>
+      <p class="gps">64.0286, −21.2072 · Parkplatz Reykjadalur, Hveragerði</p>
+      <a href="https://www.iceland-highlights.com/guide-to-the-reykjadalur-hot-spring-thermal-river-trail/" target="_blank" rel="noopener">Wegbeschreibung</a>
+      <a href="https://www.alltrails.com/trail/iceland/southern/reykjadalur-hot-spring-thermal-river" target="_blank" rel="noopener">AllTrails Tour</a>
+      <a href="https://www.openstreetmap.org/?mlat=64.0286&mlon=-21.2072#map=15/64.0286/-21.2072" target="_blank" rel="noopener">OSM</a>
+    </div>
+
+    <div class="tstop">
+      <h4>2 · Glymur — 198 Meter Wasserfall</h4>
+      <p>Gut eine Stunde weiter, an Reykjavík vorbei zum Hvalfjörður. Zweithöchster Wasserfall Islands, in einer engen Schlucht versteckt. Der Weg dorthin ist der eigentliche Reiz: durch eine Höhle, über einen Baumstamm mit Drahtseil als Geländer, dann steil am Abgrund entlang. Drei Stunden für die Runde.</p>
+      <p><strong>Wichtig:</strong> Der Baumstamm über den Fluss liegt nur im Sommer, normalerweise Juni bis September — garantiert ist das nicht. Ohne ihn wird der Rundweg zur Sackgasse und ihr seht den Fall nur von einer Seite. Die Furt am Rückweg quert man barfuß; zweites Paar Socken einpacken.</p>
+      <p class="gps">64.3939, −21.2472 · Abzweig Straße 47 am Hvalfjörður</p>
+      <a href="https://de.wikipedia.org/wiki/Glymur" target="_blank" rel="noopener">Wikipedia</a>
+      <a href="https://www.openstreetmap.org/?mlat=64.3939&mlon=-21.2472#map=14/64.3939/-21.2472" target="_blank" rel="noopener">OSM</a>
+    </div>
+
+    <div class="tstop">
+      <h4>3 · Optional: Borgarnes zum Einkaufen</h4>
+      <p>45 Minuten nach Glymur, direkt an der Strecke. Großer Bónus, Tankstelle. Der letzte vernünftige Supermarkt vor Húsafell — dort gibt es nur einen kleinen Laden. Wenn ihr für zwei Tage einkauft, hier tun.</p>
+      <p class="gps">64.5386, −21.9219 · Bónus Borgarnes, an der Ringstraße</p>
+      <a href="https://www.openstreetmap.org/?mlat=64.5386&mlon=-21.9219#map=14/64.5386/-21.9219" target="_blank" rel="noopener">OSM</a>
+    </div>
+
+    <div class="tstop">
+      <h4>4 · Húsafell — Übernachtung</h4>
+      <p>Noch 50 Minuten ab Borgarnes. Der Campingplatz liegt im Birkenwald, 1. Juni bis 28. September geöffnet, mit Duschen, Waschküche, Küchenhütte und 70 Stromanschlüssen (europäische Stecker). Schwimmbad, Laden und Restaurant sind zu Fuß erreichbar. Samstags abends brennt ein Gemeinschaftslagerfeuer.</p>
+      <p><strong>Preise Sommer:</strong> Erste Nacht 2.250 ISK pro Erwachsenem, Folgenächte 1.990. Dazu 990 ISK pro Fahrzeug und 400 ISK Übernachtungssteuer. Strom kostet 2.000 ISK pro Nacht, ein Adapter ist für 6.790 ISK leihbar.</p>
+      <p><strong>Warum hier:</strong> Von Húsafell sind es nur 20 Minuten bis zum F578-Abzweig nach Surtshellir. Ihr steht am nächsten Morgen an der Höhle, bevor jemand anders da ist. Hraunfossar liegt auf demselben Weg.</p>
+      <p class="gps">64.6992, −20.8714 · Húsafell 311, Borgarbyggð · Tel. +354 435 1556 · camping@husafell.is</p>
+      <a href="https://www.husafell.com/accommodation/campsite" target="_blank" rel="noopener">Campingplatz</a>
+      <a href="https://www.openstreetmap.org/?mlat=64.6992&mlon=-20.8714#map=14/64.6992/-20.8714" target="_blank" rel="noopener">OSM</a>
+    </div>
+
+    <div class="foxbox">
+      <strong>Falls es später wird.</strong> Borgarnes hat einen eigenen Campingplatz und liegt 45 statt 90 Minuten nach Glymur. Kostet euch am nächsten Morgen 50 Minuten mehr Fahrt bis Surtshellir, spart aber abends Zeit — im Juli ist es bis Mitternacht hell, das lässt sich also spontan entscheiden.
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="reg2" role="tabpanel" aria-labelledby="tt2">
   <div class="phead">
     <p class="pnum">Etappe 2 · Tag 4–6</p>
     <h2>Snæfellsnes</h2>
@@ -636,60 +693,42 @@ footer p + p{margin-top:.7rem}
       <a href="https://www.west.is/en" target="_blank" rel="noopener">Höfe vergleichen</a><a class="alt" href="https://de.wikipedia.org/wiki/Islandpferd" target="_blank" rel="noopener">Islandpferd</a>
     </div>
   </div>
-  <div class="transfer">
-    <div class="tlabel">Fahrtag zur nächsten Etappe</div>
-    <div class="troute">Grindavík → Húsafell</div>
-    <div class="tdist">ca. 250 km · 3,5 Std reine Fahrt · plus 6 Std Aktivität · langer Tag, früh los</div>
-
-    <div class="tstop">
-      <h4>1 · Reykjadalur — Thermalfluss</h4>
-      <p>Gut eine Stunde ab Grindavík. Drei Kilometer Aufstieg ab Hveragerði zu einem Bach, in dem man sich die Temperatur flussaufwärts selbst sucht: weiter oben heißer, weiter unten kühler. Holzstege mit Sichtschutz zum Umziehen. 45 Minuten hoch, mindestens eine Stunde im Wasser, 45 Minuten runter.</p>
-      <p>Kein Eintritt, keine Anmeldung. Badesachen und Handtuch in den Tagesrucksack — ihr steigt hier als Erstes ins Warme und seid danach den Rest des Tages trocken.</p>
-      <p class="gps">64.0286, −21.2072 · Parkplatz Reykjadalur, Hveragerði</p>
-      <a href="https://www.iceland-highlights.com/guide-to-the-reykjadalur-hot-spring-thermal-river-trail/" target="_blank" rel="noopener">Wegbeschreibung</a>
-      <a href="https://www.alltrails.com/trail/iceland/southern/reykjadalur-hot-spring-thermal-river" target="_blank" rel="noopener">AllTrails Tour</a>
-      <a href="https://www.openstreetmap.org/?mlat=64.0286&mlon=-21.2072#map=15/64.0286/-21.2072" target="_blank" rel="noopener">OSM</a>
-    </div>
-
-    <div class="tstop">
-      <h4>2 · Glymur — 198 Meter Wasserfall</h4>
-      <p>Gut eine Stunde weiter, an Reykjavík vorbei zum Hvalfjörður. Zweithöchster Wasserfall Islands, in einer engen Schlucht versteckt. Der Weg dorthin ist der eigentliche Reiz: durch eine Höhle, über einen Baumstamm mit Drahtseil als Geländer, dann steil am Abgrund entlang. Drei Stunden für die Runde.</p>
-      <p><strong>Wichtig:</strong> Der Baumstamm über den Fluss liegt nur im Sommer, normalerweise Juni bis September — garantiert ist das nicht. Ohne ihn wird der Rundweg zur Sackgasse und ihr seht den Fall nur von einer Seite. Die Furt am Rückweg quert man barfuß; zweites Paar Socken einpacken.</p>
-      <p class="gps">64.3939, −21.2472 · Abzweig Straße 47 am Hvalfjörður</p>
-      <a href="https://de.wikipedia.org/wiki/Glymur" target="_blank" rel="noopener">Wikipedia</a>
-      <a href="https://www.openstreetmap.org/?mlat=64.3939&mlon=-21.2472#map=14/64.3939/-21.2472" target="_blank" rel="noopener">OSM</a>
-    </div>
-
-    <div class="tstop">
-      <h4>3 · Optional: Borgarnes zum Einkaufen</h4>
-      <p>45 Minuten nach Glymur, direkt an der Strecke. Großer Bónus, Tankstelle. Der letzte vernünftige Supermarkt vor Húsafell — dort gibt es nur einen kleinen Laden. Wenn ihr für zwei Tage einkauft, hier tun.</p>
-      <p class="gps">64.5386, −21.9219 · Bónus Borgarnes, an der Ringstraße</p>
-      <a href="https://www.openstreetmap.org/?mlat=64.5386&mlon=-21.9219#map=14/64.5386/-21.9219" target="_blank" rel="noopener">OSM</a>
-    </div>
-
-    <div class="tstop">
-      <h4>4 · Húsafell — Übernachtung</h4>
-      <p>Noch 50 Minuten ab Borgarnes. Der Campingplatz liegt im Birkenwald, 1. Juni bis 28. September geöffnet, mit Duschen, Waschküche, Küchenhütte und 70 Stromanschlüssen (europäische Stecker). Schwimmbad, Laden und Restaurant sind zu Fuß erreichbar. Samstags abends brennt ein Gemeinschaftslagerfeuer.</p>
-      <p><strong>Preise Sommer:</strong> Erste Nacht 2.250 ISK pro Erwachsenem, Folgenächte 1.990. Dazu 990 ISK pro Fahrzeug und 400 ISK Übernachtungssteuer. Strom kostet 2.000 ISK pro Nacht, ein Adapter ist für 6.790 ISK leihbar.</p>
-      <p><strong>Warum hier:</strong> Von Húsafell sind es nur 20 Minuten bis zum F578-Abzweig nach Surtshellir. Ihr steht am nächsten Morgen an der Höhle, bevor jemand anders da ist. Hraunfossar liegt auf demselben Weg.</p>
-      <p class="gps">64.6992, −20.8714 · Húsafell 311, Borgarbyggð · Tel. +354 435 1556 · camping@husafell.is</p>
-      <a href="https://www.husafell.com/accommodation/campsite" target="_blank" rel="noopener">Campingplatz</a>
-      <a href="https://www.openstreetmap.org/?mlat=64.6992&mlon=-20.8714#map=14/64.6992/-20.8714" target="_blank" rel="noopener">OSM</a>
-    </div>
-
-    <div class="foxbox">
-      <strong>Falls es später wird.</strong> Borgarnes hat einen eigenen Campingplatz und liegt 45 statt 90 Minuten nach Glymur. Kostet euch am nächsten Morgen 50 Minuten mehr Fahrt bis Surtshellir, spart aber abends Zeit — im Juli ist es bis Mitternacht hell, das lässt sich also spontan entscheiden.
-    </div>
-  </div>
-
+  
   <div class="camp">
     <span class="label">Camp</span>
     <p>Für Surtshellir: Húsafell als Zwischenstopp. Danach Grundarfjörður oder Arnarstapi — Arnarstapi liegt direkt an der Steilküste.</p>
   </div>
 </section>
 
-<!-- 3 -->
-<section class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+<section class="panel" id="trB" role="tabpanel" aria-labelledby="ttB">
+  <div class="phead">
+    <p class="pnum">Fahrtag · Snæfellsnes → Westfjorde</p>
+    <h2>Snæfellsnes → Westfjorde</h2>
+  </div>
+  <div class="transfer">
+    <div class="tdist">ca. 230 km · 3,5 Std über Land · Alternative: Fähre Baldur</div>
+    <div class="tstop">
+      <h4>Eiríksstaðir</h4>
+      <p>Rekonstruierter Torfhof an der Stelle, wo Erik der Rote lebte, bevor er Grönland besiedelte — und wo sein Sohn Leif geboren wurde, der 500 Jahre vor Kolumbus in Amerika landete. Darsteller in Wollkleidung erklären das Haus, man darf alles anfassen. Klein, ehrlich, nicht überinszeniert.</p>
+      <p class="gps">65.0619, −21.5306 · Straße 586 bei Búðardalur</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.0619,-21.5306" target="_blank" rel="noopener">Karte</a><a href="https://www.west.is/en" target="_blank" rel="noopener">Visit West</a>
+    </div>
+    <div class="tstop">
+      <h4>Hólmavík — Museum für Zauberei</h4>
+      <p>Das Tor zu den Westfjorden, und ein Museum über die Hexenverfolgung des 17. Jahrhunderts, bei der in Island überwiegend arme Männer verurteilt wurden. Ausgestellt sind Zauberstäbe, Runen — und die berüchtigten Nábrók, eine Hose aus der Haut eines Toten, die endlosen Reichtum bringen sollte. Skurril und ernst zugleich.</p>
+      <p class="gps">65.7078, −21.6836 · Höfðagata 8–10, Hólmavík</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.7078,-21.6836" target="_blank" rel="noopener">Karte</a><a href="https://www.westfjords.is/" target="_blank" rel="noopener">Visit Westfjords</a>
+    </div>
+    <div class="tstop">
+      <h4>Fähre Baldur als Alternative</h4>
+      <p>Von Stykkishólmur nach Brjánslækur, gut zweieinhalb Stunden mit Zwischenstopp auf der Insel Flatey. Spart die lange Landstrecke und bringt euch direkt in die Südwestfjorde — praktisch, wenn ihr mit Látrabjarg und Rauðasandur beginnen wollt. Camper müssen vorgebucht werden.</p>
+      <p class="gps">65.0745, −22.7297 · Hafen Stykkishólmur</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.0745,-22.7297" target="_blank" rel="noopener">Karte</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="reg3" role="tabpanel" aria-labelledby="tt3">
   <div class="phead">
     <p class="pnum">Etappe 3 · Tag 7–10</p>
     <h2>Westfjorde</h2>
@@ -751,126 +790,6 @@ footer p + p{margin-top:.7rem}
       <p>Der nächste Verwandte zum Strandsegeln, den Island bietet. Kleiner lokaler Betrieb, vorher per Mail anfragen.</p>
       <p class="gps">Westfjorde, Ort je nach Wind · vorher per Mail anfragen</p>
       <a href="https://www.westfjords.is/" target="_blank" rel="noopener">Wakeboarding Iceland</a><a class="alt" href="https://www.westfjords.is/" target="_blank" rel="noopener">Visit Westfjords</a>
-    </div>
-  </div>
-  <div class="transfer">
-    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
-    <div class="troute">Snæfellsnes → Westfjorde</div>
-    <div class="tdist">ca. 230 km · 3,5 Std über Land · Alternative: Fähre Baldur</div>
-    <div class="tstop">
-      <h4>Eiríksstaðir</h4>
-      <p>Rekonstruierter Torfhof an der Stelle, wo Erik der Rote lebte, bevor er Grönland besiedelte — und wo sein Sohn Leif geboren wurde, der 500 Jahre vor Kolumbus in Amerika landete. Darsteller in Wollkleidung erklären das Haus, man darf alles anfassen. Klein, ehrlich, nicht überinszeniert.</p>
-      <p class="gps">65.0619, −21.5306 · Straße 586 bei Búðardalur</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=65.0619,-21.5306" target="_blank" rel="noopener">Karte</a><a href="https://www.west.is/en" target="_blank" rel="noopener">Visit West</a>
-    </div>
-    <div class="tstop">
-      <h4>Hólmavík — Museum für Zauberei</h4>
-      <p>Das Tor zu den Westfjorden, und ein Museum über die Hexenverfolgung des 17. Jahrhunderts, bei der in Island überwiegend arme Männer verurteilt wurden. Ausgestellt sind Zauberstäbe, Runen — und die berüchtigten Nábrók, eine Hose aus der Haut eines Toten, die endlosen Reichtum bringen sollte. Skurril und ernst zugleich.</p>
-      <p class="gps">65.7078, −21.6836 · Höfðagata 8–10, Hólmavík</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=65.7078,-21.6836" target="_blank" rel="noopener">Karte</a><a href="https://www.westfjords.is/" target="_blank" rel="noopener">Visit Westfjords</a>
-    </div>
-    <div class="tstop">
-      <h4>Fähre Baldur als Alternative</h4>
-      <p>Von Stykkishólmur nach Brjánslækur, gut zweieinhalb Stunden mit Zwischenstopp auf der Insel Flatey. Spart die lange Landstrecke und bringt euch direkt in die Südwestfjorde — praktisch, wenn ihr mit Látrabjarg und Rauðasandur beginnen wollt. Camper müssen vorgebucht werden.</p>
-      <p class="gps">65.0745, −22.7297 · Hafen Stykkishólmur</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=65.0745,-22.7297" target="_blank" rel="noopener">Karte</a>
-    </div>
-  </div>
-
-  <div class="camp">
-    <span class="label">Camp</span>
-    <p>Ísafjörður als Basis, Þingeyri und Flókalundur für unterwegs. Tankt früher als ihr denkt — zwischen den Fjorden liegen weite Strecken ohne Zapfsäule. Vier der besten Hotpots der Reise liegen auf dieser Etappe.</p>
-  </div>
-</section>
-
-<!-- 4 -->
-<section class="panel" id="p4" role="tabpanel" aria-labelledby="t4">
-  <div class="phead">
-    <p class="pnum">Etappe 4 · Tag 11–13</p>
-    <h2>Norden</h2>
-    <p>Akureyri und Húsavík überspringen wir weitgehend. Askja wäre das Highlight — liegt aber hinter Furten und ist damit für euren Wagen tabu. Der Rest hier geht ohne Anbieter.</p>
-  </div>
-  <div class="acts">
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
-      <h3>Kverkfjöll-Alternative: Hverir & Leirhnjúkur</h3>
-      <p>Leirhnjúkur bei Krafla ist ein noch dampfendes Lavafeld von 1984, auf markierten Pfaden begehbar — der Boden ist stellenweise handwarm. Hverir gegenüber ist ein Solfatarenfeld mit kochenden Schlammtöpfen. Beides frei, beides ohne Guide.</p>
-      <p class="gps">65.7167, −16.7833 · bei Mývatn, Straße 1</p>
-      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Krafla" target="_blank" rel="noopener">Wikipedia Krafla</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.7167&mlon=-16.7833#map=15/65.7167/-16.7833" target="_blank" rel="noopener">OSM</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
-      <h3>Ásbyrgi & Hljóðaklettar</h3>
-      <p>Hufeisenförmige Schlucht im Vatnajökull-Nationalpark mit markierten Runden von 1 bis 7 km. Hljóðaklettar weiter südlich sind Basaltformationen in konzentrischen Kreisen. Zufahrt über Straße 862, asphaltiert.</p>
-      <p class="gps">66.0206, −16.5069 · keine Anmeldung</p>
-      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/%C3%81sbyrgi" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a><a class="alt" href="https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur/asbyrgi" target="_blank" rel="noopener">Nationalpark</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
-      <h3>Hólmatungur</h3>
-      <p>Zwischen Hljóðaklettar und Hólmatungur führt einer der schönsten Fußwege Islands am Jökulsá entlang: üppige Vegetation, Basaltformationen und Quellbäche, die über Felskanten in den Gletscherfluss stürzen. Deutlich stiller als Dettifoss weiter südlich.</p>
-      <p class="gps">65.8500, −16.5167 · Straße 862, Jökulsárgljúfur</p>
-      <span class="links"><a class="info" href="https://www.openstreetmap.org/?mlat=65.85&mlon=-16.5167#map=14/65.85/-16.5167" target="_blank" rel="noopener">OSM Karte</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
-      <h3>Kolugljúfur & Hvítserkur</h3>
-      <p>Eine Schlucht mit Wasserfall direkt an der Straße, und ein Basaltfelsen im Meer, der aussieht wie ein trinkender Drache. Bei Ebbe läuft man bis an ihn heran.</p>
-      <p class="gps">65.6089, −20.6350 · beide auf dem Weg</p>
-      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Hv%C3%ADtserkur" target="_blank" rel="noopener">Wikipedia Hvítserkur</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.6089&mlon=-20.635#map=13/65.6089/-20.635" target="_blank" rel="noopener">OSM</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
-      <h3>Kálfshamarsvík</h3>
-      <p>Basaltsäulen, die in alle Richtungen laufen — senkrecht, waagerecht, gebogen, vor zwei Millionen Jahren erstarrt. Dazu ein Leuchtturm und die Ruinen eines Fischerdorfs, das um 1940 aufgegeben wurde. Auf der Skagi-Halbinsel, die fast niemand ansteuert.</p>
-      <p class="gps">66.0389, −20.3583 · Straßen 74 und 745 ab Blönduós</p>
-      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/K%C3%A1lfshamarsv%C3%ADk" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=66.0389&mlon=-20.3583#map=15/66.0389/-20.3583" target="_blank" rel="noopener">OSM</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
-      <h3>Illugastaðir & Vatnsnes</h3>
-      <p>Eine der größten Robbenkolonien Islands, von Land aus zu beobachten — Fußweg am Wasser entlang, kleine Hütte als Sichtschutz. Auf derselben Halbinsel liegt Hvítserkur, das lässt sich verbinden.</p>
-      <p class="gps">65.4667, −20.7333 · Straße 711, Westseite Vatnsnes</p>
-      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Vatnsnes" target="_blank" rel="noopener">Wikipedia Vatnsnes</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.4667&mlon=-20.7333#map=13/65.4667/-20.7333" target="_blank" rel="noopener">OSM</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-guide">Guide</span><span class="tag t-horse">Pferd</span>
-      <h3>Reiten in Skagafjörður</h3>
-      <p>Die Wiege der isländischen Pferdezucht. Von einer Stunde bis zum Tagesritt über Flussquerungen. Hestasport nimmt auch Buchungen unter einer Stunde Vorlauf — telefonisch.</p>
-      <p class="gps">Hestasport: Varmahlíð, 65.5486, −19.4408 · Tel. +354 453 8383</p>
-      <a href="https://riding.is/riding/" target="_blank" rel="noopener">Hestasport</a>
-      <a href="https://sydraskordugil.is/riding-tours/" target="_blank" rel="noopener">Syðra-Skörðugil</a>
-    </div>
-    <div class="act">
-      <span class="tag t-guide">Guide<a class="gpx" href="https://www.komoot.com/de-de/guide/62667/wandern-in-sveitarfelagi-skagafjoerur" target="_blank" rel="noopener">komoot Skagafjörður</a></span><span class="tag t-hike">Hochland</span>
-      <h3>Askja — nur so erreichbar</h3>
-      <p>Der Kratersee mit dem badewarmen Víti daneben. Die Anfahrt hat mehrere echte Furten. Super-Jeep-Tour ab Mývatn ist die einzige Option für euch — <strong>nicht selbst fahren</strong>, das kostet euren Kaskoschutz.</p>
-      <p class="gps">Askja: 65.0333, −16.7500 · Abfahrt ab Mývatn oder Akureyri</p>
-      <a href="https://www.geoiceland.com/" target="_blank" rel="noopener">Geo Iceland</a><a class="alt" href="https://de.wikipedia.org/wiki/Askja" target="_blank" rel="noopener">Wikipedia</a>
-    </div>
-    <div class="act">
-      <span class="tag t-guide">Guide</span><span class="tag t-sea">Wasser</span>
-      <h3>Wale ab Hjalteyri</h3>
-      <p>Winziger Hafen im Eyjafjörður statt der vollen Boote in Húsavík. Kleine Gruppen, dieselben Buckelwale.</p>
-      <p class="gps">Hjalteyri, 65.8664, −18.1936 · 25 Min nördlich von Akureyri</p>
-      <a href="https://www.northsailing.is/" target="_blank" rel="noopener">Anbieter</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.8664&mlon=-18.1936#map=14/65.8664/-18.1936" target="_blank" rel="noopener">OSM</a>
-    </div>
-  </div>
-  <div class="transfer">
-    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
-    <div class="troute">Westfjorde → Norden</div>
-    <div class="tdist">ca. 330 km ab Ísafjörður · 5 Std · lange Etappe, früh los</div>
-    <div class="tstop">
-      <h4>Kollafjörður &amp; Hveravík</h4>
-      <p>Auf der Strandir-Küste zwischen Hólmavík und Drangsnes liegt ein kleiner Hotpot direkt am Wasser, dazu ein ruhiger Campingplatz. Wenn ihr die Westfjorde über die Ostseite verlasst, ist das der letzte stille Halt, bevor die Ringstraße wieder voller wird.</p>
-      <p class="gps">65.7500, −21.4667 · Straße 61 nördlich Hólmavík</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=65.7500,-21.4667" target="_blank" rel="noopener">Karte</a>
-    </div>
-    <div class="tstop">
-      <h4>Hvammstangi &amp; Selasetur</h4>
-      <p>Das isländische Robbenzentrum in einem alten Handelshaus am Hafen — kleine Ausstellung, aktuelle Sichtungskarte für die Vatnsnes-Halbinsel. Praktisch, bevor ihr zu Illugastaðir hochfahrt: dort erfahrt ihr, wo die Tiere gerade liegen.</p>
-      <p class="gps">65.3958, −20.9425 · Strandgata 1, Hvammstangi</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=65.3958,-20.9425" target="_blank" rel="noopener">Karte</a><a href="https://www.northiceland.is/en" target="_blank" rel="noopener">Visit North</a>
     </div>
   </div>
 
@@ -961,15 +880,138 @@ footer p + p{margin-top:.7rem}
 
     </div>
   </div>
+  
+  <div class="camp">
+    <span class="label">Camp</span>
+    <p>Ísafjörður als Basis, Þingeyri und Flókalundur für unterwegs. Tankt früher als ihr denkt — zwischen den Fjorden liegen weite Strecken ohne Zapfsäule. Vier der besten Hotpots der Reise liegen auf dieser Etappe.</p>
+  </div>
+</section>
 
+<section class="panel" id="trC" role="tabpanel" aria-labelledby="ttC">
+  <div class="phead">
+    <p class="pnum">Fahrtag · Westfjorde → Norden</p>
+    <h2>Westfjorde → Norden</h2>
+  </div>
+  <div class="transfer">
+    <div class="tdist">ca. 330 km ab Ísafjörður · 5 Std · lange Etappe, früh los</div>
+    <div class="tstop">
+      <h4>Kollafjörður &amp; Hveravík</h4>
+      <p>Auf der Strandir-Küste zwischen Hólmavík und Drangsnes liegt ein kleiner Hotpot direkt am Wasser, dazu ein ruhiger Campingplatz. Wenn ihr die Westfjorde über die Ostseite verlasst, ist das der letzte stille Halt, bevor die Ringstraße wieder voller wird.</p>
+      <p class="gps">65.7500, −21.4667 · Straße 61 nördlich Hólmavík</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.7500,-21.4667" target="_blank" rel="noopener">Karte</a>
+    </div>
+    <div class="tstop">
+      <h4>Hvammstangi &amp; Selasetur</h4>
+      <p>Das isländische Robbenzentrum in einem alten Handelshaus am Hafen — kleine Ausstellung, aktuelle Sichtungskarte für die Vatnsnes-Halbinsel. Praktisch, bevor ihr zu Illugastaðir hochfahrt: dort erfahrt ihr, wo die Tiere gerade liegen.</p>
+      <p class="gps">65.3958, −20.9425 · Strandgata 1, Hvammstangi</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.3958,-20.9425" target="_blank" rel="noopener">Karte</a><a href="https://www.northiceland.is/en" target="_blank" rel="noopener">Visit North</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="reg4" role="tabpanel" aria-labelledby="tt4">
+  <div class="phead">
+    <p class="pnum">Etappe 4 · Tag 11–13</p>
+    <h2>Norden</h2>
+    <p>Akureyri und Húsavík überspringen wir weitgehend. Askja wäre das Highlight — liegt aber hinter Furten und ist damit für euren Wagen tabu. Der Rest hier geht ohne Anbieter.</p>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
+      <h3>Kverkfjöll-Alternative: Hverir & Leirhnjúkur</h3>
+      <p>Leirhnjúkur bei Krafla ist ein noch dampfendes Lavafeld von 1984, auf markierten Pfaden begehbar — der Boden ist stellenweise handwarm. Hverir gegenüber ist ein Solfatarenfeld mit kochenden Schlammtöpfen. Beides frei, beides ohne Guide.</p>
+      <p class="gps">65.7167, −16.7833 · bei Mývatn, Straße 1</p>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Krafla" target="_blank" rel="noopener">Wikipedia Krafla</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.7167&mlon=-16.7833#map=15/65.7167/-16.7833" target="_blank" rel="noopener">OSM</a></span>
+    </div>
+    <div class="act">
+      <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
+      <h3>Ásbyrgi & Hljóðaklettar</h3>
+      <p>Hufeisenförmige Schlucht im Vatnajökull-Nationalpark mit markierten Runden von 1 bis 7 km. Hljóðaklettar weiter südlich sind Basaltformationen in konzentrischen Kreisen. Zufahrt über Straße 862, asphaltiert.</p>
+      <p class="gps">66.0206, −16.5069 · keine Anmeldung</p>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/%C3%81sbyrgi" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a><a class="alt" href="https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur/asbyrgi" target="_blank" rel="noopener">Nationalpark</a></span>
+    </div>
+    <div class="act">
+      <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
+      <h3>Hólmatungur</h3>
+      <p>Zwischen Hljóðaklettar und Hólmatungur führt einer der schönsten Fußwege Islands am Jökulsá entlang: üppige Vegetation, Basaltformationen und Quellbäche, die über Felskanten in den Gletscherfluss stürzen. Deutlich stiller als Dettifoss weiter südlich.</p>
+      <p class="gps">65.8500, −16.5167 · Straße 862, Jökulsárgljúfur</p>
+      <span class="links"><a class="info" href="https://www.openstreetmap.org/?mlat=65.85&mlon=-16.5167#map=14/65.85/-16.5167" target="_blank" rel="noopener">OSM Karte</a><a class="gpx" href="https://www.komoot.com/guide/47555/hiking-in-noruring" target="_blank" rel="noopener">komoot Norðurþing</a></span>
+    </div>
+    <div class="act">
+      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
+      <h3>Kolugljúfur & Hvítserkur</h3>
+      <p>Eine Schlucht mit Wasserfall direkt an der Straße, und ein Basaltfelsen im Meer, der aussieht wie ein trinkender Drache. Bei Ebbe läuft man bis an ihn heran.</p>
+      <p class="gps">65.6089, −20.6350 · beide auf dem Weg</p>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Hv%C3%ADtserkur" target="_blank" rel="noopener">Wikipedia Hvítserkur</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.6089&mlon=-20.635#map=13/65.6089/-20.635" target="_blank" rel="noopener">OSM</a></span>
+    </div>
+    <div class="act">
+      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
+      <h3>Kálfshamarsvík</h3>
+      <p>Basaltsäulen, die in alle Richtungen laufen — senkrecht, waagerecht, gebogen, vor zwei Millionen Jahren erstarrt. Dazu ein Leuchtturm und die Ruinen eines Fischerdorfs, das um 1940 aufgegeben wurde. Auf der Skagi-Halbinsel, die fast niemand ansteuert.</p>
+      <p class="gps">66.0389, −20.3583 · Straßen 74 und 745 ab Blönduós</p>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/K%C3%A1lfshamarsv%C3%ADk" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=66.0389&mlon=-20.3583#map=15/66.0389/-20.3583" target="_blank" rel="noopener">OSM</a></span>
+    </div>
+    <div class="act">
+      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
+      <h3>Illugastaðir & Vatnsnes</h3>
+      <p>Eine der größten Robbenkolonien Islands, von Land aus zu beobachten — Fußweg am Wasser entlang, kleine Hütte als Sichtschutz. Auf derselben Halbinsel liegt Hvítserkur, das lässt sich verbinden.</p>
+      <p class="gps">65.4667, −20.7333 · Straße 711, Westseite Vatnsnes</p>
+      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Vatnsnes" target="_blank" rel="noopener">Wikipedia Vatnsnes</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.4667&mlon=-20.7333#map=13/65.4667/-20.7333" target="_blank" rel="noopener">OSM</a></span>
+    </div>
+    <div class="act">
+      <span class="tag t-guide">Guide</span><span class="tag t-horse">Pferd</span>
+      <h3>Reiten in Skagafjörður</h3>
+      <p>Die Wiege der isländischen Pferdezucht. Von einer Stunde bis zum Tagesritt über Flussquerungen. Hestasport nimmt auch Buchungen unter einer Stunde Vorlauf — telefonisch.</p>
+      <p class="gps">Hestasport: Varmahlíð, 65.5486, −19.4408 · Tel. +354 453 8383</p>
+      <a href="https://riding.is/riding/" target="_blank" rel="noopener">Hestasport</a>
+      <a href="https://sydraskordugil.is/riding-tours/" target="_blank" rel="noopener">Syðra-Skörðugil</a>
+    </div>
+    <div class="act">
+      <span class="tag t-guide">Guide<a class="gpx" href="https://www.komoot.com/de-de/guide/62667/wandern-in-sveitarfelagi-skagafjoerur" target="_blank" rel="noopener">komoot Skagafjörður</a></span><span class="tag t-hike">Hochland</span>
+      <h3>Askja — nur so erreichbar</h3>
+      <p>Der Kratersee mit dem badewarmen Víti daneben. Die Anfahrt hat mehrere echte Furten. Super-Jeep-Tour ab Mývatn ist die einzige Option für euch — <strong>nicht selbst fahren</strong>, das kostet euren Kaskoschutz.</p>
+      <p class="gps">Askja: 65.0333, −16.7500 · Abfahrt ab Mývatn oder Akureyri</p>
+      <a href="https://www.geoiceland.com/" target="_blank" rel="noopener">Geo Iceland</a><a class="alt" href="https://de.wikipedia.org/wiki/Askja" target="_blank" rel="noopener">Wikipedia</a>
+    </div>
+    <div class="act">
+      <span class="tag t-guide">Guide</span><span class="tag t-sea">Wasser</span>
+      <h3>Wale ab Hjalteyri</h3>
+      <p>Winziger Hafen im Eyjafjörður statt der vollen Boote in Húsavík. Kleine Gruppen, dieselben Buckelwale.</p>
+      <p class="gps">Hjalteyri, 65.8664, −18.1936 · 25 Min nördlich von Akureyri</p>
+      <a href="https://www.northsailing.is/" target="_blank" rel="noopener">Anbieter</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.8664&mlon=-18.1936#map=14/65.8664/-18.1936" target="_blank" rel="noopener">OSM</a>
+    </div>
+  </div>
+  
+  
   <div class="camp">
     <span class="label">Camp</span>
     <p>Varmahlíð für die Reittage, danach Mývatn. Am Mývatn hilft Mückenschutz mit Kopfnetz — im Hochsommer sind die Schwärme kein Scherz.</p>
   </div>
 </section>
 
-<!-- 5 -->
-<section class="panel" id="p5" role="tabpanel" aria-labelledby="t5">
+<section class="panel" id="trD" role="tabpanel" aria-labelledby="ttD">
+  <div class="phead">
+    <p class="pnum">Fahrtag · Norden → Osten</p>
+    <h2>Norden → Osten</h2>
+  </div>
+  <div class="transfer">
+    <div class="tdist">ca. 165 km Mývatn–Egilsstaðir · 2,5 Std · Hochebene ohne Tankstelle</div>
+    <div class="tstop">
+      <h4>Möðrudalur — Fjallakaffi</h4>
+      <p>Islands höchstgelegener bewohnter Hof, 469 Meter, mitten in der Vulkanwüste. Torfkirche, Campingplatz und ein Café, das Kjötsúpa und selbstgebackenes Brot serviert. Bei klarer Sicht steht rechts der Herðubreið, den die Isländer die Königin ihrer Berge nennen. Zufahrt über Straße 901, Schotter, im Sommer für jedes Auto machbar.</p>
+      <p class="gps">65.3667, −15.9000 · Straße 901, Abzweig von der Ringstraße</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.3667,-15.9000" target="_blank" rel="noopener">Karte</a><a href="https://fjalladyrd.is/" target="_blank" rel="noopener">Fjalladýrð</a>
+    </div>
+    <div class="tstop">
+      <h4>Dettifoss über die Westseite</h4>
+      <p>Europas wasserreichster Wasserfall, 500 Kubikmeter pro Sekunde. Die Westseite über Straße 862 ist asphaltiert und führt näher ans Wasser — Gischt bis auf den Weg. Die Ostseite ist Schotter und meist voller. Liegt genau zwischen Mývatn und der Abzweigung nach Osten.</p>
+      <p class="gps">65.8144, −16.3844 · Straße 862, asphaltiert</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=65.8144,-16.3844" target="_blank" rel="noopener">Karte</a><a href="https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur" target="_blank" rel="noopener">Nationalpark</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="reg5" role="tabpanel" aria-labelledby="tt5">
   <div class="phead">
     <p class="pnum">Etappe 5 · Tag 14–17</p>
     <h2>Osten</h2>
@@ -1040,32 +1082,36 @@ footer p + p{margin-top:.7rem}
       <a href="https://www.hlynur.is/" target="_blank" rel="noopener">Seyðisfjörður Tours</a><a class="alt" href="https://de.wikipedia.org/wiki/Sey%C3%B0isfj%C3%B6r%C3%B0ur" target="_blank" rel="noopener">Wikipedia</a>
     </div>
   </div>
-  <div class="transfer">
-    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
-    <div class="troute">Norden → Osten</div>
-    <div class="tdist">ca. 165 km Mývatn–Egilsstaðir · 2,5 Std · Hochebene ohne Tankstelle</div>
-    <div class="tstop">
-      <h4>Möðrudalur — Fjallakaffi</h4>
-      <p>Islands höchstgelegener bewohnter Hof, 469 Meter, mitten in der Vulkanwüste. Torfkirche, Campingplatz und ein Café, das Kjötsúpa und selbstgebackenes Brot serviert. Bei klarer Sicht steht rechts der Herðubreið, den die Isländer die Königin ihrer Berge nennen. Zufahrt über Straße 901, Schotter, im Sommer für jedes Auto machbar.</p>
-      <p class="gps">65.3667, −15.9000 · Straße 901, Abzweig von der Ringstraße</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=65.3667,-15.9000" target="_blank" rel="noopener">Karte</a><a href="https://fjalladyrd.is/" target="_blank" rel="noopener">Fjalladýrð</a>
-    </div>
-    <div class="tstop">
-      <h4>Dettifoss über die Westseite</h4>
-      <p>Europas wasserreichster Wasserfall, 500 Kubikmeter pro Sekunde. Die Westseite über Straße 862 ist asphaltiert und führt näher ans Wasser — Gischt bis auf den Weg. Die Ostseite ist Schotter und meist voller. Liegt genau zwischen Mývatn und der Abzweigung nach Osten.</p>
-      <p class="gps">65.8144, −16.3844 · Straße 862, asphaltiert</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=65.8144,-16.3844" target="_blank" rel="noopener">Karte</a><a href="https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur" target="_blank" rel="noopener">Nationalpark</a>
-    </div>
-  </div>
-
+  
   <div class="camp">
     <span class="label">Camp</span>
     <p>Seyðisfjörður und Borgarfjörður eystri sind beide klein und gut. Für Stórurð lohnt eine Nacht in Borgarfjörður, um früh loszukommen.</p>
   </div>
 </section>
 
-<!-- 6 -->
-<section class="panel" id="p6" role="tabpanel" aria-labelledby="t6">
+<section class="panel" id="trE" role="tabpanel" aria-labelledby="ttE">
+  <div class="phead">
+    <p class="pnum">Fahrtag · Osten → Süden</p>
+    <h2>Osten → Süden</h2>
+  </div>
+  <div class="transfer">
+    <div class="tdist">ca. 265 km Egilsstaðir–Höfn · 3,5 Std · Küstenstraße durch die Ostfjorde</div>
+    <div class="tstop">
+      <h4>Stöðvarfjörður &amp; Fáskrúðsfjörður</h4>
+      <p>Zwei winzige Fjorddörfer auf der Küstenroute. In Fáskrúðsfjörður stehen die Straßenschilder zweisprachig isländisch-französisch — hier lag über Jahrzehnte die Basis der französischen Fischer, mit eigenem Krankenhaus und Friedhof. In Stöðvarfjörður liegt Petras Steinsammlung.</p>
+      <p class="gps">64.9333, −14.0167 · Straße 96, Küstenroute</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=64.9333,-14.0167" target="_blank" rel="noopener">Karte</a><a href="https://www.east.is/en" target="_blank" rel="noopener">Visit Austurland</a>
+    </div>
+    <div class="tstop">
+      <h4>Hvalnes &amp; Þvottárskriður</h4>
+      <p>Zwischen Djúpivogur und Höfn läuft die Straße direkt unter den Geröllhängen des Vestrahorn-Massivs entlang, links das Meer, rechts schwarze Felswände. Am Leuchtturm von Hvalnes ein Parkplatz mit Blick auf den Schwarzsandstrand und die Lagune — fünf Minuten Halt, große Wirkung.</p>
+      <p class="gps">64.4014, −14.5411 · Ringstraße, Abzweig am Leuchtturm</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=64.4014,-14.5411" target="_blank" rel="noopener">Karte</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="reg6" role="tabpanel" aria-labelledby="tt6">
   <div class="phead">
     <p class="pnum">Etappe 6 · Tag 18–21</p>
     <h2>Süden</h2>
@@ -1130,32 +1176,36 @@ footer p + p{margin-top:.7rem}
       <a href="https://www.re.is/tour/thorsmork-volcano-hike/" target="_blank" rel="noopener">Reykjavík Excursions</a><a class="alt" href="https://de.wikipedia.org/wiki/%C3%9E%C3%B3rsm%C3%B6rk" target="_blank" rel="noopener">Wikipedia</a>
     </div>
   </div>
-  <div class="transfer">
-    <div class="tlabel">Auf dem Weg zur nächsten Etappe</div>
-    <div class="troute">Osten → Süden</div>
-    <div class="tdist">ca. 265 km Egilsstaðir–Höfn · 3,5 Std · Küstenstraße durch die Ostfjorde</div>
-    <div class="tstop">
-      <h4>Stöðvarfjörður &amp; Fáskrúðsfjörður</h4>
-      <p>Zwei winzige Fjorddörfer auf der Küstenroute. In Fáskrúðsfjörður stehen die Straßenschilder zweisprachig isländisch-französisch — hier lag über Jahrzehnte die Basis der französischen Fischer, mit eigenem Krankenhaus und Friedhof. In Stöðvarfjörður liegt Petras Steinsammlung.</p>
-      <p class="gps">64.9333, −14.0167 · Straße 96, Küstenroute</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=64.9333,-14.0167" target="_blank" rel="noopener">Karte</a><a href="https://www.east.is/en" target="_blank" rel="noopener">Visit Austurland</a>
-    </div>
-    <div class="tstop">
-      <h4>Hvalnes &amp; Þvottárskriður</h4>
-      <p>Zwischen Djúpivogur und Höfn läuft die Straße direkt unter den Geröllhängen des Vestrahorn-Massivs entlang, links das Meer, rechts schwarze Felswände. Am Leuchtturm von Hvalnes ein Parkplatz mit Blick auf den Schwarzsandstrand und die Lagune — fünf Minuten Halt, große Wirkung.</p>
-      <p class="gps">64.4014, −14.5411 · Ringstraße, Abzweig am Leuchtturm</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=64.4014,-14.5411" target="_blank" rel="noopener">Karte</a>
-    </div>
-  </div>
-
+  
   <div class="camp">
     <span class="label">Camp</span>
     <p>Þakgil, Skaftafell, Kirkjubæjarklaustur. Im Hochsommer sind die Südplätze abends voll — früh ankommen oder eine Ecke weiter fahren.</p>
   </div>
 </section>
 
-<!-- 7 -->
-<section class="panel" id="p7" role="tabpanel" aria-labelledby="t7">
+<section class="panel" id="trF" role="tabpanel" aria-labelledby="ttF">
+  <div class="phead">
+    <p class="pnum">Fahrtag · Süden → Keflavík</p>
+    <h2>Süden → Keflavík</h2>
+  </div>
+  <div class="transfer">
+    <div class="tdist">ca. 190 km ab Vík · 2,5 Std · Rückgabe und Abflug</div>
+    <div class="tstop">
+      <h4>Seljalandsfoss von hinten</h4>
+      <p>Der Wasserfall, hinter den man laufen kann — und deshalb tagsüber überlaufen. Nach 21 Uhr ist der Parkplatz halb leer und die Abendsonne steht direkt im Wasservorhang. Regenjacke anziehen, ihr werdet nass. 60 Meter weiter versteckt sich Gljúfrabúi in einer Felsspalte, den übersehen die meisten.</p>
+      <p class="gps">63.6156, −19.9886 · Ringstraße, eigener Parkplatz</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=63.6156,-19.9886" target="_blank" rel="noopener">Karte</a>
+    </div>
+    <div class="tstop">
+      <h4>Puffer für den Rückflug</h4>
+      <p>Zwischen Vík und Keflavík liegen 2,5 Stunden ohne Stopp. Plant den letzten Abend lieber in Hveragerði oder Selfoss statt in Vík — dann sind es morgens nur 45 Minuten zum Flughafen, und ihr habt Zeit für Tanken, Camper-Reinigung und die Rückgabe.</p>
+      <p class="gps">63.9931, −22.6056 · Flughafen Keflavík</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=63.9931,-22.6056" target="_blank" rel="noopener">Karte</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="hot" role="tabpanel" aria-labelledby="ttH">
   <div class="phead">
     <p class="pnum">Querschnitt · alle Etappen</p>
     <h2>Heißes Wasser</h2>
@@ -1308,24 +1358,7 @@ footer p + p{margin-top:.7rem}
     <p class="snote"><strong>Tipp:</strong> Lade die Regionskarten für Vestfirðir (Westfjorde) und Austurland (Ostisland) vor der Abreise offline herunter. Dort ist über weite Strecken kein Netz — und genau da liegen die Ziele, die sonst niemand ansteuert.</p>
   </div>
 
-  <div class="transfer">
-    <div class="tlabel">Letzter Abschnitt</div>
-    <div class="troute">Süden → Keflavík</div>
-    <div class="tdist">ca. 190 km ab Vík · 2,5 Std · Rückgabe und Abflug</div>
-    <div class="tstop">
-      <h4>Seljalandsfoss von hinten</h4>
-      <p>Der Wasserfall, hinter den man laufen kann — und deshalb tagsüber überlaufen. Nach 21 Uhr ist der Parkplatz halb leer und die Abendsonne steht direkt im Wasservorhang. Regenjacke anziehen, ihr werdet nass. 60 Meter weiter versteckt sich Gljúfrabúi in einer Felsspalte, den übersehen die meisten.</p>
-      <p class="gps">63.6156, −19.9886 · Ringstraße, eigener Parkplatz</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=63.6156,-19.9886" target="_blank" rel="noopener">Karte</a>
-    </div>
-    <div class="tstop">
-      <h4>Puffer für den Rückflug</h4>
-      <p>Zwischen Vík und Keflavík liegen 2,5 Stunden ohne Stopp. Plant den letzten Abend lieber in Hveragerði oder Selfoss statt in Vík — dann sind es morgens nur 45 Minuten zum Flughafen, und ihr habt Zeit für Tanken, Camper-Reinigung und die Rückgabe.</p>
-      <p class="gps">63.9931, −22.6056 · Flughafen Keflavík</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=63.9931,-22.6056" target="_blank" rel="noopener">Karte</a>
-    </div>
-  </div>
-
+  
   <div class="camp">
     <span class="label">Regeln</span>
     <p>In Naturhotpots gibt es keine Duschen — in öffentlichen Schwimmbädern ist das gründliche Duschen ohne Badesachen dagegen Pflicht und wird kontrolliert. Handtuch, Badeschuhe und ein Müllbeutel gehören ins Auto. Wo eine Spendenbox steht, benutzt sie: davon lebt der Unterhalt.</p>
@@ -1348,11 +1381,19 @@ footer p + p{margin-top:.7rem}
 const tabs = Array.from(document.querySelectorAll('.navbtn'));
 const panels = Array.from(document.querySelectorAll('.panel'));
 
+const navEl = document.querySelector('nav');
 function select(i){
   tabs.forEach((t,j)=>t.setAttribute('aria-selected', j===i));
   panels.forEach((p,j)=>p.classList.toggle('active', j===i));
   tabs[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
-  window.scrollTo({top:0, behavior:'smooth'});
+  // Nur hochscrollen, wenn die Etappen-Navigation bereits nach oben weggescrollt ist –
+  // dann exakt bis zur Navileiste, nicht bis zum Seitenkopf. Ist man schon im
+  // Etappenbereich (Nav klebt oben), bleibt die Position, wo sie ist.
+  const navTop = navEl.getBoundingClientRect().top;
+  if(navTop < 0){
+    const y = navEl.offsetTop;
+    window.scrollTo({top:y, behavior:'smooth'});
+  }
 }
 
 tabs.forEach((tab,i)=>{
