@@ -451,6 +451,31 @@ main{padding:0 clamp(1.2rem,5vw,4rem) 5rem}
 }
 .foxbox strong{color:var(--paper)}
 
+.rain{
+  margin:1.6rem 0 0;
+  border:2px solid #3a6b8c;
+  border-radius:8px;
+  overflow:hidden;
+}
+.rain-head{background:#3a6b8c;color:#fff;padding:1rem 1.2rem}
+.rain-head .tlabel{color:#cfe0ec;margin-bottom:.25rem}
+.rain-head h3{font-size:1.3rem;font-weight:700;line-height:1.2}
+.rain-head p{font-size:.93rem;color:#cfe0ec;margin-top:.35rem}
+.rain-body{padding:1.2rem;background:#fff;display:grid;gap:.9rem}
+@media(min-width:720px){.rain-body{grid-template-columns:1fr 1fr}}
+.rcard{border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem}
+.rcard.wide{grid-column:1/-1}
+.rtag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;padding:.2rem .5rem;border-radius:2px;margin-bottom:.6rem}
+.rtag-in{background:#e0eef4;color:#1f5570}
+.rtag-out{background:#f7e6dc;color:#8d3c17}
+.rcard h4{font-size:1.02rem;font-weight:700;color:var(--paper);margin-bottom:.35rem}
+.rcard p{font-size:.92rem;color:var(--ash)}
+.rcard .gps{font-family:'JetBrains Mono',monospace;font-size:.69rem;color:#6f757d;margin-top:.45rem}
+.rcard a{font-family:'JetBrains Mono',monospace;font-size:.71rem;color:var(--rust);
+  text-decoration:none;border-bottom:1px solid var(--rust);margin-right:.8rem;display:inline-block;margin-top:.5rem}
+.rcard a::after{content:" ↗"}
+
 /* ---------- Camping ---------- */
 .camp{
   padding:1.8rem 0 0;
@@ -632,6 +657,60 @@ footer p + p{margin-top:.7rem}
 
     <div class="foxbox">
       <strong>Falls es später wird.</strong> Borgarnes hat einen eigenen Campingplatz und liegt 45 statt 90 Minuten nach Glymur. Kostet euch am nächsten Morgen 50 Minuten mehr Fahrt bis Surtshellir, spart aber abends Zeit — im Juli ist es bis Mitternacht hell, das lässt sich also spontan entscheiden.
+    </div>
+  </div>
+
+
+  <div class="rain">
+    <div class="rain-head">
+      <div class="tlabel">Schlechtwetter-Option · falls ihr in Hveragerði festsitzt</div>
+      <h3>Regentag in Hveragerði</h3>
+      <p>Alles außer Kerið liegt im Ort oder wenige Minuten entfernt. Bei Sturm oder Gewitter Reykjadalur auslassen, sonst ist gerade der Thermalfluss im Regen am schönsten.</p>
+    </div>
+    <div class="rain-body">
+
+      <div class="rcard">
+        <span class="rtag rtag-out">Draußen · ok bei Regen</span>
+        <h4>Reykjadalur trotzdem</h4>
+        <p>Bei Regen sogar besser: Ihr werdet ohnehin nass, und im 38-Grad-Bach zu liegen, während es schüttet, ist großartig. Nur bei Sturm oder Gewitter lassen — dann ist der Aufstieg unangenehm. Start direkt am Ort.</p>
+        <p class="gps">64.0286, −21.2072 · Parkplatz Reykjadalur</p>
+        <a href="https://www.iceland-highlights.com/guide-to-the-reykjadalur-hot-spring-thermal-river-trail/" target="_blank" rel="noopener">Wegbeschreibung</a>
+      </div>
+
+      <div class="rcard">
+        <span class="rtag rtag-in">Drinnen</span>
+        <h4>Quake 2008 — Erdbebenausstellung</h4>
+        <p>Im Einkaufszentrum Sunnumörk mitten im Ort. Steht auf einer freigelegten Erdspalte vom Beben 2008, die man durch eine Glasplatte im Boden sieht, dazu ein Simulator, der das Beben nachstellt. Perfekt für eine Regenstunde.</p>
+        <p class="gps">Sunnumörk 2–4, Hveragerði</p>
+        <a href="https://www.openstreetmap.org/?mlat=64.0009&mlon=-21.1897#map=16/64.0009/-21.1897" target="_blank" rel="noopener">OSM</a>
+      </div>
+
+      <div class="rcard">
+        <span class="rtag rtag-in">Drinnen &amp; draußen</span>
+        <h4>Geothermalpark Hveragerði</h4>
+        <p>850 Meter von der Ringstraße. Rundweg über dampfende Erdlöcher, in denen ihr ein Ei kochen oder Hverabrauð-Roggenbrot probieren könnt. Am Ausgang Café, ein kleines Geologie-Museum und ein Gewächshaus mit Tomaten, Bananen und Blumen — bei Regen also größtenteils überdacht.</p>
+        <p class="gps">64.0044, −21.1906 · Hveramörk 13</p>
+        <a href="https://guidetoiceland.is/travel-iceland/drive/hveragerdi-geothermal-park-1" target="_blank" rel="noopener">Infos</a>
+        <a href="https://www.openstreetmap.org/?mlat=64.0044&mlon=-21.1906#map=16/64.0044/-21.1906" target="_blank" rel="noopener">OSM</a>
+      </div>
+
+      <div class="rcard">
+        <span class="rtag rtag-in">Drinnen</span>
+        <h4>Schwimmbad Laugaskarð</h4>
+        <p>Großes geothermales Freibad mit 50-Meter-Becken, heißen Töpfen und Dampfbad — im Regen völlig egal, eines der ältesten und schönsten Bäder Islands. Ganzjährig offen. Duschen ohne Badesachen ist Pflicht.</p>
+        <p class="gps">64.0067, −21.1889 · Reykjamörk, 810 Hveragerði</p>
+        <a href="https://www.openstreetmap.org/?mlat=64.0067&mlon=-21.1889#map=16/64.0067/-21.1889" target="_blank" rel="noopener">OSM</a>
+      </div>
+
+      <div class="rcard wide">
+        <span class="rtag rtag-out">Optional · 35 km</span>
+        <h4>Kerið-Krater</h4>
+        <p>Knapp außerhalb eures 10-km-Radius, aber der Aufwand lohnt: ein leuchtend roter Vulkankrater mit türkisem See, den man in 20 Minuten umrundet. Bei tiefen Wolken wirkt er fast noch dramatischer. Kleiner Eintritt. Liegt Richtung Golden Circle, falls ihr den Regentag zum Umherfahren nutzt.</p>
+        <p class="gps">64.0411, −20.8850 · Straße 35 Richtung Selfoss</p>
+        <a href="https://de.wikipedia.org/wiki/Ker%C3%AD%C3%B0" target="_blank" rel="noopener">Wikipedia</a>
+        <a href="https://www.openstreetmap.org/?mlat=64.0411&mlon=-20.885#map=15/64.0411/-20.885" target="_blank" rel="noopener">OSM</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1371,7 +1450,7 @@ footer p + p{margin-top:.7rem}
   <p><strong>Vor jeder Etappe prüfen:</strong> <a href="https://safetravel.is/" target="_blank" rel="noopener">safetravel.is</a> für Warnungen · <a href="https://www.road.is/" target="_blank" rel="noopener">road.is</a> für Straßenzustand und F-Straßen-Öffnung · <a href="https://en.vedur.is/" target="_blank" rel="noopener">vedur.is</a> für Wetter und Wind.</p>
   <p><strong>Camping:</strong> Wildcampen mit dem Camper ist in Island verboten. Der <a href="https://www.campingcard.is/" target="_blank" rel="noopener">Camping Card</a> lohnt sich ab etwa zwei Wochen.</p>
   <p><strong>Buchen:</strong> Höhlen, Gletscher und Kajak im Hochsommer möglichst ein paar Tage vorher — der Rest der Route funktioniert spontan.</p>
-  <p><strong>Karte:</strong> Alle 72 Ziele dieser Seite gibt es als interaktive Karte (<code>island-karte.html</code>) und als GPX-Datei (<code>island-route.gpx</code>) zum Import in komoot, Organic Maps oder OsmAnd.</p>
+  <p><strong>Karte:</strong> Alle 75 Ziele dieser Seite gibt es als interaktive Karte (<code>island-karte.html</code>) und als GPX-Datei (<code>island-route.gpx</code>) zum Import in komoot, Organic Maps oder OsmAnd.</p>
   <p><strong>Tracks:</strong> Drei Ziele haben einen direkten Wikiloc-Track (Stórurð, Skaftafell, Fimmvörðuháls), Reykjadalur einen auf AllTrails. Bei den übrigen führt der grüne Link auf den komoot-Regionsführer der jeweiligen Gemeinde oder die Wikiloc-Regionsseite — dort ist die passende Tour ein bis zwei Klicks entfernt. Für Skaftafell und Fimmvörðuháls steht zusätzlich die offizielle Routenbeschreibung des Nationalparks bzw. des isländischen Wandervereins daneben; die ist verlässlicher als jeder nutzergenerierte Track.</p>
   <p><strong>Ausrüstung für die wilden Höhlen:</strong> Zwei Lichtquellen pro Person (Stirnlampe plus Reserve), Helm, feste Schuhe, Handschuhe. In Surtshellir und Maríuhellar gibt es kein Licht, keine Stege und kein Personal. Sagt jemandem, wo ihr seid.</p>
   <p><strong>Hotpots:</strong> GPS-Koordinaten im Reiter „Hotpots" vor der Abfahrt offline speichern — in den Westfjorden und im Osten gibt es streckenweise kein Netz.</p>
