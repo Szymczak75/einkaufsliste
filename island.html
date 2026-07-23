@@ -150,12 +150,6 @@ nav{
 @media (hover:hover){.navbtn:hover{color:var(--ice)}}
 .navbtn{text-decoration:none;display:inline-block;text-align:center;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none}
 .navscroll{overscroll-behavior-x:contain}
-.navbtn.nav-active{color:var(--paper);border-bottom-color:var(--rust)}
-.navbtn.nav-active .days{color:var(--rust)}
-.navbtn[aria-selected="true"]{
-  color:var(--paper);
-  border-bottom-color:var(--rust);
-}
 .navbtn:focus-visible{outline:2px solid var(--rust);outline-offset:-2px}
 .navbtn .days{
   display:block;
@@ -164,9 +158,18 @@ nav{
   letter-spacing:.06em;
   margin-top:.15rem;
 }
-.navbtn[aria-selected="true"] .days{color:var(--rust)}
 .navbtn-tr{color:#9aa0a7;font-style:italic}
-.navbtn-tr[aria-selected="true"]{color:var(--paper);font-style:normal}
+
+/* Markierung des aktiven Reiters – bewusst zuletzt, damit sie
+   weder von .navbtn-tr noch von .navbtn .days überschrieben wird. */
+.navbtn.nav-active,
+.navbtn[aria-selected="true"]{
+  color:var(--paper);
+  border-bottom-color:var(--rust);
+  font-style:normal;
+}
+.navbtn.nav-active .days,
+.navbtn[aria-selected="true"] .days{color:var(--rust)}
 
 /* ---------- Panels ---------- */
 main{padding:0 clamp(1.2rem,5vw,4rem) 5rem}
@@ -1516,4 +1519,4 @@ footer p + p{margin-top:.7rem}
       </div>
       <div class="pot">
         <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
-        <h4>Krossneslaug</h4
+        <h4>K
