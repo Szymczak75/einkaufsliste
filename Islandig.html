@@ -49,6 +49,8 @@ nav{border-bottom:1px solid var(--line);background:rgba(250,248,244,.97);backdro
   padding:.95rem .85rem;cursor:pointer;white-space:nowrap;transition:color .16s,border-color .16s;
 }
 .navbtn:hover{color:var(--ice)}
+.navbtn{touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none}
+.navscroll{overscroll-behavior-x:contain}
 .navbtn[aria-selected="true"]{color:var(--paper);border-bottom-color:var(--rust)}
 .navbtn:focus-visible{outline:2px solid var(--rust);outline-offset:-2px}
 
@@ -442,15 +444,32 @@ const panels = Array.from(document.querySelectorAll('.panel'));
 const q = document.getElementById('q');
 const empty = document.getElementById('empty');
 
+const navEl = document.querySelector('nav');
 function show(i){
-  tabs.forEach((t,j)=>t.setAttribute('aria-selected', j===i));
-  panels.forEach((p,j)=>p.classList.toggle('active', j===i));
-  tabs[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
-  window.scrollTo({top:0, behavior:'smooth'});
+  // Inhalt zuerst, danach erst alles, was fehlschlagen könnte.
+  for(var j=0;j<panels.length;j++){
+    panels[j].classList.toggle('active', j===i);
+  }
+  for(var k=0;k<tabs.length;k++){
+    tabs[k].setAttribute('aria-selected', k===i ? 'true' : 'false');
+  }
+  try{
+    if(tabs[i].scrollIntoView) tabs[i].scrollIntoView({block:'nearest', inline:'center'});
+    if(navEl && navEl.getBoundingClientRect().top < 0){
+      window.scrollTo({top:navEl.offsetTop, behavior:'smooth'});
+    }
+  }catch(e){}
 }
 
 tabs.forEach((tab,i)=>{
-  tab.addEventListener('click',()=>{ q.value=''; runSearch(); show(i); });
+  let startX=0, startY=0, moved=false;
+  const pick = () => { q.value=''; runSearch(); show(i); };
+  tab.addEventListener('pointerdown', e => { startX=e.clientX; startY=e.clientY; moved=false; });
+  tab.addEventListener('pointermove', e => {
+    if(Math.abs(e.clientX-startX)>8 || Math.abs(e.clientY-startY)>8) moved=true;
+  });
+  tab.addEventListener('pointerup', e => { if(!moved){ e.preventDefault(); pick(); } });
+  tab.addEventListener('click', e => { if(e.detail===0 || !window.PointerEvent) pick(); });
   tab.addEventListener('keydown',e=>{
     if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
       e.preventDefault();
