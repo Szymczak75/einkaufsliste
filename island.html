@@ -476,6 +476,31 @@ main{padding:0 clamp(1.2rem,5vw,4rem) 5rem}
   text-decoration:none;border-bottom:1px solid var(--rust);margin-right:.8rem;display:inline-block;margin-top:.5rem}
 .rcard a::after{content:" ↗"}
 
+.hotstrip{
+  margin:1.6rem 0 0;
+  background:#fbf0e8;
+  border:1px solid #e8cdb9;
+  border-radius:6px;
+  padding:1rem 1.2rem;
+}
+.hotstrip .hlabel{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--rust);margin-bottom:.7rem;
+}
+.hotlist{display:grid;gap:.6rem}
+@media(min-width:720px){.hotlist{grid-template-columns:1fr 1fr;gap:.6rem 1.4rem}}
+.hotitem{display:flex;gap:.7rem;align-items:baseline}
+.hotitem .hn{font-weight:700;color:var(--paper);font-size:.96rem;flex:0 0 auto}
+.hotitem .ht{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;
+  background:#f7e6dc;color:#8d3c17;padding:.12rem .4rem;border-radius:2px;flex:0 0 auto;
+}
+.hotitem .hd{font-size:.88rem;color:var(--ash)}
+.hotstrip .more{
+  font-size:.85rem;color:var(--ash);margin-top:.8rem;padding-top:.7rem;
+  border-top:1px solid #e8cdb9;
+}
+
 /* ---------- Camping ---------- */
 .camp{
   padding:1.8rem 0 0;
@@ -605,6 +630,15 @@ footer p + p{margin-top:.7rem}
       <p class="gps">64.2558, −21.1178 · Þingvellir-Nationalpark, Silfra-Parkplatz P5</p>
       <a href="https://adventurevikings.is/tours/caving/" target="_blank" rel="noopener">Kombi mit Höhle</a><a class="alt" href="https://de.wikipedia.org/wiki/Silfra" target="_blank" rel="noopener">Wikipedia</a>
     </div>
+  </div>
+
+  <div class="hotstrip">
+    <div class="hlabel">Baden auf dieser Etappe</div>
+    <div class="hotlist">
+      <div class="hotitem"><span class="hn">Skátalaug</span><span class="ht">handwarm</span><span class="hd">Kleiner Naturhotpot südlich von Kleifarvatn, sieht aus wie ein Teich und ist leicht zu übersehen. Kaum besucht, kein Schild.</span></div>
+      <div class="hotitem"><span class="hn">Schwimmbäder</span><span class="ht">warm</span><span class="hd">Grindavík und Sandgerði — geothermal beheizt, mit Hotpots, Sauna und Eisbecken. Der zuverlässige Plan B.</span></div>
+    </div>
+    <p class="more"><strong>Nicht baden:</strong> Seltún und Gunnuhver sind Solfatarenfelder mit kochendem Schlamm — nur Stege, kein Wasser zum Reingehen. In Brimketill ebenfalls nicht, wegen der Brandung.</p>
   </div>
   <div class="camp">
     <span class="label">Camp</span>
@@ -766,6 +800,16 @@ footer p + p{margin-top:.7rem}
       <p class="gps">Höfe um Stykkishólmur (65.0745, −22.7297) und Grundarfjörður</p>
       <a href="https://www.west.is/en" target="_blank" rel="noopener">Höfe vergleichen</a><a class="alt" href="https://de.wikipedia.org/wiki/Islandpferd" target="_blank" rel="noopener">Islandpferd</a>
     </div>
+  </div>
+
+  <div class="hotstrip">
+    <div class="hlabel">Baden auf dieser Etappe</div>
+    <div class="hotlist">
+      <div class="hotitem"><span class="hn">Landbrotalaug</span><span class="ht">37–39 °C</span><span class="hd">Winziges Naturbecken für zwei, nahe Eldborg. Kein Schild, falscher Pin auf Google Maps.</span></div>
+      <div class="hotitem"><span class="hn">Lýsuhólslaug</span><span class="ht">38 °C</span><span class="hd">Grünes Algenwasser, Eisbecken, Café. Nur Juni bis Mitte August offen.</span></div>
+      <div class="hotitem"><span class="hn">Guðrúnarlaug</span><span class="ht">38 °C</span><span class="hd">Auf dem Weg in die Westfjorde, mit Torfhütte als Umkleide.</span></div>
+    </div>
+    <p class="more">Koordinaten, Anfahrt und Regeln im Reiter „Hotpots".</p>
   </div>
   
   <div class="camp">
@@ -1030,6 +1074,18 @@ footer p + p{margin-top:.7rem}
 
     </div>
   </div>
+
+  <div class="hotstrip">
+    <div class="hlabel">Baden auf dieser Etappe · die beste Region dafür</div>
+    <div class="hotlist">
+      <div class="hotitem"><span class="hn">Krossneslaug</span><span class="ht">warm</span><span class="hd">Becken auf Kieselstrand vor dem offenen Nordatlantik. Zufahrt rau, aber ohne Furt.</span></div>
+      <div class="hotitem"><span class="hn">Drangsnes</span><span class="ht">bis 44 °C</span><span class="hd">Drei Wannen am Strand, von der Dorfgemeinschaft gepflegt.</span></div>
+      <div class="hotitem"><span class="hn">Hellulaug</span><span class="ht">38 °C</span><span class="hd">Direkt über dem Meer bei Flókalundur, keine Umkleide.</span></div>
+      <div class="hotitem"><span class="hn">Reykjafjarðarlaug</span><span class="ht">32–52 °C</span><span class="hd">Zwei Becken — das obere ist zeitweise zu heiß, erst mit dem Fuß testen.</span></div>
+      <div class="hotitem"><span class="hn">Pollurinn</span><span class="ht">warm</span><span class="hd">Drei kleine Becken bei Tálknafjörður, selten besucht.</span></div>
+    </div>
+    <p class="more">Koordinaten, Anfahrt und Regeln im Reiter „Hotpots".</p>
+  </div>
   
   <div class="camp">
     <span class="label">Camp</span>
@@ -1130,6 +1186,15 @@ footer p + p{margin-top:.7rem}
       <p class="gps">Hjalteyri, 65.8664, −18.1936 · 25 Min nördlich von Akureyri</p>
       <a href="https://www.northsailing.is/" target="_blank" rel="noopener">Anbieter</a><a class="alt" href="https://www.openstreetmap.org/?mlat=65.8664&mlon=-18.1936#map=14/65.8664/-18.1936" target="_blank" rel="noopener">OSM</a>
     </div>
+  </div>
+
+  <div class="hotstrip">
+    <div class="hlabel">Baden auf dieser Etappe</div>
+    <div class="hotlist">
+      <div class="hotitem"><span class="hn">Grettislaug</span><span class="ht">warm</span><span class="hd">Zwei Steinbecken am Meer mit Blick auf Drangey — direkt bei euren Reittagen in Skagafjörður, Campingplatz daneben.</span></div>
+      <div class="hotitem"><span class="hn">Hofsós</span><span class="ht">30–31 °C</span><span class="hd">Infinity-Pool am Hang, Kante geht optisch in den Fjord über. Ganzjährig.</span></div>
+    </div>
+    <p class="more">Koordinaten, Anfahrt und Regeln im Reiter „Hotpots".</p>
   </div>
   
   
@@ -1241,6 +1306,15 @@ footer p + p{margin-top:.7rem}
       <a href="https://www.hlynur.is/" target="_blank" rel="noopener">Seyðisfjörður Tours</a><a class="alt" href="https://de.wikipedia.org/wiki/Sey%C3%B0isfj%C3%B6r%C3%B0ur" target="_blank" rel="noopener">Wikipedia</a>
     </div>
   </div>
+
+  <div class="hotstrip">
+    <div class="hlabel">Baden auf dieser Etappe</div>
+    <div class="hotlist">
+      <div class="hotitem"><span class="hn">Vök Baths</span><span class="ht">warm</span><span class="hd">Schwimmende Becken im See bei Egilsstaðir, dazwischen in den kalten See springen. Eintritt.</span></div>
+      <div class="hotitem"><span class="hn">Laugavallalaug</span><span class="ht">warm</span><span class="hd">Warmer Wasserfall als Naturdusche — <strong>braucht echten Geländewagen</strong>, für euren Wagen nicht geeignet.</span></div>
+    </div>
+    <p class="more">Koordinaten, Anfahrt und Regeln im Reiter „Hotpots".</p>
+  </div>
   
   <div class="camp">
     <span class="label">Camp</span>
@@ -1335,6 +1409,16 @@ footer p + p{margin-top:.7rem}
       <a href="https://www.re.is/tour/thorsmork-volcano-hike/" target="_blank" rel="noopener">Reykjavík Excursions</a><a class="alt" href="https://de.wikipedia.org/wiki/%C3%9E%C3%B3rsm%C3%B6rk" target="_blank" rel="noopener">Wikipedia</a>
     </div>
   </div>
+
+  <div class="hotstrip">
+    <div class="hlabel">Baden auf dieser Etappe</div>
+    <div class="hotlist">
+      <div class="hotitem"><span class="hn">Hoffell</span><span class="ht">warm</span><span class="hd">Fünf Wannen mit Blick auf die Gletscherzunge, bei Höfn. Genau richtig nach Skaftafell.</span></div>
+      <div class="hotitem"><span class="hn">Seljavallalaug</span><span class="ht">lauwarm</span><span class="hd">Becken von 1923 im Talkessel unter dem Eyjafjallajökull. Kein Chlor, oft algig — dafür außergewöhnlicher Ort.</span></div>
+      <div class="hotitem"><span class="hn">Reykjadalur</span><span class="ht">36–40 °C</span><span class="hd">Der Thermalfluss bei Hveragerði — letzter Stopp vor dem Rückflug.</span></div>
+    </div>
+    <p class="more">Koordinaten, Anfahrt und Regeln im Reiter „Hotpots".</p>
+  </div>
   
   <div class="camp">
     <span class="label">Camp</span>
@@ -1372,6 +1456,16 @@ footer p + p{margin-top:.7rem}
   </div>
 
   <div class="pots">
+
+    <div class="potgroup">
+      <h3 class="gtitle">Etappe 1 · Reykjanes</h3>
+      <div class="pot">
+        <div class="pmeta"><span class="temp">handwarm</span><span class="price">frei</span></div>
+        <h4>Skátalaug</h4>
+        <p>Kleiner Naturhotpot südlich des Sees Kleifarvatn, gespeist von einer größeren Quelle in der Nähe. Sieht aus wie ein Teich mit einer Steintrennung in zwei Becken — leicht zu übersehen, wenn man nicht weiß, wonach man sucht. Deutlich ruhiger als alles andere auf der Halbinsel.</p>
+        <p class="gps">63.9153, −22.0322 · südlich Kleifarvatn, Straße 42 · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=63.9153,-22.0322" target="_blank" rel="noopener">Karte</a></p>
+      </div>
+    </div>
 
     <div class="potgroup">
       <h3 class="gtitle">Etappe 2 · Snæfellsnes</h3>
@@ -1419,92 +1513,4 @@ footer p + p{margin-top:.7rem}
         <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
         <h4>Krossneslaug</h4>
         <p>Der spektakulärste der Liste: Betonbecken auf Kieselstrand, direkt vor dem offenen Nordatlantik. Die Zufahrt über Straße 643 ist praktisch eine F-Straße ohne Furten — Schlaglöcher, Klippenkante, sehr langsam fahren. Mai bis August.</p>
-        <p class="gps">66.0333, −21.5333 · Ende der Strandir-Küste · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=66.0333,-21.5333" target="_blank" rel="noopener">Karte</a></p>
-      </div>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
-        <h4>Pollurinn & Hörgshlíðarlaug</h4>
-        <p>Zwei stille Alternativen: „Die Pfütze" bei Tálknafjörður mit drei kleinen Becken, und ein einzelner Pool am Ísafjarðardjúp mit Blick über den Fjord. Beide selten besucht.</p>
-        <p class="gps">Tálknafjörður · Ísafjarðardjúp</p>
-      </div>
-    </div>
-
-    <div class="potgroup">
-      <h3 class="gtitle">Etappe 4 · Norden</h3>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">warm</span><span class="price">Eintritt</span></div>
-        <h4>Grettislaug</h4>
-        <p>Zwei Steinbecken am Meer mit Blick auf die Insel Drangey, benannt nach dem Saga-Helden Grettir. Umkleiden, Café und Campingplatz direkt daneben — praktisch für eure Reittage in Skagafjörður. April bis Oktober.</p>
-        <p class="gps">65.8869, −19.5000 · Hof Reykir, Straße 748 ab Sauðárkrókur · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=65.8869,-19.5000" target="_blank" rel="noopener">Karte</a></p>
-      </div>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">30–31 °C</span><span class="price">Eintritt</span></div>
-        <h4>Hofsós Infinity-Pool</h4>
-        <p>25-Meter-Becken am Hang, dessen Kante optisch in den Fjord übergeht. Dazu ein Hotpot und Blick auf Drangey. Unterhalb führt ein Holzsteg zu den Basaltformationen von Staðarbjargavík.</p>
-        <p class="gps">65.8942, −19.4131 · über dem Dorf, ganzjährig · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=65.8942,-19.4131" target="_blank" rel="noopener">Karte</a></p>
-      </div>
-    </div>
-
-    <div class="potgroup">
-      <h3 class="gtitle">Etappe 5 · Osten</h3>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">warm</span><span class="price">Eintritt</span></div>
-        <h4>Vök Baths</h4>
-        <p>Schwimmende Becken im See Urriðavatn bei Egilsstaðir. Das einzig Kommerzielle auf dieser Liste, dafür kann man zwischendurch in den kalten See springen. Deutlich ruhiger als die Blaue Lagune.</p>
-        <p class="gps">65.2833, −14.4333 · bei Egilsstaðir · <a class="maplink" href="https://www.vokbaths.is/" target="_blank" rel="noopener">Website</a></p>
-      </div>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
-        <h4>Laugavallalaug</h4>
-        <p>Ein warmer Wasserfall, der über eine Felskante in ein flaches Naturbecken fällt — eine heiße Dusche in der Wildnis. Abgelegenes Tal nördlich des Vatnajökull, Zufahrt nur mit echtem Geländewagen. <strong>Für euren Wagen nicht geeignet</strong>, aber gut zu wissen.</p>
-        <p class="gps">65.0833, −15.7500 · nur mit echtem 4x4</p>
-      </div>
-    </div>
-
-    <div class="potgroup">
-      <h3 class="gtitle">Etappe 6 · Süden</h3>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">warm</span><span class="price">Eintritt</span></div>
-        <h4>Hoffell Hot Tubs</h4>
-        <p>Fünf Wannen am Hang mit direktem Blick auf die Gletscherzunge, bei Höfn. Genau das Richtige nach der Gletscherwanderung in Skaftafell.</p>
-        <p class="gps">64.4033, −15.3333 · Hoffell Guesthouse bei Höfn · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=64.4033,-15.3333" target="_blank" rel="noopener">Karte</a></p>
-      </div>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">warm</span><span class="price">frei</span></div>
-        <h4>Seljavallalaug</h4>
-        <p>Betonbecken von 1923 in einem Talkessel unter dem Eyjafjallajökull, kurzer Fußweg vom Parkplatz. Kein Chlor, keine Toiletten, keine Duschen — die Reinigung erfolgt nur ein paar Mal im Jahr ehrenamtlich. Erwartet eher lauwarm und algig, dafür an einem außergewöhnlichen Ort.</p>
-        <p class="gps">63.5658, −19.6067 · ca. 15 Min Fußweg · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=63.5658,-19.6067" target="_blank" rel="noopener">Karte</a></p>
-      </div>
-      <div class="pot">
-        <div class="pmeta"><span class="temp">36–40 °C</span><span class="price">frei</span></div>
-        <h4>Reykjadalur Thermalfluss</h4>
-        <p>Kein Becken, sondern ein ganzer Bach, in dem man sich die passende Temperatur flussaufwärts sucht. Drei Kilometer Aufstieg ab Hveragerði, Holzstege und Sichtschutz oben. Der letzte Stopp vor dem Rückflug.</p>
-        <p class="gps">64.0286, −21.2072 · 45 Min Aufstieg ab Parkplatz · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=64.0286,-21.2072" target="_blank" rel="noopener">Karte</a></p>
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class="searchnames">
-    <h3 class="gtitle">Suchbegriffe für komoot</h3>
-    <p class="snote">Komoot findet die meisten Ziele nur unter dem isländischen Originalnamen. Die Sonderzeichen ð, þ, æ, ö kannst du meist weglassen — komoot ist da tolerant. Rechts jeweils die Schreibweise ohne Akzente, falls die Tastatur nicht mitspielt.</p>
-    <table class="nametable">
-      <thead><tr><th>Ziel</th><th>Isländisch</th><th>Vereinfacht</th></tr></thead>
-      <tbody>
-        <tr><td>Thermalfluss Hveragerði</td><td>Reykjadalur</td><td>Reykjadalur</td></tr>
-        <tr><td>Hausberg Hafnarfjörður</td><td>Helgafell</td><td>Helgafell</td></tr>
-        <tr><td>Gletschervulkan Westen</td><td>Snæfellsjökull</td><td>Snaefellsjokull</td></tr>
-        <tr><td>Spalte im Berg</td><td>Rauðfeldsgjá</td><td>Raudfeldsgja</td></tr>
-        <tr><td>Vogelfelsen Westfjorde</td><td>Látrabjarg</td><td>Latrabjarg</td></tr>
-        <tr><td>Fächerwasserfall</td><td>Dynjandi</td><td>Dynjandi</td></tr>
-        <tr><td>Roter Strand</td><td>Rauðasandur</td><td>Raudasandur</td></tr>
-        <tr><td>Naturreservat Nordwest</td><td>Hornstrandir</td><td>Hornstrandir</td></tr>
-        <tr><td>Dampfendes Lavafeld</td><td>Leirhnjúkur</td><td>Leirhnjukur</td></tr>
-        <tr><td>Solfatarenfeld Mývatn</td><td>Hverir / Hverarönd</td><td>Hverir</td></tr>
-        <tr><td>Hufeisenschlucht</td><td>Ásbyrgi</td><td>Asbyrgi</td></tr>
-        <tr><td>Basaltformationen</td><td>Hljóðaklettar</td><td>Hljodaklettar</td></tr>
-        <tr><td>Wegenetz Ostfjorde</td><td>Víknaslóðir</td><td>Viknaslodir</td></tr>
-        <tr><td>Felsblöcke &amp; Tümpel</td><td>Stórurð</td><td>Storurd</td></tr>
-        <tr><td>Basaltschlucht Ost</td><td>Stuðlagil</td><td>Studlagil</td></tr>
- 
+        <p class="gps">66.0333, −21.5333 · Ende der Strandir-Küste · <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=66.0333,-21.5333" target="_blank" rel
