@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Island — 3 Wochen abseits der Hotsports</title>
+<title>Island — 3 Wochen abseits der Hotspots</title>
 <meta name="description" content="Drei Wochen Island gegen den Uhrzeigersinn, abseits der Hotspots: wilde Höhlen, Naturhotpots, Ausritte und Wasserabenteuer. 91 Ziele mit GPS. Stand Juli 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +96,18 @@ h1 .accent{color:var(--rust)}
 }
 .caution p{font-size:.98rem;color:var(--ice)}
 .caution p + p{margin-top:.6rem}
+/* Aufklappbar */
+details.caution{padding:0}
+details.caution summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:1.1rem 1.3rem;-webkit-tap-highlight-color:transparent;user-select:none;
+}
+details.caution summary::-webkit-details-marker{display:none}
+details.caution summary h2{margin:0}
+details.caution .chev{color:var(--rust);font-size:.9rem;transition:transform .2s;flex:0 0 auto}
+details.caution[open] .chev{transform:rotate(180deg)}
+details.caution .caution-body{padding:0 1.3rem 1.1rem}
+details.caution summary:focus-visible{outline:2px solid var(--rust);outline-offset:-2px}
 
 .legend{
   display:flex;
@@ -608,13 +620,15 @@ nav{margin-top:2rem}
   <div class="stamp"><span class="pulse"></span>Recherche-Stand <b>Juli 2026</b> · Preise &amp; Fähren aktualisiert</div>
 </header>
 
-<div class="caution">
-  <h2>Zwei Dinge vorweg</h2>
+<details class="caution" id="vorweg">
+  <summary><h2>Zwei Dinge vorweg</h2><span class="chev" aria-hidden="true">▾</span></summary>
+  <div class="caution-body">
   <p><strong>Furten sind tabu.</strong> Euer Wagen darf auf F-Straßen, aber jede Versicherung schließt Wasserschäden aus. Landmannalaugar über die F208 Nord, Askja, Þórsmörk: nur geführt oder per Hochlandbus. Kein Ermessensspielraum — das ist der teuerste Fehler, den man in Island machen kann.</p>
   <p><strong>Strandsegeln gibt es hier nicht.</strong> Die Küste ist Lava, Schwarzsand und Sneaker Waves, kein kommerzieller Anbieter. Der nächste Ersatz ist Wakeboarding in den Westfjorden — steht bei Etappe 3.</p>
   <p><strong>Drei Dinge bleiben trotzdem geführt.</strong> Gletscherzungen (Spalten unter Schneebrücken), Silfra (Trockenanzug-Pflicht) und alles hinter Furten. Das ist keine Vorsicht, sondern die Liste, auf der in Island jedes Jahr Leute sterben. Alles andere auf dieser Seite könnt ihr selbst.</p>
   <p><strong>Reykjanes-Vulkan, Stand Juli 2026.</strong> Kein aktiver Ausbruch — die neunte Sundhnúkur-Eruption endete am 5. August 2025. Unter Svartsengi hebt sich der Boden aber weiter, ein neuer Ausbruch in Wochen bis Monaten gilt als wahrscheinlich. Grindavík und die Küstenstraßen sind offen, die Gefahrenkarte des Met Office gilt bis 30. September 2026. Vor Etappe 1 kurz <a href="https://safetravel.is/" target="_blank" rel="noopener" style="color:var(--rust)">safetravel.is</a> und <a href="https://en.vedur.is/" target="_blank" rel="noopener" style="color:var(--rust)">vedur.is</a> prüfen — die Lage kann sich mit wenig Vorwarnung ändern.</p>
-</div>
+  </div>
+</details>
 
 <div class="legend">
   <span class="lkey"><span class="dot d-self"></span>Auf eigene Faust</span>
@@ -625,21 +639,21 @@ nav{margin-top:2rem}
 
 <nav>
   <div class="navscroll" role="tablist" aria-label="Etappen">
-    <a class="navbtn nav-current" href="#reg1" id="tt1" role="tab" aria-selected="true" aria-controls="reg1">Reykjanes<span class="days">Tag 1–3</span></a>
-    <a class="navbtn navbtn-tr" href="#trA" id="ttA" role="tab" aria-selected="false" aria-controls="trA">Grind.→Húsafell<span class="days">Fahrtag</span></a>
-    <a class="navbtn" href="#reg2" id="tt2" role="tab" aria-selected="false" aria-controls="reg2">Snæfellsnes<span class="days">Tag 4–6</span></a>
-    <a class="navbtn navbtn-tr" href="#trA2" id="ttA2" role="tab" aria-selected="false" aria-controls="trA2">Húsafell→Snæf.<span class="days">Fahrtag</span></a>
-    <a class="navbtn navbtn-tr" href="#trB" id="ttB" role="tab" aria-selected="false" aria-controls="trB">2→3<span class="days">Fahrtag</span></a>
-    <a class="navbtn navbtn-tr" href="#trB2" id="ttB2" role="tab" aria-selected="false" aria-controls="trB2">Búð.→Breiðavík<span class="days">Fahrtag</span></a>
-    <a class="navbtn" href="#reg3" id="tt3" role="tab" aria-selected="false" aria-controls="reg3">Westfjorde<span class="days">Tag 7–10</span></a>
-    <a class="navbtn navbtn-tr" href="#trC" id="ttC" role="tab" aria-selected="false" aria-controls="trC">3→4<span class="days">Fahrtag</span></a>
-    <a class="navbtn" href="#reg4" id="tt4" role="tab" aria-selected="false" aria-controls="reg4">Norden<span class="days">Tag 11–13</span></a>
-    <a class="navbtn navbtn-tr" href="#trD" id="ttD" role="tab" aria-selected="false" aria-controls="trD">4→5<span class="days">Fahrtag</span></a>
-    <a class="navbtn" href="#reg5" id="tt5" role="tab" aria-selected="false" aria-controls="reg5">Osten<span class="days">Tag 14–17</span></a>
-    <a class="navbtn navbtn-tr" href="#trE" id="ttE" role="tab" aria-selected="false" aria-controls="trE">5→6<span class="days">Fahrtag</span></a>
-    <a class="navbtn" href="#reg6" id="tt6" role="tab" aria-selected="false" aria-controls="reg6">Süden<span class="days">Tag 18–21</span></a>
-    <a class="navbtn navbtn-tr" href="#trF" id="ttF" role="tab" aria-selected="false" aria-controls="trF">→ Keflavík<span class="days">Heimreise</span></a>
-    <a class="navbtn" href="#hot" id="ttH" role="tab" aria-selected="false" aria-controls="hot">Hotpots<span class="days">alle Etappen</span></a>
+    <button type="button" class="navbtn nav-current" id="tt1" role="tab" aria-selected="true" aria-controls="reg1">Reykjanes<span class="days">Tag 1–3</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttA" role="tab" aria-selected="false" aria-controls="trA">Grind.→Húsafell<span class="days">Fahrtag</span></button>
+    <button type="button" class="navbtn" id="tt2" role="tab" aria-selected="false" aria-controls="reg2">Snæfellsnes<span class="days">Tag 4–6</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttA2" role="tab" aria-selected="false" aria-controls="trA2">Húsafell→Snæf.<span class="days">Fahrtag</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttB" role="tab" aria-selected="false" aria-controls="trB">2→3<span class="days">Fahrtag</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttB2" role="tab" aria-selected="false" aria-controls="trB2">Búð.→Breiðavík<span class="days">Fahrtag</span></button>
+    <button type="button" class="navbtn" id="tt3" role="tab" aria-selected="false" aria-controls="reg3">Westfjorde<span class="days">Tag 7–10</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttC" role="tab" aria-selected="false" aria-controls="trC">3→4<span class="days">Fahrtag</span></button>
+    <button type="button" class="navbtn" id="tt4" role="tab" aria-selected="false" aria-controls="reg4">Norden<span class="days">Tag 11–13</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttD" role="tab" aria-selected="false" aria-controls="trD">4→5<span class="days">Fahrtag</span></button>
+    <button type="button" class="navbtn" id="tt5" role="tab" aria-selected="false" aria-controls="reg5">Osten<span class="days">Tag 14–17</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttE" role="tab" aria-selected="false" aria-controls="trE">5→6<span class="days">Fahrtag</span></button>
+    <button type="button" class="navbtn" id="tt6" role="tab" aria-selected="false" aria-controls="reg6">Süden<span class="days">Tag 18–21</span></button>
+    <button type="button" class="navbtn navbtn-tr" id="ttF" role="tab" aria-selected="false" aria-controls="trF">→ Keflavík<span class="days">Heimreise</span></button>
+    <button type="button" class="navbtn" id="ttH" role="tab" aria-selected="false" aria-controls="hot">Hotpots<span class="days">alle Etappen</span></button>
   </div>
 </nav>
 
@@ -1506,12 +1520,4 @@ nav{margin-top:2rem}
     <div class="act">
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Hjörleifshöfði & Fjaðrárgljúfur</h3>
-      <p>Die „Yoda-Höhle" Gýgjagjá in einem Tuffberg mitten im Schwarzsand — 20 Meter hohe Öffnung, frei begehbar, kaum besucht. Fjaðrárgljúfur dagegen nur vor acht Uhr morgens, danach ist die Moosschlucht ein anderer Ort.</p>
-      <p class="gps">63.4167, −18.7667 · Hjörleifshöfði, Abzweig Straße 1</p>
-      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Hj%C3%B6rleifsh%C3%B6f%C3%B0i" target="_blank" rel="noopener">Wikipedia</a><a class="gpx" href="https://www.wikiloc.com/trails/hiking/iceland" target="_blank" rel="noopener">Wikiloc Island</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.4167&mlon=-18.7667#map=13/63.4167/-18.7667" target="_blank" rel="noopener">OSM</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
-      <h3>Þakgil</h3>
-      <p>Ein grünes Tal zwischen Mýrdalsjökull und Schwarzsand, 15 km Schotterpiste ab Vík — steil und kurvig, aber ohne Furt. Oben Campingplatz und markierte Wege. Deutlich stiller als alles andere im Süden.</p>
-      <
+      <p>Die „Yoda-Höhle" Gýgjagjá in einem Tuffberg mitten im Schwarzsand — 20 Meter hohe Öffnung, frei begehbar, kaum besucht. Fjaðr
