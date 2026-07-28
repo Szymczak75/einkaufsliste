@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Island — 3 Wochen abseits der Hotspots</title>
+<meta name="description" content="Drei Wochen Island gegen den Uhrzeigersinn, abseits der Hotspots: wilde Höhlen, Naturhotpots, Ausritte und Wasserabenteuer. 91 Ziele mit GPS. Stand Juli 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -538,9 +539,60 @@ footer{
 }
 footer a{color:var(--ice)}
 footer p + p{margin-top:.7rem}
+
+/* ===== 2026-Rebuild: durchgehender Scroll statt Tabs ===== */
+.panel{display:block !important;animation:none;scroll-margin-top:5.5rem;padding-top:.5rem}
+.panel + .panel{border-top:1px solid var(--line)}
+.js-off #reg1{display:block}
+
+/* Sticky Sprung-Navigation */
+nav{margin-top:2rem}
+.navbtn{border-bottom:2px solid transparent}
+.navbtn.nav-active,.navbtn[aria-selected="true"]{color:var(--paper);border-bottom-color:var(--rust);font-style:normal}
+.navbtn.nav-active .days,.navbtn[aria-selected="true"] .days{color:var(--rust)}
+
+/* Status-Stempel im Hero */
+.stamp{margin-top:1.6rem;display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--moss);border:1px solid #cfe0d3;background:#eef5ef;
+  border-radius:2px;padding:.4rem .7rem}
+.stamp b{color:var(--paper);font-weight:600}
+.stamp .pulse{width:7px;height:7px;border-radius:50%;background:var(--moss);flex:0 0 auto}
+
+/* Aktivitäts-Filter */
+.filterbar{position:sticky;top:0;z-index:19;background:rgba(250,248,244,.96);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  padding:.7rem clamp(1.2rem,5vw,4rem);display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.filterbar .flabel{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ash);margin-right:.3rem}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;border:1px solid var(--line);background:#fff;color:var(--ash);
+  border-radius:20px;padding:.34rem .8rem;cursor:pointer;transition:all .15s;
+  -webkit-tap-highlight-color:transparent;user-select:none}
+.chip:hover{color:var(--ice);border-color:#c9c2b4}
+.chip[aria-pressed="true"]{background:var(--ice);color:#fff;border-color:var(--ice)}
+.chip:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.act.dimmed{display:none}
+.dimnote{display:none;padding:2rem 0;color:var(--ash);font-size:.95rem}
+.dimnote.show{display:block}
+
+/* Zurück-nach-oben */
+.toplink{position:fixed;right:1rem;bottom:1rem;z-index:30;background:var(--ice);color:#fff;
+  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:1.1rem;box-shadow:0 4px 12px rgba(0,0,0,.18);
+  opacity:0;pointer-events:none;transition:opacity .2s}
+.toplink.show{opacity:1;pointer-events:auto}
+.toplink:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+
+@media print{
+  nav,.filterbar,.toplink{display:none !important}
+  .act,.panel{break-inside:avoid}
+  body{font-size:12px}
+}
+
 </style>
 </head>
-<body>
+<body id="top">
 
 <header>
   <p class="eyebrow">Juli / August · 21 Tage · Camper</p>
@@ -552,6 +604,7 @@ footer p + p{margin-top:.7rem}
     <span class="fact">Camper</span>
     <span class="fact">meist ohne Guide</span>
   </div>
+  <div class="stamp"><span class="pulse"></span>Recherche-Stand <b>Juli 2026</b> · Preise &amp; Fähren aktualisiert</div>
 </header>
 
 <div class="caution">
@@ -559,6 +612,7 @@ footer p + p{margin-top:.7rem}
   <p><strong>Furten sind tabu.</strong> Euer Wagen darf auf F-Straßen, aber jede Versicherung schließt Wasserschäden aus. Landmannalaugar über die F208 Nord, Askja, Þórsmörk: nur geführt oder per Hochlandbus. Kein Ermessensspielraum — das ist der teuerste Fehler, den man in Island machen kann.</p>
   <p><strong>Strandsegeln gibt es hier nicht.</strong> Die Küste ist Lava, Schwarzsand und Sneaker Waves, kein kommerzieller Anbieter. Der nächste Ersatz ist Wakeboarding in den Westfjorden — steht bei Etappe 3.</p>
   <p><strong>Drei Dinge bleiben trotzdem geführt.</strong> Gletscherzungen (Spalten unter Schneebrücken), Silfra (Trockenanzug-Pflicht) und alles hinter Furten. Das ist keine Vorsicht, sondern die Liste, auf der in Island jedes Jahr Leute sterben. Alles andere auf dieser Seite könnt ihr selbst.</p>
+  <p><strong>Reykjanes-Vulkan, Stand Juli 2026.</strong> Kein aktiver Ausbruch — die neunte Sundhnúkur-Eruption endete am 5. August 2025. Unter Svartsengi hebt sich der Boden aber weiter, ein neuer Ausbruch in Wochen bis Monaten gilt als wahrscheinlich. Grindavík und die Küstenstraßen sind offen, die Gefahrenkarte des Met Office gilt bis 30. September 2026. Vor Etappe 1 kurz <a href="https://safetravel.is/" target="_blank" rel="noopener" style="color:var(--rust)">safetravel.is</a> und <a href="https://en.vedur.is/" target="_blank" rel="noopener" style="color:var(--rust)">vedur.is</a> prüfen — die Lage kann sich mit wenig Vorwarnung ändern.</p>
 </div>
 
 <div class="legend">
@@ -587,6 +641,17 @@ footer p + p{margin-top:.7rem}
     <a class="navbtn" href="#hot" id="ttH" role="tab" aria-selected="false" aria-controls="hot">Hotpots<span class="days">alle Etappen</span></a>
   </div>
 </nav>
+
+<div class="filterbar" role="group" aria-label="Nach Aktivität filtern">
+  <span class="flabel">Filter</span>
+  <button class="chip" data-filter="all" aria-pressed="true">Alle</button>
+  <button class="chip" data-filter="t-cave" aria-pressed="false">Höhle</button>
+  <button class="chip" data-filter="t-sea" aria-pressed="false">Wasser</button>
+  <button class="chip" data-filter="t-horse" aria-pressed="false">Reiten</button>
+  <button class="chip" data-filter="t-hike" aria-pressed="false">Wandern</button>
+  <button class="chip" data-filter="t-guide" aria-pressed="false">Geführt</button>
+  <button class="chip" data-filter="t-self" aria-pressed="false">Selbst</button>
+</div>
 
 <main>
 <!-- 1 -->
@@ -1448,45 +1513,4 @@ footer p + p{margin-top:.7rem}
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Þakgil</h3>
       <p>Ein grünes Tal zwischen Mýrdalsjökull und Schwarzsand, 15 km Schotterpiste ab Vík — steil und kurvig, aber ohne Furt. Oben Campingplatz und markierte Wege. Deutlich stiller als alles andere im Süden.</p>
-      <p class="gps">63.5333, −18.8833 · Straße 214</p>
-      <span class="links"><a class="info" href="https://www.thakgil.is/" target="_blank" rel="noopener">Þakgil</a><a class="gpx" href="https://www.wikiloc.com/trails/hiking/iceland" target="_blank" rel="noopener">Wikiloc Island</a><a class="alt" href="https://www.openstreetmap.org/?mlat=63.5333&mlon=-18.8833#map=13/63.5333/-18.8833" target="_blank" rel="noopener">OSM</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
-      <h3>Vestrahorn bei Höfn</h3>
-      <p>Ein 454 Meter hoher Gabbro-Zacken, der direkt aus dem schwarzen Sand aufsteigt, davor Dünen mit Strandhafer und bei Windstille eine Spiegelung im nassen Sand. Privatgrund mit kleiner Schranke und Gebühr am Café — dafür fast immer leer.</p>
-      <p class="gps">64.2500, −14.9833 · Stokksnes, Abzweig Straße 1 bei Höfn</p>
-      <span class="links"><a class="info" href="https://de.wikipedia.org/wiki/Vestrahorn" target="_blank" rel="noopener">Wikipedia</a><a class="alt" href="https://www.openstreetmap.org/?mlat=64.25&mlon=-14.9833#map=13/64.25/-14.9833" target="_blank" rel="noopener">OSM</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-self">Selbst</span><span class="tag t-hike">Wandern</span>
-      <h3>Múlagljúfur</h3>
-      <p>Die Schlucht, die Fjaðrárgljúfur sein könnte, wenn dort niemand wäre: Moosgrüne Wände, zwei Wasserfälle, Blick bis zum Gletscher. Der Einstieg ist ein unbeschilderter Schotterabzweig von der Ringstraße, danach 45 Minuten steil bergauf ohne Geländer.</p>
-      <p class="gps">63.9739, −16.4147 · Abzweig zwischen Svínafell und Fjallsárlón</p>
-      <span class="links"><a class="info" href="https://epiciceland.net/hidden-gems-iceland/" target="_blank" rel="noopener">Anfahrt & Weg</a><a class="gpx" href="https://www.openstreetmap.org/?mlat=63.9739&mlon=-16.4147#map=14/63.9739/-16.4147" target="_blank" rel="noopener">OSM Karte</a></span>
-    </div>
-    <div class="act">
-      <span class="tag t-guide">Guide</span><span class="tag t-hike">Gletscher</span>
-      <h3>Gletscherwanderung Falljökull</h3>
-      <p>Mit Steigeisen und Eispickel über Spalten und Gletschermühlen. Drei bis vier Stunden. Das Einzige auf dieser Etappe, das ihr wirklich nicht allein machen solltet — Spaltensturz ist die häufigste Todesursache auf isländischen Gletschern.</p>
-      <p class="gps">Treffpunkt Skaftafell-Besucherzentrum · 64.0167, −16.9667</p>
-      <a href="https://adventures.is/iceland/day-tours/glacier-hiking/" target="_blank" rel="noopener">Arctic Adventures</a>
-      <a href="https://icelandguidedtours.is/" target="_blank" rel="noopener">Mountain Guides</a><a class="alt" href="https://de.wikipedia.org/wiki/Fallj%C3%B6kull" target="_blank" rel="noopener">Wikipedia</a>
-    </div>
-    <div class="act">
-      <span class="tag t-guide">Guide</span><span class="tag t-hike">Hochland</span>
-      <h3>Þórsmörk per Hochlandbus</h3>
-      <p>Tal zwischen drei Gletschern, erreichbar nur über tiefe Furten. Der Bus fährt sie euch — Auto stehen lassen, oben selbstständig wandern, abends zurück. Der Bus ist die Buchung, der Tag gehört euch.</p>
-      <p class="gps">Bus ab Hvolsvöllur (63.7494, −20.2242) oder Seljalandsfoss · Ziel Básar/Langidalur</p>
-      <a href="https://www.re.is/tour/thorsmork-volcano-hike/" target="_blank" rel="noopener">Reykjavík Excursions</a><a class="alt" href="https://de.wikipedia.org/wiki/%C3%9E%C3%B3rsm%C3%B6rk" target="_blank" rel="noopener">Wikipedia</a>
-    </div>
-  </div>
-
-  <div class="hotstrip">
-    <div class="hlabel">Baden auf dieser Etappe</div>
-    <div class="hotlist">
-      <div class="hotitem"><span class="hn">Hoffell</span><span class="ht">warm</span><span class="hd">Fünf Wannen mit Blick auf die Gletscherzunge, bei Höfn. Genau richtig nach Skaftafell.</span></div>
-      <div class="hotitem"><span class="hn">Seljavallalaug</span><span class="ht">lauwarm</span><span class="hd">Becken von 1923 im Talkessel unter dem Eyjafjallajökull. Kein Chlor, oft algig — dafür außergewöhnlicher Ort.</span></div>
-      <div class="hotitem"><span class="hn">Reykjadalur</span><span class="ht">36–40 °C</span><span class="hd">Der Thermalfluss bei Hveragerði — letzter Stopp vor dem Rückflug.</span></div>
-    </div>
-    <p class="more">Koordi
+      <p class="gps">6
