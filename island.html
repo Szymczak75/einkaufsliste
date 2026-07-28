@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="js-off">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -540,10 +540,11 @@ footer{
 footer a{color:var(--ice)}
 footer p + p{margin-top:.7rem}
 
-/* ===== 2026-Rebuild: durchgehender Scroll statt Tabs ===== */
-.panel{display:block !important;animation:none;scroll-margin-top:5.5rem;padding-top:.5rem}
-.panel + .panel{border-top:1px solid var(--line)}
-.js-off #reg1{display:block}
+/* ===== Tab-Ansicht: nur die aktive Etappe sichtbar ===== */
+.panel{display:none;animation:rise .3s ease both}
+.panel.active{display:block}
+.js-off .panel{display:block}
+@media (prefers-reduced-motion:reduce){.panel{animation:none}}
 
 /* Sticky Sprung-Navigation */
 nav{margin-top:2rem}
@@ -1513,4 +1514,4 @@ nav{margin-top:2rem}
       <span class="tag t-self">Selbst</span><span class="tag t-free">Frei</span>
       <h3>Þakgil</h3>
       <p>Ein grünes Tal zwischen Mýrdalsjökull und Schwarzsand, 15 km Schotterpiste ab Vík — steil und kurvig, aber ohne Furt. Oben Campingplatz und markierte Wege. Deutlich stiller als alles andere im Süden.</p>
-      <p class="gps">6
+      <
